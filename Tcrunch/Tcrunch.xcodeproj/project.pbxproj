@@ -10,15 +10,16 @@
 		15D1ACAD9A9342154F8D4770 /* Pods_TcrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6309C70F8C25C462E4F9B60 /* Pods_TcrunchTests.framework */; };
 		260D4A0F568362043AE16E18 /* Pods_Tcrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F598D823405B9C2E9EAF0C /* Pods_Tcrunch.framework */; };
 		6BC51945A6685F5B656C4569 /* Pods_TcrunchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89D84C076D9AD8A5EB6E159 /* Pods_TcrunchUITests.framework */; };
+		BD25DE5E1ED3508100859CC4 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25DE5D1ED3508100859CC4 /* SkyFloatingLabelTextField.swift */; };
+		BD25DE601ED35D4C00859CC4 /* ButtonShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25DE5F1ED35D4C00859CC4 /* ButtonShadow.swift */; };
 		BD294EFB1ED2466D005AA84A /* TeacherSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD294EFA1ED2466D005AA84A /* TeacherSigninViewController.swift */; };
-		BD425CDD1ED27E4F001DF8E4 /* CustomTabAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CD91ED27E4F001DF8E4 /* CustomTabAnimatedTransitioning.swift */; };
-		BD425CDE1ED27E4F001DF8E4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CDA1ED27E4F001DF8E4 /* CustomTabBar.swift */; };
-		BD425CDF1ED27E4F001DF8E4 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CDB1ED27E4F001DF8E4 /* CustomTabBarController.swift */; };
-		BD425CE01ED27E4F001DF8E4 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CDC1ED27E4F001DF8E4 /* CustomTabBarItem.swift */; };
-		BD425CE31ED27F54001DF8E4 /* StudentSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE21ED27F54001DF8E4 /* StudentSigninViewController.swift */; };
 		BD425CE51ED2811B001DF8E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE41ED2811B001DF8E4 /* LoginViewController.swift */; };
 		BD425CE71ED298AF001DF8E4 /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE61ED298AF001DF8E4 /* SegmentedViewController.swift */; };
+		BD425CE91ED345B5001DF8E4 /* TitleMoveField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE81ED345B5001DF8E4 /* TitleMoveField.swift */; };
 		BD560F1C1ED24CAE001F3252 /* TcrunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD560F1B1ED24CAE001F3252 /* TcrunchHelper.swift */; };
+		BD6577341ED389700022A57E /* AllclassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6577331ED389700022A57E /* AllclassesViewController.swift */; };
+		BD6577361ED38E530022A57E /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6577351ED38E530022A57E /* SlideMenuViewController.swift */; };
+		BD6577391ED392740022A57E /* TClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6577381ED392740022A57E /* TClass.swift */; };
 		BDD67B261ED2407B001B6F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B251ED2407B001B6F90 /* AppDelegate.swift */; };
 		BDD67B281ED2407B001B6F90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B271ED2407B001B6F90 /* ViewController.swift */; };
 		BDD67B2B1ED2407B001B6F90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B291ED2407B001B6F90 /* Main.storyboard */; };
@@ -30,6 +31,8 @@
 		BDD67B571ED24149001B6F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */; };
 		BDD67B581ED24149001B6F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */; };
 		BDD67B591ED24149001B6F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */; };
+		BDFA6DA21ED4D9A60038127F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFA6DA11ED4D9A60038127F /* ContainerViewController.swift */; };
+		BDFA6DA41ED50F120038127F /* StudentNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFA6DA31ED50F120038127F /* StudentNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,15 +56,16 @@
 		7FED95B7367A343EECDA9970 /* Pods-TcrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchUITests/Pods-TcrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8984887BB169FCC32FC50BB5 /* Pods-TcrunchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchTests/Pods-TcrunchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B34C3B9641F8C81EF6B8E0A8 /* Pods-Tcrunch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tcrunch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tcrunch/Pods-Tcrunch.debug.xcconfig"; sourceTree = "<group>"; };
+		BD25DE5D1ED3508100859CC4 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		BD25DE5F1ED35D4C00859CC4 /* ButtonShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonShadow.swift; sourceTree = "<group>"; };
 		BD294EFA1ED2466D005AA84A /* TeacherSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSigninViewController.swift; sourceTree = "<group>"; };
-		BD425CD91ED27E4F001DF8E4 /* CustomTabAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabAnimatedTransitioning.swift; sourceTree = "<group>"; };
-		BD425CDA1ED27E4F001DF8E4 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		BD425CDB1ED27E4F001DF8E4 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		BD425CDC1ED27E4F001DF8E4 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
-		BD425CE21ED27F54001DF8E4 /* StudentSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentSigninViewController.swift; sourceTree = "<group>"; };
 		BD425CE41ED2811B001DF8E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD425CE61ED298AF001DF8E4 /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
+		BD425CE81ED345B5001DF8E4 /* TitleMoveField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleMoveField.swift; sourceTree = "<group>"; };
 		BD560F1B1ED24CAE001F3252 /* TcrunchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcrunchHelper.swift; sourceTree = "<group>"; };
+		BD6577331ED389700022A57E /* AllclassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllclassesViewController.swift; sourceTree = "<group>"; };
+		BD6577351ED38E530022A57E /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		BD6577381ED392740022A57E /* TClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TClass.swift; sourceTree = "<group>"; };
 		BDD67B221ED2407B001B6F90 /* Tcrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tcrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD67B251ED2407B001B6F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD67B271ED2407B001B6F90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		BDD67B481ED2407B001B6F90 /* TcrunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcrunchUITests.swift; sourceTree = "<group>"; };
 		BDD67B4A1ED2407B001B6F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BDFA6DA11ED4D9A60038127F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		BDFA6DA31ED50F120038127F /* StudentNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentNameViewController.swift; sourceTree = "<group>"; };
 		C3F598D823405B9C2E9EAF0C /* Pods_Tcrunch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tcrunch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89D84C076D9AD8A5EB6E159 /* Pods_TcrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TcrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D328A3870FDF33A9C10F8C4D /* Pods-TcrunchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchUITests/Pods-TcrunchUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,8 +147,11 @@
 			children = (
 				BD294EFA1ED2466D005AA84A /* TeacherSigninViewController.swift */,
 				BD425CE41ED2811B001DF8E4 /* LoginViewController.swift */,
-				BD425CE21ED27F54001DF8E4 /* StudentSigninViewController.swift */,
 				BD425CE61ED298AF001DF8E4 /* SegmentedViewController.swift */,
+				BD6577331ED389700022A57E /* AllclassesViewController.swift */,
+				BD6577351ED38E530022A57E /* SlideMenuViewController.swift */,
+				BDFA6DA11ED4D9A60038127F /* ContainerViewController.swift */,
+				BDFA6DA31ED50F120038127F /* StudentNameViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -150,10 +159,9 @@
 		BD425CE11ED27E53001DF8E4 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				BD425CD91ED27E4F001DF8E4 /* CustomTabAnimatedTransitioning.swift */,
-				BD425CDA1ED27E4F001DF8E4 /* CustomTabBar.swift */,
-				BD425CDB1ED27E4F001DF8E4 /* CustomTabBarController.swift */,
-				BD425CDC1ED27E4F001DF8E4 /* CustomTabBarItem.swift */,
+				BD425CE81ED345B5001DF8E4 /* TitleMoveField.swift */,
+				BD25DE5D1ED3508100859CC4 /* SkyFloatingLabelTextField.swift */,
+				BD25DE5F1ED35D4C00859CC4 /* ButtonShadow.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -164,6 +172,14 @@
 				BD560F1B1ED24CAE001F3252 /* TcrunchHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		BD6577371ED392650022A57E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD6577381ED392740022A57E /* TClass.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		BDD67B191ED2407B001B6F90 = {
@@ -197,6 +213,7 @@
 				BD425CE11ED27E53001DF8E4 /* Custom */,
 				BD560F1A1ED24C70001F3252 /* Helper */,
 				BD294EF91ED2465F005AA84A /* Controllers */,
+				BD6577371ED392650022A57E /* Models */,
 				BDD67B2F1ED2407B001B6F90 /* Assets.xcassets */,
 				BDD67B311ED2407B001B6F90 /* LaunchScreen.storyboard */,
 				BDD67B341ED2407B001B6F90 /* Info.plist */,
@@ -512,17 +529,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD294EFB1ED2466D005AA84A /* TeacherSigninViewController.swift in Sources */,
+				BDFA6DA41ED50F120038127F /* StudentNameViewController.swift in Sources */,
+				BD6577361ED38E530022A57E /* SlideMenuViewController.swift in Sources */,
+				BD425CE91ED345B5001DF8E4 /* TitleMoveField.swift in Sources */,
 				BDD67B2E1ED2407B001B6F90 /* Tcrunch.xcdatamodeld in Sources */,
-				BD425CDF1ED27E4F001DF8E4 /* CustomTabBarController.swift in Sources */,
 				BD425CE71ED298AF001DF8E4 /* SegmentedViewController.swift in Sources */,
-				BD425CDE1ED27E4F001DF8E4 /* CustomTabBar.swift in Sources */,
+				BD25DE5E1ED3508100859CC4 /* SkyFloatingLabelTextField.swift in Sources */,
 				BD560F1C1ED24CAE001F3252 /* TcrunchHelper.swift in Sources */,
+				BDFA6DA21ED4D9A60038127F /* ContainerViewController.swift in Sources */,
+				BD6577391ED392740022A57E /* TClass.swift in Sources */,
 				BDD67B281ED2407B001B6F90 /* ViewController.swift in Sources */,
-				BD425CE31ED27F54001DF8E4 /* StudentSigninViewController.swift in Sources */,
 				BDD67B261ED2407B001B6F90 /* AppDelegate.swift in Sources */,
-				BD425CE01ED27E4F001DF8E4 /* CustomTabBarItem.swift in Sources */,
-				BD425CDD1ED27E4F001DF8E4 /* CustomTabAnimatedTransitioning.swift in Sources */,
 				BD425CE51ED2811B001DF8E4 /* LoginViewController.swift in Sources */,
+				BD25DE601ED35D4C00859CC4 /* ButtonShadow.swift in Sources */,
+				BD6577341ED389700022A57E /* AllclassesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

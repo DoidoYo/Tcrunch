@@ -23,13 +23,13 @@ class TeacherSigninViewController: UIViewController {
     }
     
     @IBAction func signinPressed(_ sender: Any) {
-        FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
             (user, error) in
             
             print(user)
             print(error)
             
-        print(FIRDatabase.database().reference().child("classes").child("-Ke6lQso8ynV62BeP584").observeSingleEvent(of: .value, with: {
+        print(Database.database().reference().child("classes").child("-Ke6lQso8ynV62BeP584").observeSingleEvent(of: .value, with: {
                 (snapshot) in
             let value = snapshot.value as? NSDictionary
             let username = value?["courseCode"] as? String ?? ""

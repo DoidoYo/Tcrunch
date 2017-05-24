@@ -11,6 +11,6 @@ import Firebase
 
 class TcrunchHelper {
     
-    public static var user: FIRUser?
+    public static var user: User?
     
 }

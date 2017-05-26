@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_TcrunchUITests : NSObject
+@interface PodsDummy_Pods_tCrunchUITests : NSObject
 @end
-@implementation PodsDummy_Pods_TcrunchUITests
+@implementation PodsDummy_Pods_tCrunchUITests
 @end

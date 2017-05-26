@@ -1,14 +1,14 @@
 //
-//  TcrunchUITests.swift
-//  TcrunchUITests
+//  tCrunchUITests.swift
+//  tCrunchUITests
 //
-//  Created by Gabriel Fernandes on 5/21/17.
+//  Created by Gabriel Fernandes on 5/26/17.
 //  Copyright © 2017 Gabriel Fernandes. All rights reserved.
 //
 
 import XCTest
 
-class TcrunchUITests: XCTestCase {
+class tCrunchUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

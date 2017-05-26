@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TcrunchVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TcrunchVersionString[];
+FOUNDATION_EXPORT double Pods_tCrunchVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_tCrunchVersionString[];
 

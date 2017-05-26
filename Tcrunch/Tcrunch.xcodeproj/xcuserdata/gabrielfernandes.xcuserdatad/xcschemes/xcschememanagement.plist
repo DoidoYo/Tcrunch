@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Tcrunch.xcscheme</key>
+		<key>tCrunch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>BDD67B211ED2407B001B6F90</key>
+		<key>BD320EF21ED7E331008FCA0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDD67B381ED2407B001B6F90</key>
+		<key>BD320F091ED7E332008FCA0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDD67B431ED2407B001B6F90</key>
+		<key>BD320F141ED7E332008FCA0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

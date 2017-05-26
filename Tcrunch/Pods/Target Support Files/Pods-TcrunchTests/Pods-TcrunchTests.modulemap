@@ -1,5 +1,5 @@
-framework module Pods_TcrunchTests {
-  umbrella header "Pods-TcrunchTests-umbrella.h"
+framework module Pods_tCrunchTests {
+  umbrella header "Pods-tCrunchTests-umbrella.h"
 
   export *
   module * { export * }

@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class ContainerViewController: UIViewController, ContainerViewControllerDelegate {
+class ContainerViewController: UIViewController, ContainerViewControllerDelegate, NameViewControllerDelegate, CourseCodeViewControllerDelegate {
     
     var slideMenuController: SlideMenuViewController?
     var centerController: UIViewController?
+    var ticketVC: AllclassesViewController?
     
     var showingSlideMenu: Bool = false
     
@@ -31,7 +32,8 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         self.view.addSubview(centerController!.view)
         self.addChildViewController(centerController!)
         centerController?.didMove(toParentViewController: self)
-        (centerController?.childViewControllers[0] as! AllclassesViewController).delegate = self
+        ticketVC = centerController?.childViewControllers[0] as! AllclassesViewController
+        ticketVC?.containerDelegate = self
     
     }
     
@@ -119,11 +121,36 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         }
         
         //prompt name
-        let promptVC = storyboard?.instantiateViewController(withIdentifier: "StudentNameView") as? StudentNameViewController
+        let promptVC = storyboard?.instantiateViewController(withIdentifier: "NameView") as? NameViewController
         self.view.addSubview(promptVC!.view)
         self.addChildViewController(promptVC!)
         promptVC?.setPrompt(prompt)
+        promptVC?.delegate = self
         promptVC?.didMove(toParentViewController: self)
+    }
+    
+    func nameReceived(_ name:String) -> Void {
+        TcrunchHelper.user_name = name
+    }
+    
+    func showCodeDialog() {
+        let codeVC = storyboard?.instantiateViewController(withIdentifier: "CourseCodeView") as? CourseCodeViewController
+        self.view.addSubview(codeVC!.view)
+        self.addChildViewController(codeVC!)
+        codeVC?.delegate = self
+        codeVC?.didMove(toParentViewController: self)
+    }
+    
+    func codeReceived(_ code:String) -> Void {
+        TcrunchHelper.joinClass(code: code, completion: {
+            (re, id) in
+            print(re)
+            if re == JoinClass.DONE || re == JoinClass.ALREADY_JOINED{
+                self.ticketVC?.loadClass(id!)
+            } else {
+                
+            }
+        })
     }
     
 }

@@ -7,335 +7,308 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15D1ACAD9A9342154F8D4770 /* Pods_TcrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6309C70F8C25C462E4F9B60 /* Pods_TcrunchTests.framework */; };
-		260D4A0F568362043AE16E18 /* Pods_Tcrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F598D823405B9C2E9EAF0C /* Pods_Tcrunch.framework */; };
-		6BC51945A6685F5B656C4569 /* Pods_TcrunchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89D84C076D9AD8A5EB6E159 /* Pods_TcrunchUITests.framework */; };
-		BD25DE5E1ED3508100859CC4 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25DE5D1ED3508100859CC4 /* SkyFloatingLabelTextField.swift */; };
-		BD25DE601ED35D4C00859CC4 /* ButtonShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25DE5F1ED35D4C00859CC4 /* ButtonShadow.swift */; };
-		BD294EFB1ED2466D005AA84A /* TeacherSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD294EFA1ED2466D005AA84A /* TeacherSigninViewController.swift */; };
-		BD425CE51ED2811B001DF8E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE41ED2811B001DF8E4 /* LoginViewController.swift */; };
-		BD425CE71ED298AF001DF8E4 /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE61ED298AF001DF8E4 /* SegmentedViewController.swift */; };
-		BD425CE91ED345B5001DF8E4 /* TitleMoveField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD425CE81ED345B5001DF8E4 /* TitleMoveField.swift */; };
-		BD560F1C1ED24CAE001F3252 /* TcrunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD560F1B1ED24CAE001F3252 /* TcrunchHelper.swift */; };
-		BD6577341ED389700022A57E /* AllclassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6577331ED389700022A57E /* AllclassesViewController.swift */; };
-		BD6577361ED38E530022A57E /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6577351ED38E530022A57E /* SlideMenuViewController.swift */; };
-		BD6577391ED392740022A57E /* TClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6577381ED392740022A57E /* TClass.swift */; };
-		BDD67B261ED2407B001B6F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B251ED2407B001B6F90 /* AppDelegate.swift */; };
-		BDD67B281ED2407B001B6F90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B271ED2407B001B6F90 /* ViewController.swift */; };
-		BDD67B2B1ED2407B001B6F90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B291ED2407B001B6F90 /* Main.storyboard */; };
-		BDD67B2E1ED2407B001B6F90 /* Tcrunch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B2C1ED2407B001B6F90 /* Tcrunch.xcdatamodeld */; };
-		BDD67B301ED2407B001B6F90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B2F1ED2407B001B6F90 /* Assets.xcassets */; };
-		BDD67B331ED2407B001B6F90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B311ED2407B001B6F90 /* LaunchScreen.storyboard */; };
-		BDD67B3E1ED2407B001B6F90 /* TcrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B3D1ED2407B001B6F90 /* TcrunchTests.swift */; };
-		BDD67B491ED2407B001B6F90 /* TcrunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD67B481ED2407B001B6F90 /* TcrunchUITests.swift */; };
-		BDD67B571ED24149001B6F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */; };
-		BDD67B581ED24149001B6F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */; };
-		BDD67B591ED24149001B6F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */; };
-		BDFA6DA21ED4D9A60038127F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFA6DA11ED4D9A60038127F /* ContainerViewController.swift */; };
-		BDFA6DA41ED50F120038127F /* StudentNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFA6DA31ED50F120038127F /* StudentNameViewController.swift */; };
+		0193488DCD1434C635672DE7 /* Pods_tCrunchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */; };
+		BD320EFC1ED7E332008FCA0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD320EFA1ED7E332008FCA0B /* Main.storyboard */; };
+		BD320F0F1ED7E332008FCA0B /* tCrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F0E1ED7E332008FCA0B /* tCrunchTests.swift */; };
+		BD320F1A1ED7E332008FCA0B /* tCrunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F191ED7E332008FCA0B /* tCrunchUITests.swift */; };
+		BD320F3F1ED7E3FC008FCA0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD320F2A1ED7E3FC008FCA0B /* Assets.xcassets */; };
+		BD320F401ED7E3FC008FCA0B /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = BD320F2B1ED7E3FC008FCA0B /* Base.lproj */; };
+		BD320F411ED7E3FC008FCA0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD320F2C1ED7E3FC008FCA0B /* GoogleService-Info.plist */; };
+		BD320F421ED7E3FC008FCA0B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD320F2D1ED7E3FC008FCA0B /* Info.plist */; };
+		BD320F431ED7E3FC008FCA0B /* AllclassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */; };
+		BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */; };
+		BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */; };
+		BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */; };
+		BD320F471ED7E3FC008FCA0B /* CourseCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */; };
+		BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */; };
+		BD320F491ED7E3FC008FCA0B /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F341ED7E3FC008FCA0B /* NameViewController.swift */; };
+		BD320F4A1ED7E3FC008FCA0B /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */; };
+		BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */; };
+		BD320F4C1ED7E3FC008FCA0B /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */; };
+		BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */; };
+		BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */; };
+		BD320F4F1ED7E3FC008FCA0B /* TitleMoveField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */; };
+		BD320F501ED7E3FC008FCA0B /* TTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3B1ED7E3FC008FCA0B /* TTicket.swift */; };
+		BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */; };
+		BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */; };
+		D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */; };
+		F8366A15AD2A6FEEDEF125E5 /* Pods_tCrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BDD67B3A1ED2407B001B6F90 /* PBXContainerItemProxy */ = {
+		BD320F0B1ED7E332008FCA0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BDD67B1A1ED2407B001B6F90 /* Project object */;
+			containerPortal = BD320EEB1ED7E331008FCA0B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BDD67B211ED2407B001B6F90;
-			remoteInfo = Tcrunch;
+			remoteGlobalIDString = BD320EF21ED7E331008FCA0B;
+			remoteInfo = tCrunch;
 		};
-		BDD67B451ED2407B001B6F90 /* PBXContainerItemProxy */ = {
+		BD320F161ED7E332008FCA0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BDD67B1A1ED2407B001B6F90 /* Project object */;
+			containerPortal = BD320EEB1ED7E331008FCA0B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BDD67B211ED2407B001B6F90;
-			remoteInfo = Tcrunch;
+			remoteGlobalIDString = BD320EF21ED7E331008FCA0B;
+			remoteInfo = tCrunch;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7FED95B7367A343EECDA9970 /* Pods-TcrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchUITests/Pods-TcrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8984887BB169FCC32FC50BB5 /* Pods-TcrunchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchTests/Pods-TcrunchTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B34C3B9641F8C81EF6B8E0A8 /* Pods-Tcrunch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tcrunch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tcrunch/Pods-Tcrunch.debug.xcconfig"; sourceTree = "<group>"; };
-		BD25DE5D1ED3508100859CC4 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
-		BD25DE5F1ED35D4C00859CC4 /* ButtonShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonShadow.swift; sourceTree = "<group>"; };
-		BD294EFA1ED2466D005AA84A /* TeacherSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSigninViewController.swift; sourceTree = "<group>"; };
-		BD425CE41ED2811B001DF8E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BD425CE61ED298AF001DF8E4 /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
-		BD425CE81ED345B5001DF8E4 /* TitleMoveField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleMoveField.swift; sourceTree = "<group>"; };
-		BD560F1B1ED24CAE001F3252 /* TcrunchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcrunchHelper.swift; sourceTree = "<group>"; };
-		BD6577331ED389700022A57E /* AllclassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllclassesViewController.swift; sourceTree = "<group>"; };
-		BD6577351ED38E530022A57E /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
-		BD6577381ED392740022A57E /* TClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TClass.swift; sourceTree = "<group>"; };
-		BDD67B221ED2407B001B6F90 /* Tcrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tcrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDD67B251ED2407B001B6F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDD67B271ED2407B001B6F90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BDD67B2A1ED2407B001B6F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BDD67B2D1ED2407B001B6F90 /* Tcrunch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tcrunch.xcdatamodel; sourceTree = "<group>"; };
-		BDD67B2F1ED2407B001B6F90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BDD67B321ED2407B001B6F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BDD67B341ED2407B001B6F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDD67B391ED2407B001B6F90 /* TcrunchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TcrunchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDD67B3D1ED2407B001B6F90 /* TcrunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcrunchTests.swift; sourceTree = "<group>"; };
-		BDD67B3F1ED2407B001B6F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDD67B441ED2407B001B6F90 /* TcrunchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TcrunchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDD67B481ED2407B001B6F90 /* TcrunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcrunchUITests.swift; sourceTree = "<group>"; };
-		BDD67B4A1ED2407B001B6F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BDFA6DA11ED4D9A60038127F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		BDFA6DA31ED50F120038127F /* StudentNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentNameViewController.swift; sourceTree = "<group>"; };
-		C3F598D823405B9C2E9EAF0C /* Pods_Tcrunch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tcrunch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C89D84C076D9AD8A5EB6E159 /* Pods_TcrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TcrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D328A3870FDF33A9C10F8C4D /* Pods-TcrunchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchUITests/Pods-TcrunchUITests.release.xcconfig"; sourceTree = "<group>"; };
-		DD087CC06F9A385BF7454663 /* Pods-TcrunchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TcrunchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TcrunchTests/Pods-TcrunchTests.release.xcconfig"; sourceTree = "<group>"; };
-		E2E2E3F18D920A3B032C0B9D /* Pods-Tcrunch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tcrunch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tcrunch/Pods-Tcrunch.release.xcconfig"; sourceTree = "<group>"; };
-		E6309C70F8C25C462E4F9B60 /* Pods_TcrunchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TcrunchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		002ABE6D1211303FD7FDAB3B /* Pods-tCrunch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunch.release.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunch/Pods-tCrunch.release.xcconfig"; sourceTree = "<group>"; };
+		1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DAF0D7D0C9F53414BD60C75 /* Pods-tCrunchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchTests/Pods-tCrunchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5EDAEF9AC9128EE05A10BBC6 /* Pods-tCrunchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchTests/Pods-tCrunchTests.release.xcconfig"; sourceTree = "<group>"; };
+		6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7222D06D831DD8C84506F5B2 /* Pods-tCrunch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunch/Pods-tCrunch.debug.xcconfig"; sourceTree = "<group>"; };
+		929496C50E12BBF4053CE576 /* Pods-tCrunchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BD320EF31ED7E332008FCA0B /* tCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD320EFB1ED7E332008FCA0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD320F0A1ED7E332008FCA0B /* tCrunchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tCrunchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD320F0E1ED7E332008FCA0B /* tCrunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tCrunchTests.swift; sourceTree = "<group>"; };
+		BD320F101ED7E332008FCA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD320F151ED7E332008FCA0B /* tCrunchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tCrunchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD320F191ED7E332008FCA0B /* tCrunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tCrunchUITests.swift; sourceTree = "<group>"; };
+		BD320F1B1ED7E332008FCA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD320F291ED7E3FB008FCA0B /* tCrunch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tCrunch-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD320F2A1ED7E3FC008FCA0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD320F2B1ED7E3FC008FCA0B /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		BD320F2C1ED7E3FC008FCA0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD320F2D1ED7E3FC008FCA0B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllclassesViewController.swift; sourceTree = "<group>"; };
+		BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonShadow.swift; sourceTree = "<group>"; };
+		BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCodeViewController.swift; sourceTree = "<group>"; };
+		BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BD320F341ED7E3FC008FCA0B /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
+		BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcrunchHelper.swift; sourceTree = "<group>"; };
+		BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSigninViewController.swift; sourceTree = "<group>"; };
+		BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleMoveField.swift; sourceTree = "<group>"; };
+		BD320F3B1ED7E3FC008FCA0B /* TTicket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTicket.swift; sourceTree = "<group>"; };
+		BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tcrunch.xcdatamodel; sourceTree = "<group>"; };
+		C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BDD67B1F1ED2407B001B6F90 /* Frameworks */ = {
+		BD320EF01ED7E331008FCA0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				260D4A0F568362043AE16E18 /* Pods_Tcrunch.framework in Frameworks */,
+				D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDD67B361ED2407B001B6F90 /* Frameworks */ = {
+		BD320F071ED7E332008FCA0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D1ACAD9A9342154F8D4770 /* Pods_TcrunchTests.framework in Frameworks */,
+				F8366A15AD2A6FEEDEF125E5 /* Pods_tCrunchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDD67B411ED2407B001B6F90 /* Frameworks */ = {
+		BD320F121ED7E332008FCA0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC51945A6685F5B656C4569 /* Pods_TcrunchUITests.framework in Frameworks */,
+				0193488DCD1434C635672DE7 /* Pods_tCrunchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F1B63C14CB1ED227075FB14 /* Pods */ = {
+		37AACAC28D1D59B556260E08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B34C3B9641F8C81EF6B8E0A8 /* Pods-Tcrunch.debug.xcconfig */,
-				E2E2E3F18D920A3B032C0B9D /* Pods-Tcrunch.release.xcconfig */,
-				8984887BB169FCC32FC50BB5 /* Pods-TcrunchTests.debug.xcconfig */,
-				DD087CC06F9A385BF7454663 /* Pods-TcrunchTests.release.xcconfig */,
-				7FED95B7367A343EECDA9970 /* Pods-TcrunchUITests.debug.xcconfig */,
-				D328A3870FDF33A9C10F8C4D /* Pods-TcrunchUITests.release.xcconfig */,
+				7222D06D831DD8C84506F5B2 /* Pods-tCrunch.debug.xcconfig */,
+				002ABE6D1211303FD7FDAB3B /* Pods-tCrunch.release.xcconfig */,
+				5DAF0D7D0C9F53414BD60C75 /* Pods-tCrunchTests.debug.xcconfig */,
+				5EDAEF9AC9128EE05A10BBC6 /* Pods-tCrunchTests.release.xcconfig */,
+				E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */,
+				929496C50E12BBF4053CE576 /* Pods-tCrunchUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		89B3879823BE7072D87C857B /* Frameworks */ = {
+		BD320EEA1ED7E331008FCA0B = {
 			isa = PBXGroup;
 			children = (
-				C3F598D823405B9C2E9EAF0C /* Pods_Tcrunch.framework */,
-				E6309C70F8C25C462E4F9B60 /* Pods_TcrunchTests.framework */,
-				C89D84C076D9AD8A5EB6E159 /* Pods_TcrunchUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BD294EF91ED2465F005AA84A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				BD294EFA1ED2466D005AA84A /* TeacherSigninViewController.swift */,
-				BD425CE41ED2811B001DF8E4 /* LoginViewController.swift */,
-				BD425CE61ED298AF001DF8E4 /* SegmentedViewController.swift */,
-				BD6577331ED389700022A57E /* AllclassesViewController.swift */,
-				BD6577351ED38E530022A57E /* SlideMenuViewController.swift */,
-				BDFA6DA11ED4D9A60038127F /* ContainerViewController.swift */,
-				BDFA6DA31ED50F120038127F /* StudentNameViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		BD425CE11ED27E53001DF8E4 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				BD425CE81ED345B5001DF8E4 /* TitleMoveField.swift */,
-				BD25DE5D1ED3508100859CC4 /* SkyFloatingLabelTextField.swift */,
-				BD25DE5F1ED35D4C00859CC4 /* ButtonShadow.swift */,
-			);
-			name = Custom;
-			sourceTree = "<group>";
-		};
-		BD560F1A1ED24C70001F3252 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				BD560F1B1ED24CAE001F3252 /* TcrunchHelper.swift */,
-			);
-			name = Helper;
-			sourceTree = "<group>";
-		};
-		BD6577371ED392650022A57E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BD6577381ED392740022A57E /* TClass.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		BDD67B191ED2407B001B6F90 = {
-			isa = PBXGroup;
-			children = (
-				BDD67B241ED2407B001B6F90 /* Tcrunch */,
-				BDD67B3C1ED2407B001B6F90 /* TcrunchTests */,
-				BDD67B471ED2407B001B6F90 /* TcrunchUITests */,
-				BDD67B231ED2407B001B6F90 /* Products */,
-				5F1B63C14CB1ED227075FB14 /* Pods */,
-				89B3879823BE7072D87C857B /* Frameworks */,
+				BD320EF51ED7E332008FCA0B /* tCrunch */,
+				BD320F0D1ED7E332008FCA0B /* tCrunchTests */,
+				BD320F181ED7E332008FCA0B /* tCrunchUITests */,
+				BD320EF41ED7E332008FCA0B /* Products */,
+				37AACAC28D1D59B556260E08 /* Pods */,
+				BF6B7603DCC4AC84CB0C3674 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		BDD67B231ED2407B001B6F90 /* Products */ = {
+		BD320EF41ED7E332008FCA0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BDD67B221ED2407B001B6F90 /* Tcrunch.app */,
-				BDD67B391ED2407B001B6F90 /* TcrunchTests.xctest */,
-				BDD67B441ED2407B001B6F90 /* TcrunchUITests.xctest */,
+				BD320EF31ED7E332008FCA0B /* tCrunch.app */,
+				BD320F0A1ED7E332008FCA0B /* tCrunchTests.xctest */,
+				BD320F151ED7E332008FCA0B /* tCrunchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDD67B241ED2407B001B6F90 /* Tcrunch */ = {
+		BD320EF51ED7E332008FCA0B /* tCrunch */ = {
 			isa = PBXGroup;
 			children = (
-				BDD67B251ED2407B001B6F90 /* AppDelegate.swift */,
-				BDD67B271ED2407B001B6F90 /* ViewController.swift */,
-				BDD67B291ED2407B001B6F90 /* Main.storyboard */,
-				BD425CE11ED27E53001DF8E4 /* Custom */,
-				BD560F1A1ED24C70001F3252 /* Helper */,
-				BD294EF91ED2465F005AA84A /* Controllers */,
-				BD6577371ED392650022A57E /* Models */,
-				BDD67B2F1ED2407B001B6F90 /* Assets.xcassets */,
-				BDD67B311ED2407B001B6F90 /* LaunchScreen.storyboard */,
-				BDD67B341ED2407B001B6F90 /* Info.plist */,
-				BDD67B2C1ED2407B001B6F90 /* Tcrunch.xcdatamodeld */,
-				BDD67B561ED24149001B6F90 /* GoogleService-Info.plist */,
+				BD320EFA1ED7E332008FCA0B /* Main.storyboard */,
+				BD320F2A1ED7E3FC008FCA0B /* Assets.xcassets */,
+				BD320F2B1ED7E3FC008FCA0B /* Base.lproj */,
+				BD320F2C1ED7E3FC008FCA0B /* GoogleService-Info.plist */,
+				BD320F2D1ED7E3FC008FCA0B /* Info.plist */,
+				BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */,
+				BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */,
+				BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */,
+				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
+				BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */,
+				BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */,
+				BD320F341ED7E3FC008FCA0B /* NameViewController.swift */,
+				BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */,
+				BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */,
+				BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */,
+				BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */,
+				BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */,
+				BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */,
+				BD320F3B1ED7E3FC008FCA0B /* TTicket.swift */,
+				BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */,
+				BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */,
+				BD320F291ED7E3FB008FCA0B /* tCrunch-Bridging-Header.h */,
 			);
-			path = Tcrunch;
+			path = tCrunch;
 			sourceTree = "<group>";
 		};
-		BDD67B3C1ED2407B001B6F90 /* TcrunchTests */ = {
+		BD320F0D1ED7E332008FCA0B /* tCrunchTests */ = {
 			isa = PBXGroup;
 			children = (
-				BDD67B3D1ED2407B001B6F90 /* TcrunchTests.swift */,
-				BDD67B3F1ED2407B001B6F90 /* Info.plist */,
+				BD320F0E1ED7E332008FCA0B /* tCrunchTests.swift */,
+				BD320F101ED7E332008FCA0B /* Info.plist */,
 			);
-			path = TcrunchTests;
+			path = tCrunchTests;
 			sourceTree = "<group>";
 		};
-		BDD67B471ED2407B001B6F90 /* TcrunchUITests */ = {
+		BD320F181ED7E332008FCA0B /* tCrunchUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BDD67B481ED2407B001B6F90 /* TcrunchUITests.swift */,
-				BDD67B4A1ED2407B001B6F90 /* Info.plist */,
+				BD320F191ED7E332008FCA0B /* tCrunchUITests.swift */,
+				BD320F1B1ED7E332008FCA0B /* Info.plist */,
 			);
-			path = TcrunchUITests;
+			path = tCrunchUITests;
+			sourceTree = "<group>";
+		};
+		BF6B7603DCC4AC84CB0C3674 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */,
+				1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */,
+				C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BDD67B211ED2407B001B6F90 /* Tcrunch */ = {
+		BD320EF21ED7E331008FCA0B /* tCrunch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD67B4D1ED2407B001B6F90 /* Build configuration list for PBXNativeTarget "Tcrunch" */;
+			buildConfigurationList = BD320F1E1ED7E332008FCA0B /* Build configuration list for PBXNativeTarget "tCrunch" */;
 			buildPhases = (
-				59ACBB909CD8960341267B8E /* [CP] Check Pods Manifest.lock */,
-				BDD67B1E1ED2407B001B6F90 /* Sources */,
-				BDD67B1F1ED2407B001B6F90 /* Frameworks */,
-				BDD67B201ED2407B001B6F90 /* Resources */,
-				411D89A4A970981A9FD50788 /* [CP] Embed Pods Frameworks */,
-				CE14BD872D7C95CA99C3E590 /* [CP] Copy Pods Resources */,
+				04FBE26F5812C8C2DA6DF507 /* [CP] Check Pods Manifest.lock */,
+				BD320EEF1ED7E331008FCA0B /* Sources */,
+				BD320EF01ED7E331008FCA0B /* Frameworks */,
+				BD320EF11ED7E331008FCA0B /* Resources */,
+				3BC884D71C961C650C12C50E /* [CP] Embed Pods Frameworks */,
+				FF25FC493A8C28E2E38BC97E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Tcrunch;
-			productName = Tcrunch;
-			productReference = BDD67B221ED2407B001B6F90 /* Tcrunch.app */;
+			name = tCrunch;
+			productName = tCrunch;
+			productReference = BD320EF31ED7E332008FCA0B /* tCrunch.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BDD67B381ED2407B001B6F90 /* TcrunchTests */ = {
+		BD320F091ED7E332008FCA0B /* tCrunchTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD67B501ED2407B001B6F90 /* Build configuration list for PBXNativeTarget "TcrunchTests" */;
+			buildConfigurationList = BD320F211ED7E332008FCA0B /* Build configuration list for PBXNativeTarget "tCrunchTests" */;
 			buildPhases = (
-				70FBE61A16964C0D3DD22D9B /* [CP] Check Pods Manifest.lock */,
-				BDD67B351ED2407B001B6F90 /* Sources */,
-				BDD67B361ED2407B001B6F90 /* Frameworks */,
-				BDD67B371ED2407B001B6F90 /* Resources */,
-				797B1F18AD14DDB9776E6026 /* [CP] Embed Pods Frameworks */,
-				84FF4B0A07ED1A3316058C78 /* [CP] Copy Pods Resources */,
+				A5D5EEF487C2D270526E18E9 /* [CP] Check Pods Manifest.lock */,
+				BD320F061ED7E332008FCA0B /* Sources */,
+				BD320F071ED7E332008FCA0B /* Frameworks */,
+				BD320F081ED7E332008FCA0B /* Resources */,
+				364B50D7267B4D3B6C4B9563 /* [CP] Embed Pods Frameworks */,
+				767467D5287654FB26F9CA85 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BDD67B3B1ED2407B001B6F90 /* PBXTargetDependency */,
+				BD320F0C1ED7E332008FCA0B /* PBXTargetDependency */,
 			);
-			name = TcrunchTests;
-			productName = TcrunchTests;
-			productReference = BDD67B391ED2407B001B6F90 /* TcrunchTests.xctest */;
+			name = tCrunchTests;
+			productName = tCrunchTests;
+			productReference = BD320F0A1ED7E332008FCA0B /* tCrunchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BDD67B431ED2407B001B6F90 /* TcrunchUITests */ = {
+		BD320F141ED7E332008FCA0B /* tCrunchUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD67B531ED2407B001B6F90 /* Build configuration list for PBXNativeTarget "TcrunchUITests" */;
+			buildConfigurationList = BD320F241ED7E332008FCA0B /* Build configuration list for PBXNativeTarget "tCrunchUITests" */;
 			buildPhases = (
-				7E7637F03B0A281C93235E90 /* [CP] Check Pods Manifest.lock */,
-				BDD67B401ED2407B001B6F90 /* Sources */,
-				BDD67B411ED2407B001B6F90 /* Frameworks */,
-				BDD67B421ED2407B001B6F90 /* Resources */,
-				FC4F6EFCE7568666D93DB65E /* [CP] Embed Pods Frameworks */,
-				583BA21ED9DA667ECD361AD2 /* [CP] Copy Pods Resources */,
+				5545DF5660C75681D6D43978 /* [CP] Check Pods Manifest.lock */,
+				BD320F111ED7E332008FCA0B /* Sources */,
+				BD320F121ED7E332008FCA0B /* Frameworks */,
+				BD320F131ED7E332008FCA0B /* Resources */,
+				48E17D64D0A850121B3F5DED /* [CP] Embed Pods Frameworks */,
+				0F7B5D3B5CCFCCD3F7A709C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BDD67B461ED2407B001B6F90 /* PBXTargetDependency */,
+				BD320F171ED7E332008FCA0B /* PBXTargetDependency */,
 			);
-			name = TcrunchUITests;
-			productName = TcrunchUITests;
-			productReference = BDD67B441ED2407B001B6F90 /* TcrunchUITests.xctest */;
+			name = tCrunchUITests;
+			productName = tCrunchUITests;
+			productReference = BD320F151ED7E332008FCA0B /* tCrunchUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BDD67B1A1ED2407B001B6F90 /* Project object */ = {
+		BD320EEB1ED7E331008FCA0B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Gabriel Fernandes";
 				TargetAttributes = {
-					BDD67B211ED2407B001B6F90 = {
+					BD320EF21ED7E331008FCA0B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EZGAYLTBHH;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
-					BDD67B381ED2407B001B6F90 = {
+					BD320F091ED7E332008FCA0B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EZGAYLTBHH;
 						ProvisioningStyle = Automatic;
-						TestTargetID = BDD67B211ED2407B001B6F90;
+						TestTargetID = BD320EF21ED7E331008FCA0B;
 					};
-					BDD67B431ED2407B001B6F90 = {
+					BD320F141ED7E332008FCA0B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EZGAYLTBHH;
 						ProvisioningStyle = Automatic;
-						TestTargetID = BDD67B211ED2407B001B6F90;
+						TestTargetID = BD320EF21ED7E331008FCA0B;
 					};
 				};
 			};
-			buildConfigurationList = BDD67B1D1ED2407B001B6F90 /* Build configuration list for PBXProject "Tcrunch" */;
+			buildConfigurationList = BD320EEE1ED7E331008FCA0B /* Build configuration list for PBXProject "tCrunch" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -343,80 +316,49 @@
 				en,
 				Base,
 			);
-			mainGroup = BDD67B191ED2407B001B6F90;
-			productRefGroup = BDD67B231ED2407B001B6F90 /* Products */;
+			mainGroup = BD320EEA1ED7E331008FCA0B;
+			productRefGroup = BD320EF41ED7E332008FCA0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BDD67B211ED2407B001B6F90 /* Tcrunch */,
-				BDD67B381ED2407B001B6F90 /* TcrunchTests */,
-				BDD67B431ED2407B001B6F90 /* TcrunchUITests */,
+				BD320EF21ED7E331008FCA0B /* tCrunch */,
+				BD320F091ED7E332008FCA0B /* tCrunchTests */,
+				BD320F141ED7E332008FCA0B /* tCrunchUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BDD67B201ED2407B001B6F90 /* Resources */ = {
+		BD320EF11ED7E331008FCA0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD67B331ED2407B001B6F90 /* LaunchScreen.storyboard in Resources */,
-				BDD67B571ED24149001B6F90 /* GoogleService-Info.plist in Resources */,
-				BDD67B301ED2407B001B6F90 /* Assets.xcassets in Resources */,
-				BDD67B2B1ED2407B001B6F90 /* Main.storyboard in Resources */,
+				BD320F3F1ED7E3FC008FCA0B /* Assets.xcassets in Resources */,
+				BD320F411ED7E3FC008FCA0B /* GoogleService-Info.plist in Resources */,
+				BD320F401ED7E3FC008FCA0B /* Base.lproj in Resources */,
+				BD320F421ED7E3FC008FCA0B /* Info.plist in Resources */,
+				BD320EFC1ED7E332008FCA0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDD67B371ED2407B001B6F90 /* Resources */ = {
+		BD320F081ED7E332008FCA0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD67B581ED24149001B6F90 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDD67B421ED2407B001B6F90 /* Resources */ = {
+		BD320F131ED7E332008FCA0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD67B591ED24149001B6F90 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		411D89A4A970981A9FD50788 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tcrunch/Pods-Tcrunch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		583BA21ED9DA667ECD361AD2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TcrunchUITests/Pods-TcrunchUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		59ACBB909CD8960341267B8E /* [CP] Check Pods Manifest.lock */ = {
+		04FBE26F5812C8C2DA6DF507 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -431,7 +373,67 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		70FBE61A16964C0D3DD22D9B /* [CP] Check Pods Manifest.lock */ = {
+		0F7B5D3B5CCFCCD3F7A709C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		364B50D7267B4D3B6C4B9563 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tCrunchTests/Pods-tCrunchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BC884D71C961C650C12C50E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tCrunch/Pods-tCrunch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48E17D64D0A850121B3F5DED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5545DF5660C75681D6D43978 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,22 +448,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		797B1F18AD14DDB9776E6026 /* [CP] Embed Pods Frameworks */ = {
+		767467D5287654FB26F9CA85 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TcrunchTests/Pods-TcrunchTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tCrunchTests/Pods-tCrunchTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7E7637F03B0A281C93235E90 /* [CP] Check Pods Manifest.lock */ = {
+		A5D5EEF487C2D270526E18E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -476,7 +478,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		84FF4B0A07ED1A3316058C78 /* [CP] Copy Pods Resources */ = {
+		FF25FC493A8C28E2E38BC97E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -488,116 +490,79 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TcrunchTests/Pods-TcrunchTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE14BD872D7C95CA99C3E590 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tcrunch/Pods-Tcrunch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC4F6EFCE7568666D93DB65E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TcrunchUITests/Pods-TcrunchUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tCrunch/Pods-tCrunch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BDD67B1E1ED2407B001B6F90 /* Sources */ = {
+		BD320EEF1ED7E331008FCA0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD294EFB1ED2466D005AA84A /* TeacherSigninViewController.swift in Sources */,
-				BDFA6DA41ED50F120038127F /* StudentNameViewController.swift in Sources */,
-				BD6577361ED38E530022A57E /* SlideMenuViewController.swift in Sources */,
-				BD425CE91ED345B5001DF8E4 /* TitleMoveField.swift in Sources */,
-				BDD67B2E1ED2407B001B6F90 /* Tcrunch.xcdatamodeld in Sources */,
-				BD425CE71ED298AF001DF8E4 /* SegmentedViewController.swift in Sources */,
-				BD25DE5E1ED3508100859CC4 /* SkyFloatingLabelTextField.swift in Sources */,
-				BD560F1C1ED24CAE001F3252 /* TcrunchHelper.swift in Sources */,
-				BDFA6DA21ED4D9A60038127F /* ContainerViewController.swift in Sources */,
-				BD6577391ED392740022A57E /* TClass.swift in Sources */,
-				BDD67B281ED2407B001B6F90 /* ViewController.swift in Sources */,
-				BDD67B261ED2407B001B6F90 /* AppDelegate.swift in Sources */,
-				BD425CE51ED2811B001DF8E4 /* LoginViewController.swift in Sources */,
-				BD25DE601ED35D4C00859CC4 /* ButtonShadow.swift in Sources */,
-				BD6577341ED389700022A57E /* AllclassesViewController.swift in Sources */,
+				BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */,
+				BD320F501ED7E3FC008FCA0B /* TTicket.swift in Sources */,
+				BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */,
+				BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */,
+				BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */,
+				BD320F491ED7E3FC008FCA0B /* NameViewController.swift in Sources */,
+				BD320F4A1ED7E3FC008FCA0B /* SegmentedViewController.swift in Sources */,
+				BD320F431ED7E3FC008FCA0B /* AllclassesViewController.swift in Sources */,
+				BD320F4C1ED7E3FC008FCA0B /* SlideMenuViewController.swift in Sources */,
+				BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */,
+				BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */,
+				BD320F4F1ED7E3FC008FCA0B /* TitleMoveField.swift in Sources */,
+				BD320F471ED7E3FC008FCA0B /* CourseCodeViewController.swift in Sources */,
+				BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */,
+				BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */,
+				BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDD67B351ED2407B001B6F90 /* Sources */ = {
+		BD320F061ED7E332008FCA0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD67B3E1ED2407B001B6F90 /* TcrunchTests.swift in Sources */,
+				BD320F0F1ED7E332008FCA0B /* tCrunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDD67B401ED2407B001B6F90 /* Sources */ = {
+		BD320F111ED7E332008FCA0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD67B491ED2407B001B6F90 /* TcrunchUITests.swift in Sources */,
+				BD320F1A1ED7E332008FCA0B /* tCrunchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BDD67B3B1ED2407B001B6F90 /* PBXTargetDependency */ = {
+		BD320F0C1ED7E332008FCA0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BDD67B211ED2407B001B6F90 /* Tcrunch */;
-			targetProxy = BDD67B3A1ED2407B001B6F90 /* PBXContainerItemProxy */;
+			target = BD320EF21ED7E331008FCA0B /* tCrunch */;
+			targetProxy = BD320F0B1ED7E332008FCA0B /* PBXContainerItemProxy */;
 		};
-		BDD67B461ED2407B001B6F90 /* PBXTargetDependency */ = {
+		BD320F171ED7E332008FCA0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BDD67B211ED2407B001B6F90 /* Tcrunch */;
-			targetProxy = BDD67B451ED2407B001B6F90 /* PBXContainerItemProxy */;
+			target = BD320EF21ED7E331008FCA0B /* tCrunch */;
+			targetProxy = BD320F161ED7E332008FCA0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BDD67B291ED2407B001B6F90 /* Main.storyboard */ = {
+		BD320EFA1ED7E332008FCA0B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BDD67B2A1ED2407B001B6F90 /* Base */,
+				BD320EFB1ED7E332008FCA0B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BDD67B311ED2407B001B6F90 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BDD67B321ED2407B001B6F90 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BDD67B4B1ED2407B001B6F90 /* Debug */ = {
+		BD320F1C1ED7E332008FCA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -646,7 +611,7 @@
 			};
 			name = Debug;
 		};
-		BDD67B4C1ED2407B001B6F90 /* Release */ = {
+		BD320F1D1ED7E332008FCA0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -688,131 +653,136 @@
 			};
 			name = Release;
 		};
-		BDD67B4E1ED2407B001B6F90 /* Debug */ = {
+		BD320F1F1ED7E332008FCA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B34C3B9641F8C81EF6B8E0A8 /* Pods-Tcrunch.debug.xcconfig */;
+			baseConfigurationReference = 7222D06D831DD8C84506F5B2 /* Pods-tCrunch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
-				INFOPLIST_FILE = Tcrunch/Info.plist;
+				INFOPLIST_FILE = tCrunch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.Tcrunch;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tCrunch/tCrunch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		BDD67B4F1ED2407B001B6F90 /* Release */ = {
+		BD320F201ED7E332008FCA0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2E2E3F18D920A3B032C0B9D /* Pods-Tcrunch.release.xcconfig */;
+			baseConfigurationReference = 002ABE6D1211303FD7FDAB3B /* Pods-tCrunch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
-				INFOPLIST_FILE = Tcrunch/Info.plist;
+				INFOPLIST_FILE = tCrunch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.Tcrunch;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tCrunch/tCrunch-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		BDD67B511ED2407B001B6F90 /* Debug */ = {
+		BD320F221ED7E332008FCA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8984887BB169FCC32FC50BB5 /* Pods-TcrunchTests.debug.xcconfig */;
+			baseConfigurationReference = 5DAF0D7D0C9F53414BD60C75 /* Pods-tCrunchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
-				INFOPLIST_FILE = TcrunchTests/Info.plist;
+				INFOPLIST_FILE = tCrunchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.TcrunchTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tcrunch.app/Tcrunch";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tCrunch.app/tCrunch";
 			};
 			name = Debug;
 		};
-		BDD67B521ED2407B001B6F90 /* Release */ = {
+		BD320F231ED7E332008FCA0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD087CC06F9A385BF7454663 /* Pods-TcrunchTests.release.xcconfig */;
+			baseConfigurationReference = 5EDAEF9AC9128EE05A10BBC6 /* Pods-tCrunchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
-				INFOPLIST_FILE = TcrunchTests/Info.plist;
+				INFOPLIST_FILE = tCrunchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.TcrunchTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tcrunch.app/Tcrunch";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tCrunch.app/tCrunch";
 			};
 			name = Release;
 		};
-		BDD67B541ED2407B001B6F90 /* Debug */ = {
+		BD320F251ED7E332008FCA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FED95B7367A343EECDA9970 /* Pods-TcrunchUITests.debug.xcconfig */;
+			baseConfigurationReference = E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
-				INFOPLIST_FILE = TcrunchUITests/Info.plist;
+				INFOPLIST_FILE = tCrunchUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.TcrunchUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunchUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Tcrunch;
+				TEST_TARGET_NAME = tCrunch;
 			};
 			name = Debug;
 		};
-		BDD67B551ED2407B001B6F90 /* Release */ = {
+		BD320F261ED7E332008FCA0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D328A3870FDF33A9C10F8C4D /* Pods-TcrunchUITests.release.xcconfig */;
+			baseConfigurationReference = 929496C50E12BBF4053CE576 /* Pods-tCrunchUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
-				INFOPLIST_FILE = TcrunchUITests/Info.plist;
+				INFOPLIST_FILE = tCrunchUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.TcrunchUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunchUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Tcrunch;
+				TEST_TARGET_NAME = tCrunch;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BDD67B1D1ED2407B001B6F90 /* Build configuration list for PBXProject "Tcrunch" */ = {
+		BD320EEE1ED7E331008FCA0B /* Build configuration list for PBXProject "tCrunch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BDD67B4B1ED2407B001B6F90 /* Debug */,
-				BDD67B4C1ED2407B001B6F90 /* Release */,
+				BD320F1C1ED7E332008FCA0B /* Debug */,
+				BD320F1D1ED7E332008FCA0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD67B4D1ED2407B001B6F90 /* Build configuration list for PBXNativeTarget "Tcrunch" */ = {
+		BD320F1E1ED7E332008FCA0B /* Build configuration list for PBXNativeTarget "tCrunch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BDD67B4E1ED2407B001B6F90 /* Debug */,
-				BDD67B4F1ED2407B001B6F90 /* Release */,
+				BD320F1F1ED7E332008FCA0B /* Debug */,
+				BD320F201ED7E332008FCA0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD67B501ED2407B001B6F90 /* Build configuration list for PBXNativeTarget "TcrunchTests" */ = {
+		BD320F211ED7E332008FCA0B /* Build configuration list for PBXNativeTarget "tCrunchTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BDD67B511ED2407B001B6F90 /* Debug */,
-				BDD67B521ED2407B001B6F90 /* Release */,
+				BD320F221ED7E332008FCA0B /* Debug */,
+				BD320F231ED7E332008FCA0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD67B531ED2407B001B6F90 /* Build configuration list for PBXNativeTarget "TcrunchUITests" */ = {
+		BD320F241ED7E332008FCA0B /* Build configuration list for PBXNativeTarget "tCrunchUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BDD67B541ED2407B001B6F90 /* Debug */,
-				BDD67B551ED2407B001B6F90 /* Release */,
+				BD320F251ED7E332008FCA0B /* Debug */,
+				BD320F261ED7E332008FCA0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -820,17 +790,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BDD67B2C1ED2407B001B6F90 /* Tcrunch.xcdatamodeld */ = {
+		BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BDD67B2D1ED2407B001B6F90 /* Tcrunch.xcdatamodel */,
+				BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */,
 			);
-			currentVersion = BDD67B2D1ED2407B001B6F90 /* Tcrunch.xcdatamodel */;
+			currentVersion = BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */;
 			path = Tcrunch.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = BDD67B1A1ED2407B001B6F90 /* Project object */;
+	rootObject = BD320EEB1ED7E331008FCA0B /* Project object */;
 }

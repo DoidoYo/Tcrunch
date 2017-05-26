@@ -14,17 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Tcrunch.xcscheme</key>
+		<key>Pods-tCrunch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-TcrunchTests.xcscheme</key>
+		<key>Pods-tCrunchTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-TcrunchUITests.xcscheme</key>
+		<key>Pods-tCrunchUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,17 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E3F066C663722375584344106C7A3F4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>15160D8AA1D3331EC8AEC2EA1194F5AE</key>
+		<key>74E0F5D052EF2224720925FAFB7CF35A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB1481107F6BEE250802195D85925F2C</key>
+		<key>E44C71C854F339FFFF956DEAB57AA0E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5C04C53A2EB84114ECD3B0E2692F634</key>
 		<dict>
 			<key>primary</key>
 			<true/>

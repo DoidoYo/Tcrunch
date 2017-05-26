@@ -9,15 +9,22 @@
 import Foundation
 import UIKit
 
-class StudentNameViewController: UIViewController {
+class NameViewController: UIViewController {
     
     @IBOutlet weak var promptView: UIView!
     
     @IBOutlet weak var promptText: UITextView!
     @IBOutlet weak var responseTextField: UITextField!
     @IBAction func savePress(_ sender: Any) {
-        print("RESPONSE: \(responseTextField.text)")
+        if let name = responseTextField.text, name != "" {
+            delegate?.nameReceived(name)
+            
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+        }
     }
+    
+    var delegate:NameViewControllerDelegate?
     
     override func viewDidLoad() {
         
@@ -42,10 +49,8 @@ class StudentNameViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
-    
+}
+
+protocol NameViewControllerDelegate {
+    func nameReceived(_ name:String) -> Void
 }

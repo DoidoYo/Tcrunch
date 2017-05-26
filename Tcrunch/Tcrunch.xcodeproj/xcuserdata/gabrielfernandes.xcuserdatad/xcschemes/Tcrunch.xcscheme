@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDD67B211ED2407B001B6F90"
-               BuildableName = "Tcrunch.app"
-               BlueprintName = "Tcrunch"
-               ReferencedContainer = "container:Tcrunch.xcodeproj">
+               BlueprintIdentifier = "BD320EF21ED7E331008FCA0B"
+               BuildableName = "tCrunch.app"
+               BlueprintName = "tCrunch"
+               ReferencedContainer = "container:tCrunch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDD67B381ED2407B001B6F90"
-               BuildableName = "TcrunchTests.xctest"
-               BlueprintName = "TcrunchTests"
-               ReferencedContainer = "container:Tcrunch.xcodeproj">
+               BlueprintIdentifier = "BD320F091ED7E332008FCA0B"
+               BuildableName = "tCrunchTests.xctest"
+               BlueprintName = "tCrunchTests"
+               ReferencedContainer = "container:tCrunch.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDD67B431ED2407B001B6F90"
-               BuildableName = "TcrunchUITests.xctest"
-               BlueprintName = "TcrunchUITests"
-               ReferencedContainer = "container:Tcrunch.xcodeproj">
+               BlueprintIdentifier = "BD320F141ED7E332008FCA0B"
+               BuildableName = "tCrunchUITests.xctest"
+               BlueprintName = "tCrunchUITests"
+               ReferencedContainer = "container:tCrunch.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDD67B211ED2407B001B6F90"
-            BuildableName = "Tcrunch.app"
-            BlueprintName = "Tcrunch"
-            ReferencedContainer = "container:Tcrunch.xcodeproj">
+            BlueprintIdentifier = "BD320EF21ED7E331008FCA0B"
+            BuildableName = "tCrunch.app"
+            BlueprintName = "tCrunch"
+            ReferencedContainer = "container:tCrunch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDD67B211ED2407B001B6F90"
-            BuildableName = "Tcrunch.app"
-            BlueprintName = "Tcrunch"
-            ReferencedContainer = "container:Tcrunch.xcodeproj">
+            BlueprintIdentifier = "BD320EF21ED7E331008FCA0B"
+            BuildableName = "tCrunch.app"
+            BlueprintName = "tCrunch"
+            ReferencedContainer = "container:tCrunch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDD67B211ED2407B001B6F90"
-            BuildableName = "Tcrunch.app"
-            BlueprintName = "Tcrunch"
-            ReferencedContainer = "container:Tcrunch.xcodeproj">
+            BlueprintIdentifier = "BD320EF21ED7E331008FCA0B"
+            BuildableName = "tCrunch.app"
+            BlueprintName = "tCrunch"
+            ReferencedContainer = "container:tCrunch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

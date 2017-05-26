@@ -17,22 +17,21 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     var delegate: ContainerViewControllerDelegate?
     var classesController: UIViewController?
     
-    var classes: [TClass] = [TClass]()
+    var classes: [TClass] = []
     
     override func viewDidLoad() {
-        //        nameLabel.text = helper
         
+        //tableview stuff
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        classes.append(TClass(courseCode: "dd", id: "dd", name: "testName"))
-        
-        //get associated classes to populate side menu
+        classes = TcrunchHelper.getClasses()
         
         
-        //automaically open all classes
+        //set name of user on slide tab
+        nameLabel.text = TcrunchHelper.user_name
         
+        //load classes from phone storage
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

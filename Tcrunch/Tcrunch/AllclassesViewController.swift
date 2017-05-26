@@ -9,23 +9,29 @@
 import Foundation
 import UIKit
 
-class AllclassesViewController: UIViewController {
+class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var slideController: SlideMenuViewController?
     
-    var delegate: ContainerViewControllerDelegate?
+    @IBOutlet weak var tableView: UITableView!
+    var containerDelegate: ContainerViewControllerDelegate?
+    
+    var answeredTicket: [TTicket] = []
+    var unansweredTicket: [TTicket] = []
     
     @IBOutlet weak var addClassButton: UIBarButtonItem!
     @IBAction func addClassPressed(_ sender: Any) {
+        let container = self.parent?.parent as! ContainerViewController
+        container.showCodeDialog()
     }
     @IBAction func optionsPressed(_ sender: Any) {
     }
     @IBAction func menuPressed(_ sender: Any) {
         if slidePanelShowing == false {
-            delegate?.movePanelRight()
+            containerDelegate?.movePanelRight()
             slidePanelShowing = true
         } else {
-            delegate?.movePanelCenter()
+            containerDelegate?.movePanelCenter()
             slidePanelShowing = false
         }
     }
@@ -33,9 +39,8 @@ class AllclassesViewController: UIViewController {
     var slidePanelShowing:Bool = false
     
     override func viewDidLoad() {
-        
+        //tap on this view while side view is showing
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
-        
         self.view.addGestureRecognizer(tap)
         
         //set size of JOIN CLASS Button text
@@ -54,14 +59,75 @@ class AllclassesViewController: UIViewController {
         navLabel.text = self.navigationItem.title
         self.navigationItem.titleView = navLabel
         
+        //setup table
+        tableView.dataSource = self
+        tableView.delegate = self
         
     }
     
     func tapped(_ sender: UITapGestureRecognizer) {
         if slidePanelShowing {
-            delegate?.movePanelCenter()
+            containerDelegate?.movePanelCenter()
             slidePanelShowing = false
         }
     }
     
+    func loadClass(_ id:String) {
+        //loading overlay?
+        
+        unansweredTicket = []
+        answeredTicket = []
+        
+        TcrunchHelper.getStudentTickets(FromClass: id, completion: {
+            (ansTicket, unansweTicket) in
+            
+            self.unansweredTicket = unansweTicket
+            self.answeredTicket = ansTicket
+            
+            
+            self.tableView.reloadData()
+        })
+        
+        
+    }
+    
+    //table stuff
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return unansweredTicket.count
+        } else {
+            return answeredTicket.count
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Not Answered"
+        } else {
+            return "Answered"
+        }
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "test")
+        
+        var selectedList = answeredTicket
+        
+        if indexPath.section == 0 {
+            selectedList = unansweredTicket
+        } else {
+            selectedList = answeredTicket
+        }
+        
+        cell?.textLabel?.text = selectedList[indexPath.row].question
+        
+        return cell!
+    }
+    
+}
+
+protocol AllclassesViewControllerDelegate {
+    func addButtonPressed() -> Void
 }

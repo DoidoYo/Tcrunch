@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0193488DCD1434C635672DE7 /* Pods_tCrunchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */; };
+		BD06A1BF1EDB1D1B006B04C0 /* TTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A1BE1EDB1D1B006B04C0 /* TTicket.swift */; };
+		BD06A1C11EDB27BF006B04C0 /* TicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD06A1C01EDB27BF006B04C0 /* TicketCell.xib */; };
 		BD320EFC1ED7E332008FCA0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD320EFA1ED7E332008FCA0B /* Main.storyboard */; };
 		BD320F0F1ED7E332008FCA0B /* tCrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F0E1ED7E332008FCA0B /* tCrunchTests.swift */; };
 		BD320F1A1ED7E332008FCA0B /* tCrunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F191ED7E332008FCA0B /* tCrunchUITests.swift */; };
@@ -28,9 +30,10 @@
 		BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */; };
 		BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */; };
 		BD320F4F1ED7E3FC008FCA0B /* TitleMoveField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */; };
-		BD320F501ED7E3FC008FCA0B /* TTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3B1ED7E3FC008FCA0B /* TTicket.swift */; };
 		BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */; };
 		BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */; };
+		BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */; };
+		BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */; };
 		D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */; };
 		F8366A15AD2A6FEEDEF125E5 /* Pods_tCrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,8 @@
 		6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7222D06D831DD8C84506F5B2 /* Pods-tCrunch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunch/Pods-tCrunch.debug.xcconfig"; sourceTree = "<group>"; };
 		929496C50E12BBF4053CE576 /* Pods-tCrunchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BD06A1BE1EDB1D1B006B04C0 /* TTicket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTicket.swift; sourceTree = "<group>"; };
+		BD06A1C01EDB27BF006B04C0 /* TicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketCell.xib; sourceTree = "<group>"; };
 		BD320EF31ED7E332008FCA0B /* tCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD320EFB1ED7E332008FCA0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD320F0A1ED7E332008FCA0B /* tCrunchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tCrunchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,9 +91,10 @@
 		BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcrunchHelper.swift; sourceTree = "<group>"; };
 		BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSigninViewController.swift; sourceTree = "<group>"; };
 		BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleMoveField.swift; sourceTree = "<group>"; };
-		BD320F3B1ED7E3FC008FCA0B /* TTicket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTicket.swift; sourceTree = "<group>"; };
 		BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tcrunch.xcdatamodel; sourceTree = "<group>"; };
+		BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketDetailViewController.swift; sourceTree = "<group>"; };
+		BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
 		C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,20 +170,22 @@
 				BD320F2B1ED7E3FC008FCA0B /* Base.lproj */,
 				BD320F2C1ED7E3FC008FCA0B /* GoogleService-Info.plist */,
 				BD320F2D1ED7E3FC008FCA0B /* Info.plist */,
+				BD75DB3F1EDAEE8F009F5837 /* Custom */,
+				BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */,
 				BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */,
+				BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */,
+				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
 				BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */,
 				BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */,
-				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
 				BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */,
 				BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */,
 				BD320F341ED7E3FC008FCA0B /* NameViewController.swift */,
 				BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */,
 				BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */,
 				BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */,
-				BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */,
 				BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */,
 				BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */,
-				BD320F3B1ED7E3FC008FCA0B /* TTicket.swift */,
+				BD06A1BE1EDB1D1B006B04C0 /* TTicket.swift */,
 				BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */,
 				BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */,
 				BD320F291ED7E3FB008FCA0B /* tCrunch-Bridging-Header.h */,
@@ -201,6 +209,15 @@
 				BD320F1B1ED7E332008FCA0B /* Info.plist */,
 			);
 			path = tCrunchUITests;
+			sourceTree = "<group>";
+		};
+		BD75DB3F1EDAEE8F009F5837 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				BD06A1C01EDB27BF006B04C0 /* TicketCell.xib */,
+				BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		BF6B7603DCC4AC84CB0C3674 /* Frameworks */ = {
@@ -334,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD320F3F1ED7E3FC008FCA0B /* Assets.xcassets in Resources */,
+				BD06A1C11EDB27BF006B04C0 /* TicketCell.xib in Resources */,
 				BD320F411ED7E3FC008FCA0B /* GoogleService-Info.plist in Resources */,
 				BD320F401ED7E3FC008FCA0B /* Base.lproj in Resources */,
 				BD320F421ED7E3FC008FCA0B /* Info.plist in Resources */,
@@ -501,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */,
-				BD320F501ED7E3FC008FCA0B /* TTicket.swift in Sources */,
 				BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */,
 				BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */,
 				BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */,
@@ -509,8 +526,11 @@
 				BD320F4A1ED7E3FC008FCA0B /* SegmentedViewController.swift in Sources */,
 				BD320F431ED7E3FC008FCA0B /* AllclassesViewController.swift in Sources */,
 				BD320F4C1ED7E3FC008FCA0B /* SlideMenuViewController.swift in Sources */,
+				BD06A1BF1EDB1D1B006B04C0 /* TTicket.swift in Sources */,
+				BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */,
 				BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */,
 				BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */,
+				BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */,
 				BD320F4F1ED7E3FC008FCA0B /* TitleMoveField.swift in Sources */,
 				BD320F471ED7E3FC008FCA0B /* CourseCodeViewController.swift in Sources */,
 				BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */,

@@ -35,6 +35,8 @@ class CourseCodeViewController: UIViewController {
         promptView.layer.shadowOpacity = 0.4;
         promptView.layer.shadowRadius = 5;
         promptView.layer.shadowOffset = CGSize(width: 3, height: 10)
+        
+        responseTextField.becomeFirstResponder()
     }
     
     func closeView() {

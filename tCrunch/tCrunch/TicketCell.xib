@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="172" id="10W-YM-NNy" customClass="TicketCell" customModule="tCrunch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="316" height="172"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="10W-YM-NNy" id="AA7-Ih-OF1">
+                <rect key="frame" x="0.0" y="0.0" width="316" height="172"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Some Question?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-ba-Ixe">
+                        <rect key="frame" x="8" y="0.0" width="300" height="141"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted 1 hour ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9k-2T-hke">
+                        <rect key="frame" x="159" y="143" width="149" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6i-4D-zHr">
+                        <rect key="frame" x="16" y="143" width="141" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="141" id="3Qq-9K-Y8x"/>
+                            <constraint firstAttribute="height" constant="21" id="NWC-G7-thU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="v6i-4D-zHr" firstAttribute="top" secondItem="O0N-ba-Ixe" secondAttribute="bottom" constant="2" id="3Z8-31-3Ev"/>
+                    <constraint firstItem="O0N-ba-Ixe" firstAttribute="leading" secondItem="AA7-Ih-OF1" secondAttribute="leadingMargin" id="CA6-pb-IoN"/>
+                    <constraint firstItem="v6i-4D-zHr" firstAttribute="baseline" secondItem="k9k-2T-hke" secondAttribute="baseline" id="DBk-SR-75g"/>
+                    <constraint firstItem="O0N-ba-Ixe" firstAttribute="trailing" secondItem="k9k-2T-hke" secondAttribute="trailing" id="KWx-tU-Hcs"/>
+                    <constraint firstItem="O0N-ba-Ixe" firstAttribute="top" secondItem="AA7-Ih-OF1" secondAttribute="top" id="QMk-dT-7hK"/>
+                    <constraint firstItem="O0N-ba-Ixe" firstAttribute="trailing" secondItem="AA7-Ih-OF1" secondAttribute="trailingMargin" id="j3d-Lz-dGe"/>
+                    <constraint firstItem="v6i-4D-zHr" firstAttribute="firstBaseline" secondItem="k9k-2T-hke" secondAttribute="firstBaseline" id="kr5-NJ-PCR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="v6i-4D-zHr" secondAttribute="bottom" constant="-1" id="lJX-pZ-C4L"/>
+                    <constraint firstItem="k9k-2T-hke" firstAttribute="leading" secondItem="v6i-4D-zHr" secondAttribute="trailing" constant="2" id="uaJ-bN-iir"/>
+                    <constraint firstItem="v6i-4D-zHr" firstAttribute="leading" secondItem="AA7-Ih-OF1" secondAttribute="leadingMargin" constant="8" id="xZc-33-Zd7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="classNameText" destination="v6i-4D-zHr" id="MqZ-C7-TM4"/>
+                <outlet property="questionText" destination="O0N-ba-Ixe" id="009-64-yva"/>
+                <outlet property="releaseTimeText" destination="k9k-2T-hke" id="Tvc-nw-SXk"/>
+            </connections>
+            <point key="canvasLocation" x="102" y="13"/>
+        </tableViewCell>
+    </objects>
+</document>

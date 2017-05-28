@@ -23,7 +23,7 @@ class TcrunchHelper {
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static let dbRef = Database.database().reference()
     
-    public static func joinClass(code: String, completion: @escaping (_ re: JoinClass, _ id: String?) -> Void) {
+    public static func joinClass(code: String, completion: @escaping (_ re: JoinClass, _ tclass: TClass?) -> Void) {
         
         dbRef.child("classes").queryOrdered(byChild: "courseCode").queryEqual(toValue: code).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: {
             (snapshot) in
@@ -60,6 +60,7 @@ class TcrunchHelper {
                     } else {
                         student = dbRef.child("students").childByAutoId()
                         TcrunchHelper.user_id = student.key
+                        UserDefaults.standard.set(TcrunchHelper.user_id, forKey: "user_id")
                     }
                     
                     let addClass = student.child(id)
@@ -68,9 +69,18 @@ class TcrunchHelper {
                     //save
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     
-                    completion(JoinClass.DONE, id)
+                    completion(JoinClass.DONE, tclass)
                 } else {
-                    completion(JoinClass.ALREADY_JOINED, id)
+                    
+                    let classes = self.getClasses()
+                    var tclass: TClass?
+                    
+                    for item in classes where item.id == id {
+                        tclass = item
+                    }
+                    
+                    
+                    completion(JoinClass.ALREADY_JOINED, tclass)
                 }
             } else {
                 completion(JoinClass.ERROR, nil)
@@ -79,58 +89,135 @@ class TcrunchHelper {
         })
     }
     
-    public static func getStudentTickets(FromClass: String, completion: @escaping (_ answTickets:[TTicket],_ unanswTickets:[TTicket])->Void) {
+    public static func clearTicketObserve() {
+        dbRef.removeAllObservers()
+    }
+    
+    public static func getStudentTickets(FromClass tclass: TClass, completion: @escaping (_ answTickets:[TTicket],_ unanswTickets:[TTicket])->Void) {
         
-        if let handle = newTicketHandle {
-            dbRef.removeObserver(withHandle: handle)
-        }
+        //        if let handle = newTicketHandle {
+        //            dbRef.removeObserver(withHandle: handle)
+        //        }
         
-        newTicketHandle = dbRef.child("tickets").child(FromClass).observe(.value, with: {
+        newTicketHandle = dbRef.child("tickets").child(tclass.id!).observe(.value, with: {
             (snapshot) in
             
-            dbRef.child("answered").child(TcrunchHelper.user_id!).observeSingleEvent(of:.value, with: {
+            var answeredTickets: [TTicket] = []
+            var unansweredTickets: [TTicket] = []
+            var answeredTicketsId: [String] = []
+            
+            //get all tickets
+            if let snap = snapshot.value as? NSDictionary {
+                for (_,obj) in snap {
+                    
+                    let ticket = TTicket()
+                    let obj = obj as! NSDictionary
+                    if let anonymous = obj["anonymous"] as? Bool {
+                        ticket.anonymous = anonymous
+                    }
+                    if let className_ = obj["className"] as? String {
+                        ticket.className_ = className_
+                    }
+                    if let endTime = obj["endTime"] as? String {
+                        ticket.endTime = endTime
+                    }
+                    if let id = obj["id"] as? String {
+                        ticket.id = id
+                    }
+                    if let question = obj["question"] as? String {
+                        ticket.question = question
+                    }
+                    if let startTime = obj["startTime"] as? String {
+                        ticket.startTime = startTime
+                    }
+                    if let answerChoiceObj = obj["answerChoices"] as? [String] {
+                        var choices: [String] = []
+                        for choice in answerChoiceObj {
+                            choices.append(choice)
+                        }
+                        let arrayData = NSKeyedArchiver.archivedData(withRootObject: choices)
+                        ticket.answerChoices = arrayData
+                    }
+                    
+                    ticket.tclass = tclass
+                    
+                    //tk check if time is acceptable, make a timed function that checks if ticket is avalable every minute
+                    //ensure that past one can be cancelled--should be in AllClassesViewController
+                    
+                    
+                    unansweredTickets.append(ticket)
+                    
+                }
+            }
+            dbRef.child("answered").child(TcrunchHelper.user_id!).observeSingleEvent(of: .value, with: {
                 (snapshot2) in
                 
                 //get answered id
-                var answeredTicketsId: [String] = []
                 if let snap2 = snapshot2.value as? NSDictionary {
                     for (_, tid) in snap2 {
                         answeredTicketsId.append(tid as! String)
                     }
-                }
-                
-                //get all tickets
-                var tik = [TTicket]()
-                if let snap = snapshot.value as? NSDictionary {
                     
-                    for (_,obj) in snap {
-                        
-                        let ticket = TTicket(withDictionary: obj as! NSDictionary)
-                        
-                        tik.append(ticket)
-                        
+                    for item in unansweredTickets {
+                        if answeredTicketsId.contains(item.id!) {
+                            answeredTickets.append(item)
+                            unansweredTickets.remove(at: unansweredTickets.index(where: {
+                                tik in
+                                if tik.id! == item.id {
+                                    return true
+                                }
+                                return false
+                            })!)
+                        }
                     }
                     
-                }
-                
-                print("test")
-                
-                var answeredTickets: [TTicket] = []
-                var unansweredTickets: [TTicket] = []
-                
-                for item in tik {
-                    if answeredTicketsId.contains(item.id!) {
-                        answeredTickets.append(item)
-                    } else {
-                        unansweredTickets.append(item)
-                    }
                 }
                 
                 completion(answeredTickets, unansweredTickets)
+                
             })
+            
         })
         
+    }
+    
+    public static func observeAnswers(completion: @escaping(_ answeredId: [String])->Void) {
+        dbRef.child("answered").child(TcrunchHelper.user_id!).observe(.value, with: {
+            snap in
+            
+            //get answered id
+            var answeredTicketsId: [String] = []
+            
+            if let snap = snap.value as? NSDictionary {
+                for (_, tid) in snap {
+                    answeredTicketsId.append(tid as! String)
+                }
+                
+            }
+            
+            completion(answeredTicketsId)
+        })
+    }
+    
+    public static func getResponse(FromTicket ticket: TTicket, completion: @escaping(_ resp: String)->Void) {
+        dbRef.child("responses").child(ticket.id!).child(TcrunchHelper.user_id!).observeSingleEvent(of: .value, with: {
+            snap in
+            if let snap = snap.value as? NSDictionary {
+                
+                completion(snap["response"] as! String)
+                
+            }
+        })
+    }
+    
+    public static func set(Response: String, forTicket ticket: TTicket, completion: ()->Void) {
         
+        let time = Date().timeIntervalSince1970.bitPattern
+        dbRef.child("answered").child(TcrunchHelper.user_id!).childByAutoId().setValue(ticket.id!)
+        
+        dbRef.child("responses").child(ticket.id!).child(TcrunchHelper.user_id!).setValue(["author":TcrunchHelper.user_name!, "response": Response, "time":time])
+        
+        completion()
     }
     
     public static func getClasses() -> [TClass] {

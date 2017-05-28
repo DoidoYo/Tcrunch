@@ -14,8 +14,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var delegate: ContainerViewControllerDelegate?
-    var classesController: UIViewController?
+    var containerVC: ContainerViewController?
     
     var classes: [TClass] = []
     
@@ -32,6 +31,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         nameLabel.text = TcrunchHelper.user_name
         
         //load classes from phone storage
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,20 +39,20 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if section == 0 {
             return classes.count
         } else {
             return 1
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            delegate?.setCenterView(id: "someid")
+            containerVC!.setCenterViewClass(classes[indexPath.row])
+            containerVC!.movePanelCenter()
         } else {
             //selected the all
+            containerVC?.setCenterViewAll(classes)
         }
     }
     

@@ -33,6 +33,7 @@
 		BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */; };
 		BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */; };
 		BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */; };
+		BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */; };
 		BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */; };
 		D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */; };
 		F8366A15AD2A6FEEDEF125E5 /* Pods_tCrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */; };
@@ -94,6 +95,7 @@
 		BD320F3C1ED7E3FC008FCA0B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tcrunch.xcdatamodel; sourceTree = "<group>"; };
 		BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketDetailViewController.swift; sourceTree = "<group>"; };
+		BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketUnrespondedDetailViewController.swift; sourceTree = "<group>"; };
 		BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
 		C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				BD320F2D1ED7E3FC008FCA0B /* Info.plist */,
 				BD75DB3F1EDAEE8F009F5837 /* Custom */,
 				BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */,
+				BD34D8521EDB5368002B57BB /* Controllers */,
 				BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */,
 				BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */,
 				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
@@ -209,6 +212,14 @@
 				BD320F1B1ED7E332008FCA0B /* Info.plist */,
 			);
 			path = tCrunchUITests;
+			sourceTree = "<group>";
+		};
+		BD34D8521EDB5368002B57BB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		BD75DB3F1EDAEE8F009F5837 /* Custom */ = {
@@ -535,6 +546,7 @@
 				BD320F471ED7E3FC008FCA0B /* CourseCodeViewController.swift in Sources */,
 				BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */,
 				BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */,
+				BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */,
 				BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,7 +694,7 @@
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
 				INFOPLIST_FILE = tCrunch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunch;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunch.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "tCrunch/tCrunch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -699,7 +711,7 @@
 				DEVELOPMENT_TEAM = EZGAYLTBHH;
 				INFOPLIST_FILE = tCrunch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunch;
+				PRODUCT_BUNDLE_IDENTIFIER = GF.tCrunch.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "tCrunch/tCrunch-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

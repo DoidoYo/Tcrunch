@@ -92,9 +92,8 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //if there are unanswered tickets, check to see if theyre answered
-        if unansweredTicket.count > 0 {
-            
+        if let selected = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selected, animated: true)
         }
         
     }
@@ -172,9 +171,6 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
                 }
                 
                 self.tableView.reloadData()
-                
-//                print("completion called: \(self.hello)")
-                self.hello += 1
                 
                 if self.answeredTicket.count == 0 && self.unansweredTicket.count == 0 {
                     self.emptyLabel.isHidden = false
@@ -266,21 +262,26 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: "StudentTicketDetailViewController") as? StudentTicketDetailViewController
+//        let detailVC = storyboard?.instantiateViewController(withIdentifier: "StudentTicketDetailViewController") as? StudentTicketDetailViewController
+//        
+//        //pass data to detail vc
+//        if indexPath.section == 0 {
+//            detailVC?.customInit(detailType: DetailType.UNANSWERED, ticket: unansweredTicket[indexPath.row])
+//        } else {
+//            detailVC?.customInit(detailType: DetailType.ANSWERED, ticket: answeredTicket[indexPath.row])
+//        }
+//        
+//        let backButton = UIBarButtonItem()
+//        backButton.title = "Back"
+//        navigationItem.backBarButtonItem = backButton
+//        
+//        self.navigationController?.show(detailVC!, sender: nil)
         
-        //pass data to detail vc
-        if indexPath.section == 0 {
-            detailVC?.customInit(detailType: DetailType.UNANSWERED, ticket: unansweredTicket[indexPath.row])
-        } else {
-            detailVC?.customInit(detailType: DetailType.ANSWERED, ticket: answeredTicket[indexPath.row])
-        }
-        
-        let backButton = UIBarButtonItem()
-        backButton.title = "Back"
-        navigationItem.backBarButtonItem = backButton
-        
-        self.navigationController?.show(detailVC!, sender: nil)
+        let test = storyboard?.instantiateViewController(withIdentifier: "StudentTicketUnrespondedDetailViewController")
+        self.navigationController?.show(test!, sender: nil)
     }
+    
+    
     
 }
 

@@ -55,7 +55,7 @@ class TicketCell: UITableViewCell {
         
         //makes cell clickable
         questionText.isUserInteractionEnabled = false
-        self.selectionStyle = .none
+//        self.selectionStyle = .none
         
         
         

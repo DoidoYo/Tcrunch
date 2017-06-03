@@ -90,14 +90,14 @@ class TcrunchHelper {
     }
     
     public static func clearTicketObserve() {
-        dbRef.removeAllObservers()
+        let classes = self.getClasses()
+        
+        for item in classes {
+            dbRef.child("tickets").child(item.id!).removeAllObservers()
+        }
     }
     
     public static func getStudentTickets(FromClass tclass: TClass, completion: @escaping (_ answTickets:[TTicket],_ unanswTickets:[TTicket])->Void) {
-        
-        //        if let handle = newTicketHandle {
-        //            dbRef.removeObserver(withHandle: handle)
-        //        }
         
         newTicketHandle = dbRef.child("tickets").child(tclass.id!).observe(.value, with: {
             (snapshot) in
@@ -182,21 +182,23 @@ class TcrunchHelper {
     }
     
     public static func observeAnswers(completion: @escaping(_ answeredId: [String])->Void) {
-        dbRef.child("answered").child(TcrunchHelper.user_id!).observe(.value, with: {
-            snap in
-            
-            //get answered id
-            var answeredTicketsId: [String] = []
-            
-            if let snap = snap.value as? NSDictionary {
-                for (_, tid) in snap {
-                    answeredTicketsId.append(tid as! String)
+        if let user_id = TcrunchHelper.user_id {
+            dbRef.child("answered").child(user_id).observe(.value, with: {
+                snap in
+                
+                //get answered id
+                var answeredTicketsId: [String] = []
+                
+                if let snap = snap.value as? NSDictionary {
+                    for (_, tid) in snap {
+                        answeredTicketsId.append(tid as! String)
+                    }
+                    
                 }
                 
-            }
-            
-            completion(answeredTicketsId)
-        })
+                completion(answeredTicketsId)
+            })
+        }
     }
     
     public static func getResponse(FromTicket ticket: TTicket, completion: @escaping(_ resp: String)->Void) {

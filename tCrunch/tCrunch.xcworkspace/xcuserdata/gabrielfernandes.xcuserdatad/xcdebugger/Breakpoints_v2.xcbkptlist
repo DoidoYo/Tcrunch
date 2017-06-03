@@ -10,13 +10,121 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tCrunch/AllclassesViewController.swift"
-            timestampString = "517681726.837693"
+            timestampString = "517762453.52304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "attachAnswerListener()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+            timestampString = "517690337.077325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "StudentTicketUnrespondedDetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.StudentTicketUnrespondedDetailViewController.init (style : __C.UITableViewStyle) -&gt; tCrunch.StudentTicketUnrespondedDetailViewController"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+                  timestampString = "517691078.175271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.StudentTicketUnrespondedDetailViewController.__allocating_init (style : __C.UITableViewStyle) -&gt; tCrunch.StudentTicketUnrespondedDetailViewController"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+                  timestampString = "517691078.177395"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.StudentTicketUnrespondedDetailViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; tCrunch.StudentTicketUnrespondedDetailViewController"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+                  timestampString = "517691078.179169"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.StudentTicketUnrespondedDetailViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; tCrunch.StudentTicketUnrespondedDetailViewController"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+                  timestampString = "517691078.180903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.StudentTicketUnrespondedDetailViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;tCrunch.StudentTicketUnrespondedDetailViewController&gt;"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+                  timestampString = "517691078.182548"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.StudentTicketUnrespondedDetailViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;tCrunch.StudentTicketUnrespondedDetailViewController&gt;"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/StudentTicketUnrespondedDetailViewController.swift"
+                  timestampString = "517691078.184066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

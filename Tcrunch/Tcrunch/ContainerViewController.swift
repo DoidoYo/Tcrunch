@@ -25,6 +25,8 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
     let STUDENT_NAME_PROMPT = "What's your name?"
     let TEACHER_NAME_PROMPT = "What's your name? This is the name that students will see."
     
+    var darkView:UIView?
+    
     override func viewDidLoad() {
         
         centerController = storyboard?.instantiateViewController(withIdentifier: "centerController")
@@ -34,6 +36,8 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         centerController?.didMove(toParentViewController: self)
         ticketVC = centerController?.childViewControllers[0] as? AllclassesViewController
         ticketVC?.containerDelegate = self
+        
+        darkView = UIView(frame: centerController!.view.frame)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +51,11 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
             slideMenuController = storyboard?.instantiateViewController(withIdentifier: "slideController") as? SlideMenuViewController
             self.view.addSubview(slideMenuController!.view)
             self.view.sendSubview(toBack: slideMenuController!.view)
+            
+            let oldFrame = slideMenuController!.view.frame
+            let newFrame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y, width: (4/6)*oldFrame.width, height: oldFrame.height)
+            
+            slideMenuController?.view.frame = newFrame
             
             self.addChildViewController(slideMenuController!)
             slideMenuController?.didMove(toParentViewController: self)
@@ -74,8 +83,15 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
     
     func movePanelRight() -> Void {
         _ = self.getSlideView()
+        self.view.sendSubview(toBack: centerController!.view)
+        
+        self.centerController?.view.addSubview(self.darkView!)
+        self.darkView!.addGestureRecognizer(self.ticketVC!.tap!)
+        
+        slideMenuController?.view.frame.origin.x -= slideMenuController!.view.frame.width
         UIView.animate(withDuration: TimeInterval(SLIDE_TIMING), animations: {
-            self.centerController?.view.frame = CGRect(x: self.view.frame.width - self.PANEL_WIDTH, y: 0, width: self.view.frame.size.width, height: self.view.frame.height)
+            self.slideMenuController?.view.frame.origin.x = 0
+            self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.6)
         }, completion: {
             (finished) in
             //finished
@@ -86,10 +102,13 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
     func movePanelCenter() -> Void {
         
         UIView.animate(withDuration: TimeInterval(SLIDE_TIMING), animations: {
-            self.centerController?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.height)
+            self.slideMenuController?.view.frame.origin.x -= self.slideMenuController!.view.frame.width
+            self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
         }, completion: {
             (finished) in
             
+            self.darkView?.removeFromSuperview()
+            self.darkView?.removeGestureRecognizer(self.ticketVC!.tap!)
             self.resetMainView()
             
         })

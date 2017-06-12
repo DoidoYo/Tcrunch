@@ -34,6 +34,7 @@
 		BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */; };
 		BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */; };
 		BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */; };
+		BD8DB5FC1EEDBF56008B33DC /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */; };
 		BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */; };
 		D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */; };
 		F8366A15AD2A6FEEDEF125E5 /* Pods_tCrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */; };
@@ -96,6 +97,7 @@
 		BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tcrunch.xcdatamodel; sourceTree = "<group>"; };
 		BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketDetailViewController.swift; sourceTree = "<group>"; };
 		BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketUnrespondedDetailViewController.swift; sourceTree = "<group>"; };
+		BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
 		C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */,
+				BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */,
+				BD8DB5FC1EEDBF56008B33DC /* OptionViewController.swift in Sources */,
 				BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */,
 				BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */,
 				BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */,

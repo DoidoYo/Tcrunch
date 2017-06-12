@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class ContainerViewController: UIViewController, ContainerViewControllerDelegate, NameViewControllerDelegate, CourseCodeViewControllerDelegate {
+class ContainerViewController: UIViewController, ContainerViewControllerDelegate, NameViewControllerDelegate, CourseCodeViewControllerDelegate, ContainerOptionViewControllerDelegate {
     
     var slideMenuController: SlideMenuViewController?
     var centerController: UIViewController?
@@ -36,6 +36,7 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         centerController?.didMove(toParentViewController: self)
         ticketVC = centerController?.childViewControllers[0] as? AllclassesViewController
         ticketVC?.containerDelegate = self
+        ticketVC?.optionsDelegate = self
         
         darkView = UIView(frame: centerController!.view.frame)
     }
@@ -187,6 +188,60 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         })
     }
     
+    var optionVC:OptionViewController?
+    var optionTap: UITapGestureRecognizer?
+    func showOption() -> Void {
+        if optionVC == nil {
+            optionVC = storyboard?.instantiateViewController(withIdentifier: "OptionViewController") as! OptionViewController
+            optionVC?.optionDelegate = self
+        }
+        
+        optionVC?.options = [Choices.LEAVE_CLASS, Choices.EDIT_DISPLAY_NAME, Choices.FAQ, Choices.LOG_OUT]
+        
+        darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
+        self.view.addSubview(darkView!)
+        
+        self.view.addSubview((optionVC?.view)!)
+        self.didMove(toParentViewController: optionVC)
+        
+        let finalPos = optionVC?.view.frame.origin
+        optionVC?.view.frame.origin = CGPoint(x: self.view.frame.origin.x + (optionVC?.tableView.frame.width)!, y: -optionVC!.tableView.frame.height)
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.optionVC?.view.frame.origin = finalPos!
+            self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.6)
+        }, completion: {(comp) in
+            
+        })
+    }
+    func hideOption() -> Void {
+        
+        let finalPos = CGPoint(x: self.view.frame.width + (optionVC?.tableView.frame.width)!, y: -optionVC!.tableView.frame.height)
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.optionVC?.view.frame.origin = finalPos
+            self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
+        }, completion: {(comp) in
+            self.optionVC?.view.removeFromSuperview()
+            self.optionVC?.removeFromParentViewController()
+            self.optionVC = nil
+            
+            self.darkView?.removeFromSuperview()
+        })
+    }
+    func toggleOption() -> Void {
+        if optionVC == nil {
+            showOption()
+        } else {
+            hideOption()
+        }
+    }
+}
+
+protocol ContainerOptionViewControllerDelegate {
+    func showOption() -> Void
+    func hideOption() -> Void
+    func toggleOption() -> Void
 }
 
 protocol ContainerViewControllerDelegate {

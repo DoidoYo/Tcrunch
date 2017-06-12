@@ -18,6 +18,8 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     var containerDelegate: ContainerViewControllerDelegate?
     
+    var optionsDelegate: ContainerOptionViewControllerDelegate?
+    
     var answeredTicket: [TTicket] = []
     var unansweredTicket: [TTicket] = []
     
@@ -31,8 +33,11 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         let container = self.parent?.parent as! ContainerViewController
         container.showCodeDialog()
     }
+    
     @IBAction func optionsPressed(_ sender: Any) {
+        optionsDelegate?.toggleOption()
     }
+    
     @IBAction func menuPressed(_ sender: Any) {
         if slidePanelShowing == false {
             showPanel()
@@ -41,15 +46,17 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    
+    
     var slidePanelShowing:Bool = false
     
     func showPanel() {
-        self.view.addGestureRecognizer(tap!)
+//        self.view.addGestureRecognizer(tap!)
         containerDelegate?.movePanelRight()
         slidePanelShowing = true
     }
     func hidePanel() {
-        self.view.removeGestureRecognizer(tap!)
+//        self.view.removeGestureRecognizer(tap!)
         containerDelegate?.movePanelCenter()
         slidePanelShowing = false
     }
@@ -251,7 +258,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         } else {
             cell?.classNameText.text = ""
         }
-
+        
         
         return cell!
     }
@@ -262,23 +269,37 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let detailVC = storyboard?.instantiateViewController(withIdentifier: "StudentTicketDetailViewController") as? StudentTicketDetailViewController
-//        
-//        //pass data to detail vc
-//        if indexPath.section == 0 {
-//            detailVC?.customInit(detailType: DetailType.UNANSWERED, ticket: unansweredTicket[indexPath.row])
-//        } else {
-//            detailVC?.customInit(detailType: DetailType.ANSWERED, ticket: answeredTicket[indexPath.row])
-//        }
-//        
-//        let backButton = UIBarButtonItem()
-//        backButton.title = "Back"
-//        navigationItem.backBarButtonItem = backButton
-//        
-//        self.navigationController?.show(detailVC!, sender: nil)
+        //        let detailVC = storyboard?.instantiateViewController(withIdentifier: "StudentTicketDetailViewController") as? StudentTicketDetailViewController
+        //
+        //        //pass data to detail vc
+        //        if indexPath.section == 0 {
+        //            detailVC?.customInit(detailType: DetailType.UNANSWERED, ticket: unansweredTicket[indexPath.row])
+        //        } else {
+        //            detailVC?.customInit(detailType: DetailType.ANSWERED, ticket: answeredTicket[indexPath.row])
+        //        }
+        //
+        //        let backButton = UIBarButtonItem()
+        //        backButton.title = "Back"
+        //        navigationItem.backBarButtonItem = backButton
+        //
+        //        self.navigationController?.show(detailVC!, sender: nil)
         
-        let test = storyboard?.instantiateViewController(withIdentifier: "StudentTicketUnrespondedDetailViewController")
-        self.navigationController?.show(test!, sender: nil)
+        let test = storyboard?.instantiateViewController(withIdentifier: "StudentTicketUnrespondedDetailViewController") as! StudentTicketUnrespondedDetailViewController
+        
+        //unanswered section
+        if indexPath.section == 0 {
+            test.ticket = unansweredTicket[indexPath.row]
+        } else {
+            //answered section
+            test.ticket = answeredTicket[indexPath.row]
+        }
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem = backButton
+        
+        self.navigationController?.show(test, sender: nil)
+        
     }
     
     

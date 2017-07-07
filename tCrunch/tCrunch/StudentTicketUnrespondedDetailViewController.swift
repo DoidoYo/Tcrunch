@@ -95,7 +95,7 @@ class StudentTicketUnrespondedDetailViewController: UITableViewController {
         persistentTicket.answerChoices = ticket?.answerChoices as NSData?
         persistentTicket.className_ = ticket?.className_
         persistentTicket.endTime = ticket?.endTime
-        persistentTicket.startTime = ticket?.startTime
+        persistentTicket.startTime = "\(ticket?.startTime)"
         persistentTicket.question = ticket?.question
         persistentTicket.id = ticket?.id
         persistentTicket.tclass = ticket?.tclass

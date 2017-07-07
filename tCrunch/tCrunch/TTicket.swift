@@ -17,7 +17,7 @@ class TTicket {
     var endTime:String?
     var id:String?
     var question:String?
-    var startTime:String?
+    var startTime:CLongLong?
     
     var answerChoices:Data?
     

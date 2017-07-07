@@ -39,6 +39,11 @@ class OptionViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    override func viewDidLayoutSubviews(){
+        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
     }
@@ -47,9 +52,18 @@ class OptionViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "option")
-        cell?.textLabel?.text = options[indexPath.count].rawValue
+        let textView = cell!.viewWithTag(1) as! UILabel
+        textView.text =  options[indexPath.row].rawValue
+        
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+            let containerVC = self.parent as! ContainerViewController
+            containerVC.actionForOption(options[indexPath.row])
+        
     }
     
     func backPressed(_ sender: UITapGestureRecognizer) {

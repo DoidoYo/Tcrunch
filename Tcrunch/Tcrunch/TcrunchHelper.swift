@@ -127,7 +127,7 @@ class TcrunchHelper {
                     if let question = obj["question"] as? String {
                         ticket.question = question
                     }
-                    if let startTime = obj["startTime"] as? String {
+                    if let startTime = obj["startTime"] as? CLongLong {
                         ticket.startTime = startTime
                     }
                     if let answerChoiceObj = obj["answerChoices"] as? [String] {

@@ -25,6 +25,8 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
     let STUDENT_NAME_PROMPT = "What's your name?"
     let TEACHER_NAME_PROMPT = "What's your name? This is the name that students will see."
     
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var darkView:UIView?
     
     override func viewDidLoad() {
@@ -151,16 +153,20 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         }
         
         if let name = UserDefaults.standard.string(forKey: "user_name") {
-            nameReceived(name)
+            self.nameReceived(name)
         } else {
-            //prompt name
-            let promptVC = storyboard?.instantiateViewController(withIdentifier: "NameView") as? NameViewController
-            self.view.addSubview(promptVC!.view)
-            self.addChildViewController(promptVC!)
-            promptVC?.setPrompt(prompt)
-            promptVC?.delegate = self
-            promptVC?.didMove(toParentViewController: self)
+            self.showNameDialog()
         }
+    }
+    
+    public func showNameDialog() {
+        //prompt name
+        let promptVC = storyboard?.instantiateViewController(withIdentifier: "NameView") as? NameViewController
+        self.view.addSubview(promptVC!.view)
+        self.addChildViewController(promptVC!)
+        promptVC?.setPrompt(TEACHER_NAME_PROMPT)
+        promptVC?.delegate = self
+        promptVC?.didMove(toParentViewController: self)
     }
     
     func nameReceived(_ name:String) -> Void {
@@ -202,13 +208,16 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         self.view.addSubview(darkView!)
         
         self.view.addSubview((optionVC?.view)!)
-        self.didMove(toParentViewController: optionVC)
+        self.addChildViewController(optionVC!)
+        
+        optionVC?.didMove(toParentViewController: self)
+        //        self.didMove(toParentViewController: optionVC)
         
         let finalPos = optionVC?.view.frame.origin
         optionVC?.view.frame.origin = CGPoint(x: self.view.frame.origin.x + (optionVC?.tableView.frame.width)!, y: -optionVC!.tableView.frame.height)
         
-        UIView.animate(withDuration: 0.4, animations: {
-            self.optionVC?.view.frame.origin = finalPos!
+        UIView.animate(withDuration: 0.25, animations: {
+            self.optionVC?.view.frame.origin = CGPoint(x: 0, y: 0)
             self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.6)
         }, completion: {(comp) in
             
@@ -216,14 +225,16 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
     }
     func hideOption() -> Void {
         
-        let finalPos = CGPoint(x: self.view.frame.width + (optionVC?.tableView.frame.width)!, y: -optionVC!.tableView.frame.height)
+        let finalPos = CGPoint(x: self.view.frame.origin.x + (optionVC?.tableView.frame.width)! + 50, y: -optionVC!.tableView.frame.height)
         
-        UIView.animate(withDuration: 0.4, animations: {
-            self.optionVC?.view.frame.origin = finalPos
+        UIView.animate(withDuration: 0.25, animations: {
+            self.optionVC?.view.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
+            self.optionVC?.view.frame.origin = CGPoint(x: self.view.frame.origin.x + (self.optionVC?.tableView.frame.width)! + 50, y: 0)
             self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
         }, completion: {(comp) in
             self.optionVC?.view.removeFromSuperview()
             self.optionVC?.removeFromParentViewController()
+            
             self.optionVC = nil
             
             self.darkView?.removeFromSuperview()
@@ -236,6 +247,47 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
             hideOption()
         }
     }
+    
+    func actionForOption(_ choice: Choices) {
+        hideOption()
+        switch choice {
+        case Choices.EDIT_DISPLAY_NAME:
+            
+            self.showNameDialog()
+            
+            
+            break
+            
+        case Choices.FAQ:
+            
+            break
+            
+        case Choices.LEAVE_CLASS:
+            
+            let classes = TcrunchHelper.getClasses()
+            //tk
+            if ticketVC?._class != nil{
+                for c in classes {
+                    if c.id == ticketVC?._class?.id {
+                        context.delete(c)
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        
+                        setCenterViewAll(TcrunchHelper.getClasses())
+                    }
+                }
+            }
+            
+            break
+            
+        case Choices.LOG_OUT:
+            
+            break
+            
+        default:
+            print("Option selection error!")
+        }
+    }
+    
 }
 
 protocol ContainerOptionViewControllerDelegate {

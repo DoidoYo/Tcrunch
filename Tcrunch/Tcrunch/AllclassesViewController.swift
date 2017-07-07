@@ -23,6 +23,8 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     var answeredTicket: [TTicket] = []
     var unansweredTicket: [TTicket] = []
     
+    var _class: TClass?
+    
     var navLabel: UILabel?
     
     var tap: UITapGestureRecognizer?
@@ -142,6 +144,8 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     
     func loadClasses(_ classes: [TClass]) {
         
+        _class = nil
+        
         self.unansweredTicket = []
         self.answeredTicket = []
         
@@ -188,12 +192,19 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         }
         hidePanel()
         attachAnswerListener()
+        
+        if classes.count == 0 {
+            self.tableView.reloadData()
+            emptyLabel.isHidden = false
+        }
     }
     
     var hello = 1
     
     func loadClass(_ tclass: TClass) {
         //loading overlay?
+        
+        _class = tclass
         
         TcrunchHelper.clearTicketObserve()
         TcrunchHelper.getStudentTickets(FromClass: tclass,completion: {
@@ -251,16 +262,59 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
             selectedList = answeredTicket
         }
         
+        //set question label
         cell?.questionText.text = selectedList[indexPath.row].question
-        
+        //set class name label
         if navLabel?.text == "All Classes" {
             cell?.classNameText.text = selectedList[indexPath.row].className_
         } else {
             cell?.classNameText.text = ""
         }
         
+        //set released ticket time
+        let unixTime = Double(selectedList[indexPath.row].startTime!) / 1000
+        let currentTime = Date.init().timeIntervalSince1970
+        
+        let releaseDate = Date(timeIntervalSince1970: unixTime)
+        let currentDate = Date.init()
+        
+        let lapsedTime = releaseDate.timeIntervalSince(currentDate)
+        
+        if releaseDate > currentDate {
+            return UITableViewCell()
+        } else {
+            cell?.releaseTimeText.text = "Released \(dateformatter(from: releaseDate, to: currentDate))"
+        }
         
         return cell!
+    }
+    
+    func dateformatter(from: Date, to: Date) -> String {
+        
+        let date1:Date = from // Same you did before with timeNow variable
+        let date2: Date = to
+        
+        let calender:Calendar = Calendar.current
+        let components: DateComponents = calender.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date1, to: date2)
+//        print(components)
+        var returnString:String = ""
+//        print(components.second)
+        
+        if let year = components.year, year >= 1 {
+            returnString = "\(year) " + (year > 1 ? "years" : "year") + " ago"
+        } else if let month = components.month, month >= 1 {
+            returnString = "\(month) " + (month > 1 ? "months" : "month") + " ago"
+        } else if let day = components.day, day >= 1 {
+            returnString = "\(day) " + (day > 1 ? "days" : "day") + " ago"
+        } else if let hour = components.hour, hour >= 1 {
+            returnString = "\(hour) " + (hour > 1 ? "hours" : "hour") + " ago"
+        } else if let min = components.minute, min >= 1 {
+            returnString = "\(min) " + (min > 1 ? "mins" : "min") + " ago"
+        } else if let sec = components.second, sec < 60 {
+            returnString = "Just Now"
+        }
+        
+        return returnString
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

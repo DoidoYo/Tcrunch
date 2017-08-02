@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 //tabbar functionality and swifching of views
 class SegmentedViewController: UIViewController {
@@ -67,10 +68,40 @@ class SegmentedViewController: UIViewController {
     
     
     @IBAction func registerButtonPress(_ sender: Any) {
-        
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
+            (user, error) in
+            
+            TcrunchHelper.user = user
+            
+            if let err = error {
+                print("Register Error: \(err)")
+            } else {
+                //successful registration
+                
+                self.showTeacherScreen()
+                
+            }
+            
+        })
     }
     
     @IBAction func signinButtonPress(_ sender: Any) {
+        
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
+            (user, error) in
+            
+            TcrunchHelper.user = user
+            
+            if let err = error {
+                print("Login Error: \(err)")
+            } else {
+                //successful login
+                self.showTeacherScreen()
+                
+                
+            }
+            
+        })
         
     }
     
@@ -85,6 +116,11 @@ class SegmentedViewController: UIViewController {
         ContainerVC?.setUser(User.STUDENT)
         
         self.show(ContainerVC!, sender: nil)
+    }
+    
+    func showTeacherScreen() {
+        let teacherVC = storyboard?.instantiateViewController(withIdentifier: "TeacherContainerVC")
+        self.show(teacherVC!, sender: self)
     }
     
 }

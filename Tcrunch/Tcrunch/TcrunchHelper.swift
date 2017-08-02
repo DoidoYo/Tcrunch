@@ -13,7 +13,7 @@ import Firebase
 
 class TcrunchHelper {
     
-    public static var user: User?
+    public static var user: Firebase.User?
     public static var user_name: String?
     public static var user_id:String?
     
@@ -239,7 +239,24 @@ class TcrunchHelper {
         return Int64(Date().timeIntervalSince1970 * 1000)
     }
     
+//    public static func createUser(username: String, password: String, completion: @escaping (_ resp: CAuthError?) -> Void) {
+//        
+//        Auth.auth().createUser(withEmail: username, password: password, completion: {
+//            (_user, _error) in
+//    
+////            completion(_error)
+//            self.user = _user
+//            
+//        })
+//        
+//        
+//    }
     
+}
+
+enum CAuthError: String {
+    case USER_ALREADY_EXISTS = "User Already Exists"
+    case ERROR
 }
 
 enum JoinClass {

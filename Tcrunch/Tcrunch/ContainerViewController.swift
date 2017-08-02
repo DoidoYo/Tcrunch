@@ -265,7 +265,7 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         case Choices.LEAVE_CLASS:
             
             let classes = TcrunchHelper.getClasses()
-            //tk
+            
             if ticketVC?._class != nil{
                 for c in classes {
                     if c.id == ticketVC?._class?.id {
@@ -280,6 +280,9 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
             break
             
         case Choices.LOG_OUT:
+            
+            //tk
+            self.performSegue(withIdentifier: "unwindToLogin", sender: self)
             
             break
             

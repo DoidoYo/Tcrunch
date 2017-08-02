@@ -12,6 +12,7 @@ import UIKit
 class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var containerVC: ContainerViewController?
@@ -31,6 +32,10 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         nameLabel.text = TcrunchHelper.user_name
         
         //load classes from phone storage
+        
+        
+        emailLabel.text = TcrunchHelper.user?.email
+        nameLabel.text = TcrunchHelper.user_name
         
     }
     

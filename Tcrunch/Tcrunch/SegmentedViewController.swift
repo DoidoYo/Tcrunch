@@ -46,6 +46,27 @@ class SegmentedViewController: UIViewController {
     override func viewDidLoad() {
         
         iniCustomSegmentedView()
+        
+        let email = "hello@gmail.com"
+        let pass = "test123"
+        
+        //fater login
+        Auth.auth().signIn(withEmail: email, password: pass, completion: {
+            (user, error) in
+            
+            TcrunchHelper.user = user
+            
+            if let err = error {
+                print("Login Error: \(err)")
+            } else {
+                //successful login
+                self.showTeacherScreen()
+                
+                
+            }
+            
+        })
+        
     }
     
     func iniCustomSegmentedView() {

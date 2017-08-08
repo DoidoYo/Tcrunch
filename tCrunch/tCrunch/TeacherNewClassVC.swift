@@ -14,14 +14,30 @@ class TeacherNewClassVC: UIViewController {
     @IBOutlet weak var promptView: UIView!
     
     @IBOutlet weak var promptText: UITextView!
-    @IBOutlet weak var responseTextField: UITextField!
+    @IBOutlet weak var classNameTextField: UITextField!
+    @IBOutlet weak var classCodeTextField: UITextField!
+    @IBAction func cancelPress(_ sender: Any) {
+        destroy()
+    }
     @IBAction func savePress(_ sender: Any) {
-        if let name = responseTextField.text, name != "" {
-            delegate?.nameReceived(name)
+        
+        if !(classNameTextField.text?.isEmpty)! && !(classCodeTextField.text?.isEmpty)!{
             
-            self.view.removeFromSuperview()
-            self.removeFromParentViewController()
+            //save
+            let parentVC = self.parent as! TeacherContainerVC
+            
+            parentVC.createClass(name: classNameTextField.text!, code: classCodeTextField.text!)
+            
+            //destroy
+            
+            destroy()
         }
+    }
+    
+    private func destroy() {
+        self.didMove(toParentViewController: self.parent)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
     }
     
     var delegate:NameViewControllerDelegate?
@@ -34,7 +50,7 @@ class TeacherNewClassVC: UIViewController {
         promptView.layer.shadowRadius = 5;
         promptView.layer.shadowOffset = CGSize(width: 3, height: 10)
         
-        responseTextField.becomeFirstResponder()
+        classNameTextField.becomeFirstResponder()
     }
     
     func setPrompt(_ prompt: String) {

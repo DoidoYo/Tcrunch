@@ -11,19 +11,23 @@ import UIKit
 
 class TeacherNameVC: UIViewController {
     
-    @IBOutlet weak var responseText: UITextField!
     
+    @IBOutlet weak var responseText: UITextField!
     @IBOutlet weak var promptView: UIView!
     @IBAction func saveButtonPress(_ sender: Any) {
-    
-        if !(responseText.text?.isEmpty)! {
-            
+        
+        if let name = responseText.text, name != "" {
             let parent = self.parent as! TeacherContainerVC
+            
+            parent.setTeacherName(name)
             
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
+            self.didMove(toParentViewController: parent)
+            
+        } else {
+            print("write something pls")
         }
-    
     }
     
     override func viewDidLoad() {

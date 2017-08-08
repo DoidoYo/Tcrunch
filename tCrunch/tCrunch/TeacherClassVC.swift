@@ -41,6 +41,7 @@ class TeacherClassVC: UIViewController {
         parentVC?.isSlideViewShowing = true
     }
     @IBAction func addClassButtonPressed(_ sender: Any) {
+        parentVC?.showCreateClassVC()
     }
     @IBAction func optionsButtonPressed(_ sender: Any) {
     }

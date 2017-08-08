@@ -12,6 +12,7 @@ import UIKit
 class TeacherSlideVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
     var classes: [TClass] = []
@@ -19,6 +20,10 @@ class TeacherSlideVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        emailLabel.text = TcrunchHelper.user_name
+        nameLabel.text = TcrunchHelper.user?.email
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

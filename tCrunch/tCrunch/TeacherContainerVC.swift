@@ -14,6 +14,8 @@ class TeacherContainerVC: UIViewController {
     var darkLayer: UIView? = nil
     var darkLayerTap: UITapGestureRecognizer?
     
+    
+    
     var slideVC: TeacherSlideVC? = nil
     
     private var _isSlideViewShowing = false
@@ -37,11 +39,41 @@ class TeacherContainerVC: UIViewController {
     }
     
     override func viewDidLoad() {
-        let navVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNavigationVC")
         
+        //isntantiate nav VC
+        let navVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNavigationVC")
         self.view.addSubview(navVC!.view)
         self.addChildViewController(navVC!)
         self.didMove(toParentViewController: navVC!)
+        
+       
+        //teacher name stuff
+        if let name = UserDefaults.standard.string(forKey: "user_teacher_name") {
+            TcrunchHelper.user_name = name
+        } else {
+            let teacherNameVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNameVC")
+            
+            self.view.addSubview(teacherNameVC!.view)
+            self.addChildViewController(teacherNameVC!)
+            self.didMove(toParentViewController: teacherNameVC!)
+            
+        }
+    }
+    
+    func setTeacherName(_ name: String) {
+        UserDefaults.standard.set(name, forKey: "user_teacher_name")
+        TcrunchHelper.user_name = name
+    }
+    
+    func showCreateClassVC() {
+        let newClassVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNewClassVC")
+        
+        self.view.addSubview((newClassVC?.view)!)
+        self.addChildViewController(newClassVC!)
+        self.didMove(toParentViewController: newClassVC)
+    }
+    
+    func createClass(name: String, code: String) {
         
     }
     

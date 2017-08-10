@@ -23,6 +23,42 @@ class TcrunchHelper {
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static let dbRef = Database.database().reference()
     
+
+    //create class with unique
+    public static func createNewClass(code: String, name: String, completion: @escaping (_ t:JoinClass) -> Void) {
+        
+        dbRef.child("classes").queryOrdered(byChild: "name").queryEqual(toValue: name).observeSingleEvent(of: .value, with: {
+            snapshot in
+            
+            //check if unique name
+            print(snapshot)
+            let val1 = snapshot.value as? NSDictionary
+            if val1 == nil {
+                
+                dbRef.child("classes").queryOrdered(byChild: "courseCode").queryEqual(toValue: code).observeSingleEvent(of: .value, with: {
+                    snapshot2 in
+                
+                    //check if unique code
+                    let val2 = snapshot2.value as? NSDictionary
+                    if val2 == nil {
+                        
+                        //unique code + name
+                        completion(JoinClass.DONE)
+                        
+                    } else {
+                        completion(JoinClass.CODE_EXISTS)
+                        print("Code already in use: \(code)")
+                    }
+                })
+            } else {
+                completion(JoinClass.NAME_EXISTS)
+                print("Name already in use: \(name)")
+            }
+            
+        })
+        
+    }
+    
     public static func joinClass(code: String, completion: @escaping (_ re: JoinClass, _ tclass: TClass?) -> Void) {
         
         dbRef.child("classes").queryOrdered(byChild: "courseCode").queryEqual(toValue: code).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: {
@@ -263,4 +299,6 @@ enum JoinClass {
     case ERROR
     case DONE
     case ALREADY_JOINED
+    case NAME_EXISTS
+    case CODE_EXISTS
 }

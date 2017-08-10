@@ -23,6 +23,12 @@ class TeacherNewClassVC: UIViewController {
         
         if !(classNameTextField.text?.isEmpty)! && !(classCodeTextField.text?.isEmpty)!{
             
+            
+            TcrunchHelper.createNewClass(code: classCodeTextField.text!, name: classNameTextField.text!, completion: {
+                t in
+            
+            })
+            
             //save
             let parentVC = self.parent as! TeacherContainerVC
             

@@ -15,7 +15,7 @@ class TeacherSlideVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var classes: [TClass] = []
+    var classes: [TClass_Temp] = []
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -23,6 +23,8 @@ class TeacherSlideVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         emailLabel.text = TcrunchHelper.user_name
         nameLabel.text = TcrunchHelper.user?.email
+        
+        classes = TcrunchHelper.teacherClasses
         
     }
     

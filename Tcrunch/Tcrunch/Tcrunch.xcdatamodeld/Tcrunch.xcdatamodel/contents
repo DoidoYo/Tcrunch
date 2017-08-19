@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="TClass" representedClassName="TClass" syncable="YES" codeGenerationType="class">
         <attribute name="courseCode" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ticket" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TTicketPersistent" syncable="YES"/>
+    </entity>
+    <entity name="TClassPersistent_Teacher" representedClassName="TClassPersistent_Teacher" syncable="YES" codeGenerationType="class">
+        <attribute name="courseCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tickets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TTicketPersistent_Teacher" syncable="YES"/>
     </entity>
     <entity name="TTicketPersistent" representedClassName="TTicketPersistent" syncable="YES" codeGenerationType="class">
         <attribute name="anonymous" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -18,8 +25,13 @@
         <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="tclass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TClass" syncable="YES"/>
     </entity>
+    <entity name="TTicketPersistent_Teacher" representedClassName="TTicketPersistent_Teacher" syncable="YES" codeGenerationType="class">
+        <relationship name="tclass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TClassPersistent_Teacher" syncable="YES"/>
+    </entity>
     <elements>
         <element name="TClass" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="TTicketPersistent" positionX="-54" positionY="18" width="128" height="180"/>
+        <element name="TClassPersistent_Teacher" positionX="-63" positionY="72" width="128" height="120"/>
+        <element name="TTicketPersistent_Teacher" positionX="-54" positionY="81" width="128" height="60"/>
     </elements>
 </model>

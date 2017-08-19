@@ -19,6 +19,8 @@ class TcrunchHelper {
     
     static var newTicketHandle:UInt?
     
+    public static var teacherClasses = [TClass_Temp]()
+    
     //get context
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static let dbRef = Database.database().reference()
@@ -42,8 +44,29 @@ class TcrunchHelper {
                     let val2 = snapshot2.value as? NSDictionary
                     if val2 == nil {
                         
+                        //creates entity in classes with random id -- saves id
+                        let nClass = dbRef.child("classes").childByAutoId()
+                        
+                        let tclass = TClass_Temp()
+                        
+                        tclass.id = nClass.key
+                        tclass.courseCode = code
+                        tclass.name = name
+                        tclass.teacher = self.user_name
+                        
+                        //saves created class
+                        teacherClasses.append(tclass)
+                        
+                        //associates teacher to class
+                    dbRef.child("teachers").child(self.user!.uid).child(nClass.key).setValue(["courseCode":code, "id":nClass.key, "name":name, "teacher":self.user?.uid])
+                        
+                        dbRef.child("classes").child(nClass.key).setValue(["courseCode":code, "id":nClass.key, "name":name, "teacher":self.user?.uid])
+                        
+                        
+                        
                         //unique code + name
                         completion(JoinClass.DONE)
+                        
                         
                     } else {
                         completion(JoinClass.CODE_EXISTS)
@@ -176,9 +199,6 @@ class TcrunchHelper {
                     }
                     
                     ticket.tclass = tclass
-                    
-                    //tk check if time is acceptable, make a timed function that checks if ticket is avalable every minute
-                    //ensure that past one can be cancelled--should be in AllClassesViewController
                     
                     
                     unansweredTickets.append(ticket)

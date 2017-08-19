@@ -27,16 +27,20 @@ class TeacherNewClassVC: UIViewController {
             TcrunchHelper.createNewClass(code: classCodeTextField.text!, name: classNameTextField.text!, completion: {
                 t in
             
+                if t == JoinClass.DONE {
+                    self.destroy()
+                }
+                
             })
-            
-            //save
-            let parentVC = self.parent as! TeacherContainerVC
-            
-            parentVC.createClass(name: classNameTextField.text!, code: classCodeTextField.text!)
+//            
+//            //save
+//            let parentVC = self.parent as! TeacherContainerVC
+//            
+//            parentVC.createClass(name: classNameTextField.text!, code: classCodeTextField.text!)
             
             //destroy
             
-            destroy()
+//            self.destroy()
         }
     }
     

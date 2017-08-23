@@ -11,6 +11,8 @@
 		BD06A1BF1EDB1D1B006B04C0 /* TTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A1BE1EDB1D1B006B04C0 /* TTicket.swift */; };
 		BD06A1C11EDB27BF006B04C0 /* TicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD06A1C01EDB27BF006B04C0 /* TicketCell.xib */; };
 		BD1BCE661F44A3CC0070B602 /* TClass_Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1BCE651F44A3CC0070B602 /* TClass_Temp.swift */; };
+		BD1F56B61F4E0A860076AE08 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F56B51F4E0A860076AE08 /* CheckButton.swift */; };
+		BD2F7D301F4C988600C8DF85 /* TeacherNewTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */; };
 		BD320EFC1ED7E332008FCA0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD320EFA1ED7E332008FCA0B /* Main.storyboard */; };
 		BD320F0F1ED7E332008FCA0B /* tCrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F0E1ED7E332008FCA0B /* tCrunchTests.swift */; };
 		BD320F1A1ED7E332008FCA0B /* tCrunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F191ED7E332008FCA0B /* tCrunchUITests.swift */; };
@@ -74,6 +76,8 @@
 		BD06A1BE1EDB1D1B006B04C0 /* TTicket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTicket.swift; sourceTree = "<group>"; };
 		BD06A1C01EDB27BF006B04C0 /* TicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketCell.xib; sourceTree = "<group>"; };
 		BD1BCE651F44A3CC0070B602 /* TClass_Temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TClass_Temp.swift; sourceTree = "<group>"; };
+		BD1F56B51F4E0A860076AE08 /* CheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
+		BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherNewTicketVC.swift; sourceTree = "<group>"; };
 		BD320EF31ED7E332008FCA0B /* tCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD320EFB1ED7E332008FCA0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD320F0A1ED7E332008FCA0B /* tCrunchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tCrunchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +248,7 @@
 			children = (
 				BD06A1C01EDB27BF006B04C0 /* TicketCell.xib */,
 				BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */,
+				BD1F56B51F4E0A860076AE08 /* CheckButton.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */,
 				BDD6939A1F165C160042E186 /* TeacherClassVC.swift */,
 				BD5539AD1F2A1A670097EFD6 /* TeacherNewClassVC.swift */,
+				BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */,
 				BD3F02FB1F2F5C440090F2C2 /* TeacherNameVC.swift */,
 			);
 			name = Teacher;
@@ -567,6 +573,7 @@
 				BD320F491ED7E3FC008FCA0B /* NameViewController.swift in Sources */,
 				BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */,
 				BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */,
+				BD2F7D301F4C988600C8DF85 /* TeacherNewTicketVC.swift in Sources */,
 				BD320F4A1ED7E3FC008FCA0B /* SegmentedViewController.swift in Sources */,
 				BD320F431ED7E3FC008FCA0B /* AllclassesViewController.swift in Sources */,
 				BD320F4C1ED7E3FC008FCA0B /* SlideMenuViewController.swift in Sources */,
@@ -584,6 +591,7 @@
 				BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */,
 				BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */,
 				BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */,
+				BD1F56B61F4E0A860076AE08 /* CheckButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

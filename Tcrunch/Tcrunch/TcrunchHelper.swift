@@ -82,6 +82,49 @@ class TcrunchHelper {
         
     }
     
+    public static func observeTeacherClasses() {
+        
+        dbRef.child("teachers").child((self.user?.uid)!).removeAllObservers()
+        
+        dbRef.child("teachers").child((self.user?.uid)!).observe(.value, with: {
+            (snapshot) in
+        
+            
+            if let vals = snapshot.value as? NSDictionary {
+                
+                self.teacherClasses = [TClass_Temp]()
+                
+                for key in vals.allKeys {
+                    
+                    if let itClass = vals[key] as? NSDictionary {
+                        
+//                        print(itClass)
+                        
+                        var tempClass = TClass_Temp()
+                        
+                        if let id = itClass["id"] as? String {
+                            tempClass.id = id
+                        }
+                        if let courseCode = itClass["courseCode"] as? String {
+                            tempClass.courseCode = courseCode
+                        }
+                        if let name = itClass["name"] as? String {
+                            tempClass.name = name
+                        }
+                        if let teacher = itClass["teacher"] as? String {
+                            tempClass.teacher = teacher
+                        }
+                        
+                        self.teacherClasses.append(tempClass)
+                        
+                    }
+                    
+                }
+            }
+            
+        })
+    }
+    
     public static func joinClass(code: String, completion: @escaping (_ re: JoinClass, _ tclass: TClass?) -> Void) {
         
         dbRef.child("classes").queryOrdered(byChild: "courseCode").queryEqual(toValue: code).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: {

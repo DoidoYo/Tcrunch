@@ -18,6 +18,8 @@ class TeacherSlideVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var classes: [TClass_Temp] = []
     
     override func viewDidLoad() {
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -25,21 +27,38 @@ class TeacherSlideVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         nameLabel.text = TcrunchHelper.user?.email
         
         classes = TcrunchHelper.teacherClasses
+        self.tableView.reloadData()
         
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //todo
+//        print(classes.count)
         return classes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //todo
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teacherClassCell")!
+        cell.textLabel!.text = classes[indexPath.row].name
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let parentVC = self.parent as! TeacherContainerVC
+        
+        parentVC.setCurrentClass(classes[indexPath.row])
+        parentVC.isSlideViewShowing = false
     }
     
     func hide() {
-        let parentVC = self.parent as! TeacherContainerVC
+        
         
     }
     

@@ -17,6 +17,7 @@ class TeacherContainerVC: UIViewController {
     
     
     var slideVC: TeacherSlideVC? = nil
+    var classVC: TeacherClassVC? = nil
     
     private var _isSlideViewShowing = false
     var isSlideViewShowing: Bool {
@@ -46,6 +47,7 @@ class TeacherContainerVC: UIViewController {
         self.addChildViewController(navVC!)
         self.didMove(toParentViewController: navVC!)
         
+        classVC = navVC?.childViewControllers[0] as! TeacherClassVC
        
         //teacher name stuff
         if let name = UserDefaults.standard.string(forKey: "user_teacher_name") {
@@ -58,6 +60,15 @@ class TeacherContainerVC: UIViewController {
             self.didMove(toParentViewController: teacherNameVC!)
             
         }
+        
+        //init observers
+        TcrunchHelper.observeTeacherClasses()
+    }
+    
+    func setCurrentClass(_ tclass:TClass_Temp) {
+        //tktk -- todo create functions in classVC
+        classVC?.selectedClass = tclass
+        
     }
     
     func setTeacherName(_ name: String) {
@@ -73,11 +84,12 @@ class TeacherContainerVC: UIViewController {
         self.didMove(toParentViewController: newClassVC)
     }
     
-    func createClass(name: String, code: String) {
-        
-        //tk create new class
-        
-    }
+//    TODO -- DELETE
+//    func createClass(name: String, code: String) {
+//        
+//        //tk create new class
+//        
+//    }
     
     private func showSlideVC() {
         
@@ -102,8 +114,8 @@ class TeacherContainerVC: UIViewController {
         self.view.addSubview(darkLayer!)
         //Add SlideVC to view
         self.view.addSubview(slideVC!.view)
-        self.didMove(toParentViewController: slideVC)
         self.addChildViewController(slideVC!)
+        self.didMove(toParentViewController: slideVC)
         
         //set inital position of slide vc
         slideVC?.view.frame.origin.x -= self.view.frame.width
@@ -125,6 +137,8 @@ class TeacherContainerVC: UIViewController {
             
             self.darkLayer?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
             self.slideVC?.view.frame.origin.x -= self.view.frame.width
+            
+            self.classVC?.viewWillBecomePrimary()
             
         }, completion: {
             done in

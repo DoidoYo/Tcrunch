@@ -9,19 +9,14 @@
 import Foundation
 import UIKit
 
-class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    @IBOutlet weak var classPicker: UIPickerView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var timePicker: UIDatePicker!
-    
+class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var classTextField: UITextField!
     var dateTextField: UITextField!
     var timeTextField: UITextField!
 
-    var multipleChoiceButton: CheckButton!
-    var anonymousButton: CheckButton!
+    var multipleChoiceButton: CheckButton?
+    var anonymousButton: CheckButton?
     
     var selectedClass: TClass_Temp?
     
@@ -33,17 +28,10 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        classPicker.isHidden = true
-        classPicker.delegate = self
-        classPicker.dataSource = self
-       
-        datePicker.isHidden = true
-        datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
-        timePicker.isHidden = true
-        timePicker.addTarget(self, action: #selector(timePickerChanged(sender:)), for: .valueChanged)
         
 //        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
@@ -66,10 +54,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         //button press event
         navRightButton.action = #selector(self.navRightButtonPress(sender:))
         
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        classTextField.text = TcrunchHelper.teacherClasses[row].name
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -84,38 +69,65 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         return TcrunchHelper.teacherClasses.count
     }
     
-    func datePickerChanged(sender: UIDatePicker) {
-        
+    //-----
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        classTextField?.text = TcrunchHelper.teacherClasses[row].name!
+    }
+    func datePickerChanged(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
-        dateTextField.text = dateFormatter.string(from: sender.date)
+        dateTextField?.text = dateFormatter.string(from: sender.date)
     }
-    
-    func timePickerChanged(sender: UIDatePicker) {
+    func timePickerChanged(_ sender: UIDatePicker) {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
         
-        timeTextField.text = timeFormatter.string(from: sender.date)
+        timeTextField?.text = timeFormatter.string(from: sender.date)
+    }
+    
+    //------
+    
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if textField == classTextField {
+            
+            let picker = UIPickerView()
+            picker.dataSource = self
+            picker.delegate = self
+            
+            textField.inputView = picker
+        } else if textField == timeTextField {
+            
+            let picker = UIDatePicker()
+            picker.datePickerMode = .time
+            picker.addTarget(self, action: #selector(timePickerChanged(_:)), for: .valueChanged)
+//            timePickerChanged(picker)
+            
+            textField.inputView = picker
+        } else if textField == dateTextField {
+            
+            let picker = UIDatePicker()
+            picker.datePickerMode = .date
+            picker.addTarget(self, action: #selector(datePickerChanged(_:)), for: .valueChanged)
+//            datePickerChanged(picker)
+            
+            textField.inputView = picker
+        }
+        return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        if textField == classTextField {
-            classPicker.isHidden = false
+        if textField == timeTextField {
+            timePickerChanged(textField.inputView as! UIDatePicker)
         } else if textField == dateTextField {
-            datePicker.isHidden = false
-            datePickerChanged(sender: datePicker)
-        } else if textField == timeTextField {
-            timePicker.isHidden = false
-            timePickerChanged(sender: timePicker)
+            datePickerChanged(textField.inputView as! UIDatePicker)
         }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        datePicker.isHidden = true
-        timePicker.isHidden = true
-        classPicker.isHidden = true
+        
     }
     
     //created button pressed
@@ -133,7 +145,12 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         } else if section == 1 {
             return multipleChoices.count
         } else if section == 2 {
-            return 1
+            if let checked = multipleChoiceButton?.isButtonChecked, checked {
+                return 1
+            } else {
+                multipleChoices = [MultipleChoice]()
+                return 0
+            }
         }
         
         return 0
@@ -146,6 +163,12 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         }
         if indexPath.section == 0 && indexPath.row == 4 {
             return 40
+        }
+        if indexPath.section == 1 {
+            return 40
+        }
+        if indexPath.section == 2 {
+            return 30
         }
         
         return UITableViewAutomaticDimension
@@ -161,11 +184,6 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                 classTextField = cell.viewWithTag(1) as! UITextField
                 classTextField.text = selectedClass?.name
                 
-                for i in 0 ..< TcrunchHelper.teacherClasses.count {
-                    if  TcrunchHelper.teacherClasses[i].name == selectedClass?.name {
-                        classPicker.selectRow(i, inComponent: 0, animated: false)
-                    }
-                }
                 
                 classTextField.delegate = self
                 break
@@ -189,11 +207,11 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
             case 4:
                 cell = tableView.dequeueReusableCell(withIdentifier: "checkmarks")!
                 
-                let multipleChoiceButton = cell.viewWithTag(5) as! UIButton
-                let anonymousButton = cell.viewWithTag(6) as! UIButton
+                multipleChoiceButton = cell.viewWithTag(5) as! CheckButton
+                anonymousButton = cell.viewWithTag(6) as! CheckButton
                 
-                multipleChoiceButton.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
-                anonymousButton.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
+                multipleChoiceButton!.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
+                anonymousButton!.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
                 
                 break
                 
@@ -204,9 +222,24 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                 break
             }
         } else if indexPath.section == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "multipleChoice")!
+            
+            let text = cell.viewWithTag(1) as! UITextField
+            text.delegate = self
+            text.addTarget(self, action: #selector(textfieldMCChange(sender:)), for: .editingChanged)
+            text.layer.setValue(indexPath.row, forKey: "index")
+            text.placeholder = "Choice \(indexPath.row + 1)"
+            text.text = multipleChoices[indexPath.row].text
+            
+            let closeButton = cell.viewWithTag(2) as! UIButton
+            closeButton.layer.setValue(indexPath.row, forKey: "index")
+            closeButton.addTarget(self, action: #selector(closeMCButtonPressed(sender:)), for: .touchUpInside)
             
         } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "addMC")!
             
+            let addButton = cell.viewWithTag(1) as! UIButton
+            addButton.addTarget(self, action: #selector(addMCButtonPressed(sender:)), for: .touchUpInside)
         }
         
         cell.selectionStyle = .none
@@ -214,10 +247,33 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    func textfieldMCChange(sender: UITextField) {
+        if let index = sender.layer.value(forKey: "index") as? Int {
+            multipleChoices[index].text = sender.text!
+        }
+    }
+    
+    func closeMCButtonPressed(sender: UIButton) {
+        let index = sender.layer.value(forKey: "index") as! Int
+        multipleChoices.remove(at: index)
+        print("removing from \(index)")
+        tableView.reloadData()
+    }
+    
+    func addMCButtonPressed(sender: UIButton) {
+        multipleChoices.append(MultipleChoice())
+        tableView.reloadData()
+    }
+    
     func tableButtonPressed(sender: UIButton) {
         let button = sender as! CheckButton
         
         button.isButtonChecked = !button.isButtonChecked
+        
+        if sender == multipleChoiceButton {
+            multipleChoices.append(MultipleChoice())
+            tableView.reloadData()
+        }
         
         //toggle tick mark
         if button.isButtonChecked {
@@ -234,7 +290,13 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     
 }
 
+enum Picker {
+    case TIME
+    case DATE
+    case CLASS
+}
+
 class MultipleChoice {
-    var text: String?
+    var text: String = ""
     var selected:Bool = false
 }

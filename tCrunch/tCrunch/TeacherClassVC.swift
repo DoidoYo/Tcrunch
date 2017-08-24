@@ -31,7 +31,7 @@ class TeacherClassVC: UIViewController {
     @IBAction func newTicketButtonPress(_ sender: Any) {
         let newTicketVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNewTicketVC") as! TeacherNewTicketVC
         newTicketVC.selectedClass = selectedClass
-        print("sending class")
+//        print("sending class")
         self.navigationController?.show(newTicketVC, sender: self)
     }
     

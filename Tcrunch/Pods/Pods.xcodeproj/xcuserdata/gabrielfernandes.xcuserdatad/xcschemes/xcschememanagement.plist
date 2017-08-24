@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-tCrunch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>74E0F5D052EF2224720925FAFB7CF35A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B840514B4C4F238DC57022139BBB9C98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -48,11 +63,6 @@
 			<true/>
 		</dict>
 		<key>E44C71C854F339FFFF956DEAB57AA0E5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F5C04C53A2EB84114ECD3B0E2692F634</key>
 		<dict>
 			<key>primary</key>
 			<true/>

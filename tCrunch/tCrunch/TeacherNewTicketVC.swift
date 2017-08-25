@@ -14,17 +14,19 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     var classTextField: UITextField!
     var dateTextField: UITextField!
     var timeTextField: UITextField!
+    var questionTextView: UITextView!
 
     var multipleChoiceButton: CheckButton?
     var anonymousButton: CheckButton?
     
     var selectedClass: TClass_Temp?
     
-    var navRightButton = UIBarButtonItem()
+    var navRightButton:UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
     
     var multipleChoices = [MultipleChoice]()
+    
     
     
     override func viewDidLoad() {
@@ -36,25 +38,22 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
 //        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
-        //create right button
-        self.navigationItem.setRightBarButton(navRightButton, animated: true)
+        
         //set size of JOIN CLASS Button text
         let fontSize:CGFloat = 13;
         let font:UIFont = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightSemibold)
         
         let attributes:[String : Any] = [NSFontAttributeName: font];
         
+        navRightButton = UIBarButtonItem(title: "CREATE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.navRightButtonPress(sender:)))
+        
         navRightButton.setTitleTextAttributes(attributes, for: UIControlState.normal);
-        navRightButton.title = "CREATE"
         
         self.navigationItem.title = "New Ticket"
-        
+    
         self.navigationController!.navigationBar.topItem!.title = "Back"
-        
-        //button press event
-        navRightButton.action = #selector(self.navRightButtonPress(sender:))
-        
-        
+        //create right button
+        self.navigationItem.setRightBarButton(navRightButton, animated: true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -72,6 +71,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     //-----
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedClass = TcrunchHelper.teacherClasses[row]
         classTextField?.text = TcrunchHelper.teacherClasses[row].name!
     }
     func datePickerChanged(_ sender: UIDatePicker) {
@@ -132,7 +132,56 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     
     //created button pressed
     func navRightButtonPress(sender: UIBarButtonItem) {
-        print("clicked")
+        //tk
+        if !(dateTextField.text?.isEmpty)! && !(timeTextField.text?.isEmpty)! && !questionTextView.text.isEmpty {
+            
+            //get date
+            let dFormatter = DateFormatter()
+            dFormatter.dateFormat = "EEEE, MMM d, yyyy"
+            let date = dFormatter.date(from: dateTextField.text!)
+            
+            //get time
+            dFormatter.timeStyle = .short
+            let time = dFormatter.date(from: timeTextField.text!)
+            
+            //combine both
+            
+            let cal = Calendar.current
+            let dateComp = cal.dateComponents([.year, .month, .day], from: date!)
+            let timeComp = cal.dateComponents([.hour, .minute], from: time!)
+            
+            var mergedComp = DateComponents()
+            mergedComp.year = dateComp.year
+            mergedComp.month = dateComp.month
+            mergedComp.day = dateComp.day
+            mergedComp.hour = timeComp.hour
+            mergedComp.minute = timeComp.minute
+            
+            let mergedDate = cal.date(from: mergedComp)
+            
+            let unixTime = (mergedDate?.timeIntervalSince1970)! * 1000
+            
+            let ticket = TTicket()
+            ticket.anonymous = anonymousButton?.isButtonChecked
+            ticket.className_ = selectedClass?.name
+            ticket.question = questionTextView.text
+            ticket.startTime = CLongLong(unixTime)
+//            print()
+            
+            var stringChoices = [String]()
+            
+            for choice in multipleChoices {
+                stringChoices.append(choice.text)
+            }
+            ticket.answerChoices = NSKeyedArchiver.archivedData(withRootObject: stringChoices)
+            
+            TcrunchHelper.create(Ticket: ticket, ForClass: selectedClass!, completion: {
+                status in
+                
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -202,6 +251,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                 
             case 3:
                 cell = tableView.dequeueReusableCell(withIdentifier: "question")!
+                questionTextView = cell.viewWithTag(1) as! UITextView
                 break
             
             case 4:
@@ -256,7 +306,6 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     func closeMCButtonPressed(sender: UIButton) {
         let index = sender.layer.value(forKey: "index") as! Int
         multipleChoices.remove(at: index)
-        print("removing from \(index)")
         tableView.reloadData()
     }
     

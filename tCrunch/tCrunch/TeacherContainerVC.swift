@@ -60,9 +60,6 @@ class TeacherContainerVC: UIViewController {
             self.didMove(toParentViewController: teacherNameVC!)
             
         }
-        
-        //init observers
-        TcrunchHelper.observeTeacherClasses()
     }
     
     func setCurrentClass(_ tclass:TClass_Temp) {

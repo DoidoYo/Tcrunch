@@ -25,6 +25,30 @@ class TcrunchHelper {
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static let dbRef = Database.database().reference()
     
+    public static func create(Ticket: TTicket, ForClass: TClass_Temp, completion: @escaping (_ status: JoinClass) -> Void) {
+        
+        let dbTicket = dbRef.child("tickets").child(ForClass.id!).childByAutoId()
+        
+        let stringArray = NSKeyedUnarchiver.unarchiveObject(with: Ticket.answerChoices! as Data) as! [String]
+        
+        var type = "FreeResponse"
+        if stringArray.count > 0 {
+            type = "MultipleChoice"
+        }
+        
+        dbTicket.setValue(["anonymous":Ticket.anonymous, "className":ForClass.name, "endTime":0, "id":dbTicket.key, "question":Ticket.question, "questionType":type, "startTime":Ticket.startTime])
+        
+        var mcDic = [String:String] ()
+        for i in 0 ..< stringArray.count {
+            mcDic["\(i)"] = stringArray[i]
+        }
+        
+        dbTicket.child("answerChoices").setValue(mcDic)
+        
+        completion(JoinClass.DONE)
+        
+        
+    }
 
     //create class with unique
     public static func createNewClass(code: String, name: String, completion: @escaping (_ t:JoinClass) -> Void) {
@@ -82,17 +106,16 @@ class TcrunchHelper {
         
     }
     
-    public static func observeTeacherClasses() {
+    public static func observeTeacherClasses(completion: @escaping (_ classes:[TClass_Temp]) -> Void) {
         
         dbRef.child("teachers").child((self.user?.uid)!).removeAllObservers()
         
         dbRef.child("teachers").child((self.user?.uid)!).observe(.value, with: {
             (snapshot) in
         
+            self.teacherClasses = [TClass_Temp]()
             
             if let vals = snapshot.value as? NSDictionary {
-                
-                self.teacherClasses = [TClass_Temp]()
                 
                 for key in vals.allKeys {
                     
@@ -121,6 +144,7 @@ class TcrunchHelper {
                     
                 }
             }
+            completion(teacherClasses)
             
         })
     }
@@ -197,6 +221,63 @@ class TcrunchHelper {
         for item in classes {
             dbRef.child("tickets").child(item.id!).removeAllObservers()
         }
+    }
+    
+    public static func getTeacherTickets(FromClass tclass: TClass_Temp, completion: @escaping (_ tickets:[TTicket])->Void) {
+        if let handle = newTicketHandle {
+            dbRef.removeObserver(withHandle: handle)
+        }
+        
+        newTicketHandle = dbRef.child("tickets").child(tclass.id!).observe(.value, with: {
+            (snapshot) in
+            
+            var tickets: [TTicket] = []
+            
+            //get all tickets
+            if let snap = snapshot.value as? NSDictionary {
+                for (_,obj) in snap {
+                    let ticket = TTicket()
+                    let obj = obj as! NSDictionary
+                    if let anonymous = obj["anonymous"] as? Bool {
+                        ticket.anonymous = anonymous
+                    }
+                    if let className_ = obj["className"] as? String {
+                        ticket.className_ = className_
+                    }
+                    if let endTime = obj["endTime"] as? String {
+                        ticket.endTime = endTime
+                    }
+                    if let id = obj["id"] as? String {
+                        ticket.id = id
+                    } else {
+                        break
+                    }
+                    if let question = obj["question"] as? String {
+                        ticket.question = question
+                    }
+                    if let startTime = obj["startTime"] as? CLongLong {
+                        ticket.startTime = startTime
+                    }
+                    if let answerChoiceObj = obj["answerChoices"] as? [String] {
+                        var choices: [String] = []
+                        for choice in answerChoiceObj {
+                            choices.append(choice)
+                        }
+                        let arrayData = NSKeyedArchiver.archivedData(withRootObject: choices)
+                        ticket.answerChoices = arrayData
+                    }
+                    
+                    ticket.tempClass = tclass
+                    
+                    
+                    tickets.append(ticket)
+                    
+                }
+            }
+            completion(tickets)
+        })
+
+        
     }
     
     public static func getStudentTickets(FromClass tclass: TClass, completion: @escaping (_ answTickets:[TTicket],_ unanswTickets:[TTicket])->Void) {

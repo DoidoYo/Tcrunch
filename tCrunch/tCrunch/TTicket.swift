@@ -22,5 +22,6 @@ class TTicket {
     var answerChoices:Data?
     
     var tclass:TClass?
+    var tempClass:TClass_Temp?
     
 }

@@ -71,7 +71,7 @@ class StudentTicketDetailViewController: UIViewController, UITableViewDelegate, 
         
         //init stuff for answer
         if let choices = ticket!.answerChoices, tickertPersistent?.answer == nil {
-            let stringArray = NSKeyedUnarchiver.unarchiveObject(with: choices as Data) as! [String]
+            let stringArray = NSKeyedUnarchiver.unarchiveObject(with: choices as Data) as! [String]  //tk unrar choices
             //add items to dictionary
             for item in stringArray {
                 tableData[item] = false

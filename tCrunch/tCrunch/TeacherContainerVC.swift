@@ -39,6 +39,7 @@ class TeacherContainerVC: UIViewController {
         }
     }
     
+    var firstTime = true
     override func viewDidLoad() {
         
         //isntantiate nav VC
@@ -53,12 +54,8 @@ class TeacherContainerVC: UIViewController {
         if let name = UserDefaults.standard.string(forKey: "user_teacher_name") {
             TcrunchHelper.user_name = name
         } else {
-            let teacherNameVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNameVC")
-            
-            self.view.addSubview(teacherNameVC!.view)
-            self.addChildViewController(teacherNameVC!)
-            self.didMove(toParentViewController: teacherNameVC!)
-            
+            self.showTeacherNameDialog()
+            firstTime = false
         }
     }
     
@@ -68,17 +65,95 @@ class TeacherContainerVC: UIViewController {
         
     }
     
-    func setTeacherName(_ name: String) {
-        UserDefaults.standard.set(name, forKey: "user_teacher_name")
-        TcrunchHelper.user_name = name
+    var actionToEnable : UIAlertAction?
+    func showTeacherNameDialog() {
+        let alertController = UIAlertController(title: "What's your name?", message: "This is the name that students will see.", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {
+            textField in
+            textField.placeholder = "Your name"
+            textField.addTarget(self, action: #selector(self.textChanged(_:)), for: .editingChanged)
+            
+        })
+        
+        if !firstTime {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
+        }
+        
+        actionToEnable = UIAlertAction(title: "OK", style: .default, handler: {
+            (action) in
+            
+            let textField = alertController.textFields![0] as! UITextField
+            
+            UserDefaults.standard.set(textField.text!, forKey: "user_teacher_name")
+            TcrunchHelper.user_name = textField.text!
+            
+        })
+        actionToEnable?.isEnabled = false
+        alertController.addAction(actionToEnable!)
+        
+        self.present(alertController, animated: true)
+    }
+    func textChanged(_ sender:UITextField) {
+        if (sender.text?.isEmpty)! {
+            self.actionToEnable?.isEnabled = false
+        } else {
+            self.actionToEnable?.isEnabled = true
+        }
     }
     
+    
+    private var nameTF: UITextField?
+    private var codeTF: UITextField?
     func showCreateClassVC() {
-        let newClassVC = storyboard?.instantiateViewController(withIdentifier: "TeacherNewClassVC")
         
-        self.view.addSubview((newClassVC?.view)!)
-        self.addChildViewController(newClassVC!)
-        self.didMove(toParentViewController: newClassVC)
+        let alertController = UIAlertController(title: "Add a new class", message: "", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {
+            textField in
+            
+            self.nameTF = textField
+            textField.placeholder = "Class Name"
+            textField.addTarget(self, action: #selector(self.createClassTextChange(_:)), for: .editingChanged)
+            
+        })
+        alertController.addTextField(configurationHandler: {
+            textField in
+            self.codeTF = textField
+            textField.placeholder = "Class Code"
+            textField.addTarget(self, action: #selector(self.createClassTextChange(_:)), for: .editingChanged)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        
+        actionToEnable = UIAlertAction(title: "Create", style: .default, handler: {
+            (action) in
+            
+            let textField = alertController.textFields![0] as! UITextField
+            
+            TcrunchHelper.createNewClass(code: self.codeTF!.text!, name: self.nameTF!.text!, completion: {
+                back in
+                
+                print(back)
+            })
+            
+        })
+        actionToEnable?.isEnabled = false
+        alertController.addAction(actionToEnable!)
+        
+        self.present(alertController, animated: true)
+        
+    }
+    
+    func createClassTextChange(_ sender: UITextField) {
+        if !(nameTF?.text?.isEmpty)! && !(codeTF?.text?.isEmpty)! {
+            actionToEnable?.isEnabled = true
+        } else {
+            actionToEnable?.isEnabled = false
+        }
     }
     
 //    TODO -- DELETE
@@ -87,6 +162,10 @@ class TeacherContainerVC: UIViewController {
 //        //tk create new class
 //        
 //    }
+    
+    func logOut() {
+        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+    }
     
     private func showSlideVC() {
         

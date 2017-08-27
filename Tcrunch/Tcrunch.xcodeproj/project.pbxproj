@@ -24,9 +24,7 @@
 		BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */; };
 		BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */; };
 		BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */; };
-		BD320F471ED7E3FC008FCA0B /* CourseCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */; };
 		BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */; };
-		BD320F491ED7E3FC008FCA0B /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F341ED7E3FC008FCA0B /* NameViewController.swift */; };
 		BD320F4A1ED7E3FC008FCA0B /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */; };
 		BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */; };
 		BD320F4C1ED7E3FC008FCA0B /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */; };
@@ -37,14 +35,14 @@
 		BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD320F3D1ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld */; };
 		BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */; };
 		BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */; };
-		BD3F02FC1F2F5C440090F2C2 /* TeacherNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F02FB1F2F5C440090F2C2 /* TeacherNameVC.swift */; };
 		BD474BBB1F4F7C9100CADE0A /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */; };
-		BD5539AE1F2A1A670097EFD6 /* TeacherNewClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5539AD1F2A1A670097EFD6 /* TeacherNewClassVC.swift */; };
 		BD8DB5FC1EEDBF56008B33DC /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */; };
 		BDD693971F165B780042E186 /* TeacherContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693961F165B780042E186 /* TeacherContainerVC.swift */; };
 		BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */; };
 		BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6939A1F165C160042E186 /* TeacherClassVC.swift */; };
 		BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */; };
+		BDE54CA21F51FD1400A611CF /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */; };
+		BDE54CA41F51FE6700A611CF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE54CA31F51FE6700A611CF /* SettingCell.swift */; };
 		D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */; };
 		F8366A15AD2A6FEEDEF125E5 /* Pods_tCrunchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C253DAEE9EA150918484C65 /* Pods_tCrunchTests.framework */; };
 /* End PBXBuildFile section */
@@ -96,9 +94,7 @@
 		BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonShadow.swift; sourceTree = "<group>"; };
 		BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCodeViewController.swift; sourceTree = "<group>"; };
 		BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BD320F341ED7E3FC008FCA0B /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
 		BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
@@ -109,14 +105,14 @@
 		BD320F3E1ED7E3FC008FCA0B /* Tcrunch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tcrunch.xcdatamodel; sourceTree = "<group>"; };
 		BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketDetailViewController.swift; sourceTree = "<group>"; };
 		BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketUnrespondedDetailViewController.swift; sourceTree = "<group>"; };
-		BD3F02FB1F2F5C440090F2C2 /* TeacherNameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherNameVC.swift; sourceTree = "<group>"; };
 		BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
-		BD5539AD1F2A1A670097EFD6 /* TeacherNewClassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherNewClassVC.swift; sourceTree = "<group>"; };
 		BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		BDD693961F165B780042E186 /* TeacherContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherContainerVC.swift; sourceTree = "<group>"; };
 		BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSlideVC.swift; sourceTree = "<group>"; };
 		BDD6939A1F165C160042E186 /* TeacherClassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassVC.swift; sourceTree = "<group>"; };
 		BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
+		BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		BDE54CA31F51FE6700A611CF /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FA4A971B867EE9FB526FC2 /* Pods-tCrunchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tCrunchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tCrunchUITests/Pods-tCrunchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,9 +196,7 @@
 				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
 				BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */,
 				BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */,
-				BD320F321ED7E3FC008FCA0B /* CourseCodeViewController.swift */,
 				BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */,
-				BD320F341ED7E3FC008FCA0B /* NameViewController.swift */,
 				BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */,
 				BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */,
 				BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */,
@@ -252,6 +246,7 @@
 				BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */,
 				BD1F56B51F4E0A860076AE08 /* CheckButton.swift */,
 				BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */,
+				BDE54CA31F51FE6700A611CF /* SettingCell.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -262,9 +257,8 @@
 				BDD693961F165B780042E186 /* TeacherContainerVC.swift */,
 				BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */,
 				BDD6939A1F165C160042E186 /* TeacherClassVC.swift */,
-				BD5539AD1F2A1A670097EFD6 /* TeacherNewClassVC.swift */,
+				BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */,
 				BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */,
-				BD3F02FB1F2F5C440090F2C2 /* TeacherNameVC.swift */,
 			);
 			name = Teacher;
 			sourceTree = "<group>";
@@ -568,13 +562,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */,
-				BD5539AE1F2A1A670097EFD6 /* TeacherNewClassVC.swift in Sources */,
 				BD8DB5FC1EEDBF56008B33DC /* OptionViewController.swift in Sources */,
 				BD474BBB1F4F7C9100CADE0A /* PlaceholderTextView.swift in Sources */,
 				BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */,
 				BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */,
 				BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */,
-				BD320F491ED7E3FC008FCA0B /* NameViewController.swift in Sources */,
 				BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */,
 				BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */,
 				BD2F7D301F4C988600C8DF85 /* TeacherNewTicketVC.swift in Sources */,
@@ -584,15 +576,15 @@
 				BD06A1BF1EDB1D1B006B04C0 /* TTicket.swift in Sources */,
 				BD1BCE661F44A3CC0070B602 /* TClass_Temp.swift in Sources */,
 				BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */,
-				BD3F02FC1F2F5C440090F2C2 /* TeacherNameVC.swift in Sources */,
 				BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */,
 				BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */,
 				BDD693971F165B780042E186 /* TeacherContainerVC.swift in Sources */,
 				BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */,
 				BD320F4F1ED7E3FC008FCA0B /* TitleMoveField.swift in Sources */,
-				BD320F471ED7E3FC008FCA0B /* CourseCodeViewController.swift in Sources */,
+				BDE54CA41F51FE6700A611CF /* SettingCell.swift in Sources */,
 				BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */,
 				BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */,
+				BDE54CA21F51FD1400A611CF /* SettingsLauncher.swift in Sources */,
 				BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */,
 				BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */,
 				BD1F56B61F4E0A860076AE08 /* CheckButton.swift in Sources */,

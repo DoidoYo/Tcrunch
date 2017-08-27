@@ -49,7 +49,44 @@ class TcrunchHelper {
         
         
     }
+    
+//    public static func update(OldTicket:TTicket, withNewTicket:TTicket,  completion: @escaping (_ t:JoinClass) -> Void) {
+//        
+//        deleteTicket(OldTicket)
+//        create
+//        
+//    }
+    
+    
+    
+    public static func deleteTicket(_ ticket: TTicket) {
+        dbRef.child("tickets").child((ticket.tempClass?.id)!).child(ticket.id!).observeSingleEvent(of: .value, with: {
+            snapshot in
+            
+            snapshot.ref.removeValue()
+        
+        })
+    }
 
+    public static func deleteClass(_ _class: TClass_Temp) {
+        
+        for ticket in _class.tickets! {
+            deleteTicket(ticket)
+        }
+        
+        dbRef.child("classes").child(_class.id!).observeSingleEvent(of: .value, with: {
+            snapshot in
+            
+            snapshot.ref.removeValue()
+        })
+        
+        dbRef.child("teachers").child((user?.uid)!).child(_class.id!).observeSingleEvent(of: .value, with: {
+            snapshot in
+            
+            snapshot.ref.removeValue()
+        })
+    }
+    
     //create class with unique
     public static func createNewClass(code: String, name: String, completion: @escaping (_ t:JoinClass) -> Void) {
         
@@ -410,7 +447,7 @@ class TcrunchHelper {
         }
     }
     
-    public static func deleteClass(_ cls: TClass) {
+    public static func deleteStoredClass(_ cls: TClass) {
         context.delete(cls)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }

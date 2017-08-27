@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class ContainerViewController: UIViewController, ContainerViewControllerDelegate, NameViewControllerDelegate, CourseCodeViewControllerDelegate, ContainerOptionViewControllerDelegate {
+class ContainerViewController: UIViewController, ContainerViewControllerDelegate, ContainerOptionViewControllerDelegate {
     
     var slideMenuController: SlideMenuViewController?
     var centerController: UIViewController?
@@ -151,47 +151,6 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
             prompt = TEACHER_NAME_PROMPT
             
         }
-        
-        if let name = UserDefaults.standard.string(forKey: "user_name") {
-            self.nameReceived(name)
-        } else {
-            self.showNameDialog()
-        }
-    }
-    
-    public func showNameDialog() {
-        //prompt name
-        let promptVC = storyboard?.instantiateViewController(withIdentifier: "NameView") as? NameViewController
-        self.view.addSubview(promptVC!.view)
-        self.addChildViewController(promptVC!)
-        promptVC?.setPrompt(TEACHER_NAME_PROMPT)
-        promptVC?.delegate = self
-        promptVC?.didMove(toParentViewController: self)
-    }
-    
-    func nameReceived(_ name:String) -> Void {
-        TcrunchHelper.user_name = name
-        UserDefaults.standard.set(name, forKey: "user_name")
-    }
-    
-    func showCodeDialog() {
-        let codeVC = storyboard?.instantiateViewController(withIdentifier: "CourseCodeView") as? CourseCodeViewController
-        self.view.addSubview(codeVC!.view)
-        self.addChildViewController(codeVC!)
-        codeVC?.delegate = self
-        codeVC?.didMove(toParentViewController: self)
-    }
-    
-    func codeReceived(_ code:String) -> Void {
-        TcrunchHelper.joinClass(code: code, completion: {
-            (re, tclass) in
-            print(re)
-            if re == JoinClass.DONE || re == JoinClass.ALREADY_JOINED{
-                self.ticketVC?.loadClass(tclass!)
-            } else {
-                
-            }
-        })
     }
     
     var optionVC:OptionViewController?
@@ -253,9 +212,7 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         switch choice {
         case Choices.EDIT_DISPLAY_NAME:
             
-            self.showNameDialog()
-            
-            
+            ticketVC?.showNameDialog()
             break
             
         case Choices.FAQ:
@@ -280,8 +237,6 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
             break
             
         case Choices.LOG_OUT:
-            
-            //tk
             self.performSegue(withIdentifier: "unwindToLogin", sender: self)
             
             break

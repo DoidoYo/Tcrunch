@@ -1,0 +1,11 @@
+SMALL CHANGES:
+
+Log in screen -> Smooth transition between teacher and student
+
+Edit Ticket VC -> make picker go to inserted date (current goes to current date, may confuse users)
+
+		-> Make trash can icon smaller?
+		-> Make UITextView similar to android version?
+
+TeacherClassVC -> says “Launching in Just Now”
+

@@ -16,4 +16,5 @@ class TClass_Temp {
     var name: String?
     var teacher: String?
     
+    var tickets:[TTicket]?
 }

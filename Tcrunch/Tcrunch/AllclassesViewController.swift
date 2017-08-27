@@ -33,7 +33,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var addClassButton: UIBarButtonItem!
     @IBAction func addClassPressed(_ sender: Any) {
         let container = self.parent?.parent as! ContainerViewController
-        container.showCodeDialog()
+        showJoinClassDialoge()
     }
     
     @IBAction func optionsPressed(_ sender: Any) {
@@ -96,6 +96,85 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         //register custom cell
         tableView.register(UINib.init(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            TcrunchHelper.user_name = name
+        } else {
+            self.showNameDialog()
+            firstTime = false
+        }
+    }
+    
+    func showJoinClassDialoge() {
+        let alertController = UIAlertController(title: "Join a class", message: "", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {
+            textField in
+            textField.placeholder = "Course Code"
+            textField.addTarget(self, action: #selector(self.textChanged(_:)), for: .editingChanged)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        
+        actionToEnable = UIAlertAction(title: "Join", style: .default, handler: {
+            (action) in
+            
+            let textField = alertController.textFields![0]
+            
+            TcrunchHelper.joinClass(code: textField.text!, completion: {
+                (re, tclass) in
+                print(re)
+                if re == JoinClass.DONE || re == JoinClass.ALREADY_JOINED{
+                    self.loadClass(tclass!)
+                } else {
+                    
+                }
+            })
+        })
+        actionToEnable?.isEnabled = false
+        alertController.addAction(actionToEnable!)
+        
+        self.present(alertController, animated: true)
+    }
+    
+    var firstTime: Bool = true
+    var actionToEnable : UIAlertAction?
+    public func showNameDialog() {
+        //prompt name
+        let alertController = UIAlertController(title: "", message: "What's your full name?", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {
+            textField in
+            textField.placeholder = "Your name"
+            textField.addTarget(self, action: #selector(self.textChanged(_:)), for: .editingChanged)
+            
+        })
+        
+        if !firstTime {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
+        }
+        
+        actionToEnable = UIAlertAction(title: "OK", style: .default, handler: {
+            (action) in
+            
+            let textField = alertController.textFields![0]
+            
+            TcrunchHelper.user_name = textField.text!
+            UserDefaults.standard.set(textField.text!, forKey: "user_name")
+        })
+        actionToEnable?.isEnabled = false
+        alertController.addAction(actionToEnable!)
+        
+        self.present(alertController, animated: true)
+    }
+    func textChanged(_ sender:UITextField) {
+        if (sender.text?.isEmpty)! {
+            self.actionToEnable?.isEnabled = false
+        } else {
+            self.actionToEnable?.isEnabled = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -252,7 +331,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "TicketCell") as? TicketCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TicketCell") as? TicketCell
         
         var selectedList = answeredTicket
         

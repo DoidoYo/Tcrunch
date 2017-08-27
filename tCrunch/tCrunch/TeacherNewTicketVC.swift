@@ -18,8 +18,11 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
 
     var multipleChoiceButton: CheckButton?
     var anonymousButton: CheckButton?
-    
+
     var selectedClass: TClass_Temp?
+    
+//    var _editTicket: TTicket?
+    var editTicket: TTicket?
     
     var navRightButton:UIBarButtonItem!
     
@@ -27,7 +30,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     
     var multipleChoices = [MultipleChoice]()
     
-    
+    var editInitialized: [Bool] = [true,true,true,true]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,22 +41,45 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
 //        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         //set size of JOIN CLASS Button text
         let fontSize:CGFloat = 13;
         let font:UIFont = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightSemibold)
-        
         let attributes:[String : Any] = [NSFontAttributeName: font];
         
-        navRightButton = UIBarButtonItem(title: "CREATE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.navRightButtonPress(sender:)))
-        
-        navRightButton.setTitleTextAttributes(attributes, for: UIControlState.normal);
-        
-        self.navigationItem.title = "New Ticket"
-    
+        //data is avalable
+        if let tik = editTicket {
+            self.navigationItem.title = "Edit Ticket"
+            
+            let updateButton = UIBarButtonItem(title: "UPDATE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.updateButtonPress(sender:)))
+            updateButton.setTitleTextAttributes(attributes, for: .normal)
+            let deleteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "trash"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.deleteButtonPressed(sender:)))
+            
+            navigationItem.rightBarButtonItems = [updateButton, deleteButton]
+            
+            tableView.reloadData()
+            
+        } else {
+            //set size of JOIN CLASS Button text
+            let fontSize:CGFloat = 13;
+            let font:UIFont = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightSemibold)
+            
+            let attributes:[String : Any] = [NSFontAttributeName: font];
+            
+            navRightButton = UIBarButtonItem(title: "CREATE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.navRightButtonPress(sender:)))
+            
+            navRightButton.setTitleTextAttributes(attributes, for: UIControlState.normal);
+            
+            self.navigationItem.title = "New Ticket"
+            
+            //create right button
+            self.navigationItem.setRightBarButton(navRightButton, animated: true)
+        }
         self.navigationController!.navigationBar.topItem!.title = "Back"
-        //create right button
-        self.navigationItem.setRightBarButton(navRightButton, animated: true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -130,11 +156,36 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    func updateButtonPress(sender: UIBarButtonItem) {
+        TcrunchHelper.deleteTicket(editTicket!)
+        if let ticket = createTicket() {
+            TcrunchHelper.create(Ticket: ticket, ForClass: selectedClass!, completion: {
+                status in
+                
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+    }
+    
+    func deleteButtonPressed(sender: UIBarButtonItem) {
+        TcrunchHelper.deleteTicket(editTicket!)
+        self.navigationController?.popViewController(animated: true)
+    }
     //created button pressed
     func navRightButtonPress(sender: UIBarButtonItem) {
         //tk
+        
+        if let ticket = createTicket() {
+            TcrunchHelper.create(Ticket: ticket, ForClass: selectedClass!, completion: {
+                status in
+                
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+    }
+
+    func createTicket() -> TTicket? {
         if !(dateTextField.text?.isEmpty)! && !(timeTextField.text?.isEmpty)! && !questionTextView.text.isEmpty {
-            
             //get date
             let dFormatter = DateFormatter()
             dFormatter.dateFormat = "EEEE, MMM d, yyyy"
@@ -166,7 +217,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
             ticket.className_ = selectedClass?.name
             ticket.question = questionTextView.text
             ticket.startTime = CLongLong(unixTime)
-//            print()
+            //            print()
             
             var stringChoices = [String]()
             
@@ -175,15 +226,11 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
             }
             ticket.answerChoices = NSKeyedArchiver.archivedData(withRootObject: stringChoices)
             
-            TcrunchHelper.create(Ticket: ticket, ForClass: selectedClass!, completion: {
-                status in
-                
-                self.navigationController?.popViewController(animated: true)
-            })
+            return ticket
         }
-        
+        return nil
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -192,12 +239,19 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         if section == 0 {
             return 5
         } else if section == 1 {
-            return multipleChoices.count
+            if let checked = multipleChoiceButton?.isButtonChecked, checked {
+                if multipleChoices.count == 0 {
+                    multipleChoices.append(MultipleChoice())
+                }
+                return multipleChoices.count
+            } else {
+                multipleChoices = [MultipleChoice]()
+                return 0
+            }
         } else if section == 2 {
             if let checked = multipleChoiceButton?.isButtonChecked, checked {
                 return 1
             } else {
-                multipleChoices = [MultipleChoice]()
                 return 0
             }
         }
@@ -241,17 +295,52 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                 cell = tableView.dequeueReusableCell(withIdentifier: "launchDate")!
                 dateTextField = cell.viewWithTag(1) as! UITextField
                 dateTextField.delegate = self
+                
+                if let unixTime = editTicket?.startTime, editInitialized[0] {
+                    
+                    editInitialized[0] = false
+                    
+                    let date = Date.init(timeIntervalSince1970: Double(unixTime)
+                        / 1000)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                    
+                    dateTextField?.text = dateFormatter.string(from: date)
+                }
+                
+                
                 break
                 
             case 2:
                 cell = tableView.dequeueReusableCell(withIdentifier: "launchTime")!
                 timeTextField = cell.viewWithTag(1) as! UITextField
                 timeTextField.delegate = self
+                
+                if let unixTime = editTicket?.startTime, editInitialized[1] {
+                    
+                    editInitialized[1] = false
+                    
+                    let date = Date.init(timeIntervalSince1970: Double(unixTime)
+                        / 1000)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.timeStyle = .short
+                    
+                    timeTextField?.text = dateFormatter.string(from: date)
+                }
+                
                 break
                 
             case 3:
                 cell = tableView.dequeueReusableCell(withIdentifier: "question")!
                 questionTextView = cell.viewWithTag(1) as! UITextView
+                
+                if let quest = editTicket?.question, editInitialized[2] {
+                    
+                    editInitialized[2] = false
+                    
+                    questionTextView.text = quest
+                }
+                
                 break
             
             case 4:
@@ -262,6 +351,31 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                 
                 multipleChoiceButton!.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
                 anonymousButton!.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
+                
+                if let tik = editTicket, editInitialized[3] {
+                    
+                    editInitialized[3] = false
+                    
+                    if let data = tik.answerChoices {
+                        let stringArray = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [String]
+                        
+                        if stringArray.count > 0 {
+                            tableButtonPressed(sender: multipleChoiceButton!)
+                        }
+                        
+                        multipleChoices = []
+                        for ch in stringArray {
+                            let mc = MultipleChoice()
+                            mc.text = ch
+                            multipleChoices.append(mc)
+                        }
+                    }
+                    //toggle tick mark
+                    if tik.anonymous! {
+                        tableButtonPressed(sender: anonymousButton!)
+                    }
+                    
+                }
                 
                 break
                 
@@ -320,7 +434,6 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         button.isButtonChecked = !button.isButtonChecked
         
         if sender == multipleChoiceButton {
-            multipleChoices.append(MultipleChoice())
             tableView.reloadData()
         }
         

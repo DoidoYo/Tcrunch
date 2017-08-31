@@ -18,14 +18,18 @@ class SegmentedViewController: UIViewController {
     @IBOutlet weak var teacherView: UIView!
     @IBOutlet weak var studentView: UIView!
     
+    @IBOutlet weak var studentButton: UIButton!
+    @IBOutlet weak var teacherButton: UIButton!
+    
     var selectedUnderline: UIView?
     let selectedUnderlineHeight:CGFloat = 3
     
     @IBOutlet weak var enterButton: UIButton!
     
-    @IBOutlet weak var studentButton: UIButton!
-    @IBAction func studentButtonPress(_ sender: Any) {
-        self.selectedUnderline?.frame.origin.x = studentButton.frame.origin.x
+    @IBAction func studentButtonPress(_ sender: UIButton) {
+        self.selectedUnderline?.frame = CGRect(x: sender.frame.origin.x, y: sender.frame.height - selectedUnderlineHeight, width: sender.frame.width, height: selectedUnderlineHeight)
+        
+        
         studentButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         teacherButton.setTitleColor(UIColor(red: 117/255, green: 117/255, blue: 117/255, alpha: 1.0), for: .normal)
         
@@ -33,9 +37,8 @@ class SegmentedViewController: UIViewController {
         studentView.isHidden = false
     }
     
-    @IBOutlet weak var teacherButton: UIButton!
-    @IBAction func teacherButtonPress(_ sender: Any) {
-        self.selectedUnderline?.frame.origin.x = teacherButton.frame.origin.x
+    @IBAction func teacherButtonPress(_ sender: UIButton) {
+        self.selectedUnderline?.frame = CGRect(x: sender.frame.origin.x, y: sender.frame.height - selectedUnderlineHeight, width: sender.frame.width, height: selectedUnderlineHeight)
         teacherButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         studentButton.setTitleColor(UIColor(red: 117/255, green: 117/255, blue: 117/255, alpha: 1.0), for: .normal)
         
@@ -45,7 +48,7 @@ class SegmentedViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        iniCustomSegmentedView()
+        
         
 //        let email = "hello@gmail.com"
 //        let pass = "test123"
@@ -66,7 +69,11 @@ class SegmentedViewController: UIViewController {
 //            }
 //            
 //        })
-        
+        iniCustomSegmentedView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        studentButtonPress(studentButton)
     }
     
     func iniCustomSegmentedView() {
@@ -75,6 +82,7 @@ class SegmentedViewController: UIViewController {
         teacherButton.setTitleColor(UIColor(red: 117/255, green: 117/255, blue: 117/255, alpha: 1.0), for: .normal)
         //add underline
         selectedUnderline = UIView(frame: CGRect(x: studentButton.frame.origin.x, y: studentButton.frame.height - selectedUnderlineHeight, width: studentButton.frame.width, height:selectedUnderlineHeight))
+        
         
         selectedUnderline!.backgroundColor = UIColor(red: 255/255, green: 76/255, blue: 137/255, alpha: 1.0)
         

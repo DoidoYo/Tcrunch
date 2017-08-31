@@ -25,6 +25,8 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var _classes: [TClass_Temp] = []
+    
     private var _selectedClass:TClass_Temp?
     var selectedClass: TClass_Temp? {
         get {
@@ -99,7 +101,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.emptyLabel.text = "You have no classes."
                 self.setClassTitle("Tcrunch")
             }
-            
+            self._classes = classes
         })
         //check existing classes
         
@@ -109,10 +111,57 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         //register custom cell
         tableView.register(UINib.init(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         
+        //teacher name stuff
+        if let name = UserDefaults.standard.string(forKey: "user_teacher_name") {
+            print("name: \(name)")
+            TcrunchHelper.user_name = name
+        } else {
+            print("dialog----")
+            self.showTeacherNameDialog()
+        }
     }
     
-    
+    lazy var firstTime: Bool = {
+        if let nameSet = UserDefaults.standard.string(forKey: "teacherNameSet") {
+            return true
+        } else {
+            return false
+        }
+    }()
     var actionToEnable : UIAlertAction?
+    func showTeacherNameDialog() {
+        let alertController = UIAlertController(title: "What's your name?", message: "This is the name that students will see.", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {
+            textField in
+            textField.placeholder = "Your name"
+            textField.addTarget(self, action: #selector(self.textChanged(_:)), for: .editingChanged)
+            
+        })
+        
+        if !firstTime {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
+        } else {
+            firstTime = false
+            UserDefaults.standard.set(true, forKey: "teacherNameSet")
+        }
+        
+        actionToEnable = UIAlertAction(title: "OK", style: .default, handler: {
+            (action) in
+            
+            let textField = alertController.textFields![0] 
+            
+            UserDefaults.standard.set(textField.text!, forKey: "user_teacher_name")
+            TcrunchHelper.user_name = textField.text!
+            
+        })
+        actionToEnable?.isEnabled = false
+        alertController.addAction(actionToEnable!)
+        
+        self.present(alertController, animated: true)
+    }
+    
     internal func settingsLauncher(SettingsSelected selected: String) {
         print("selected! \(selected)")
         //class code
@@ -146,7 +195,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         } else if selected == settings[2] {
             //change name
-            parentVC?.showTeacherNameDialog()
+            self.showTeacherNameDialog()
             
         } else if selected == settings[3] {
             //suggested questions
@@ -164,6 +213,58 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.actionToEnable?.isEnabled = false
         } else {
            self.actionToEnable?.isEnabled = true
+        }
+    }
+    
+    private var nameTF: UITextField?
+    private var codeTF: UITextField?
+    func showCreateClassVC() {
+        
+        let alertController = UIAlertController(title: "Add a new class", message: "", preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {
+            textField in
+            
+            self.nameTF = textField
+            textField.placeholder = "Class Name"
+            textField.addTarget(self, action: #selector(self.createClassTextChange(_:)), for: .editingChanged)
+            
+        })
+        alertController.addTextField(configurationHandler: {
+            textField in
+            self.codeTF = textField
+            textField.placeholder = "Class Code"
+            textField.addTarget(self, action: #selector(self.createClassTextChange(_:)), for: .editingChanged)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        
+        actionToEnable = UIAlertAction(title: "Create", style: .default, handler: {
+            (action) in
+            
+            let textField = alertController.textFields![0] as! UITextField
+            
+            TcrunchHelper.createNewClass(code: self.codeTF!.text!, name: self.nameTF!.text!, completion: {
+                back in
+                
+                print(back)
+            })
+            
+        })
+        actionToEnable?.isEnabled = false
+        alertController.addAction(actionToEnable!)
+        
+        self.present(alertController, animated: true)
+        
+    }
+    
+    func createClassTextChange(_ sender: UITextField) {
+        if !(nameTF?.text?.isEmpty)! && !(codeTF?.text?.isEmpty)! {
+            actionToEnable?.isEnabled = true
+        } else {
+            actionToEnable?.isEnabled = false
         }
     }
     
@@ -198,7 +299,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         TcrunchHelper.getTeacherTickets(FromClass: selectedClass!, completion: {
             tickets in
             
-            if tickets.count == 0 && self.emptyLabel.text == "" {
+            if tickets.count == 0 && self._classes.count > 0 {
                 self.emptyLabel.isHidden = false
                 self.emptyLabel.text = "This class had no tickets yet."
             } else {
@@ -240,7 +341,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         parentVC?.isSlideViewShowing = true
     }
     @IBAction func addClassButtonPressed(_ sender: Any) {
-        parentVC?.showCreateClassVC()
+        self.showCreateClassVC()
     }
     
     @IBAction func optionsButtonPressed(_ sender: Any) {
@@ -351,8 +452,20 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             self.navigationController?.show(ticketVC, sender: self)
         } else {
-            //TODO
-            print("ticket response overview")
+            
+//            let mcString = NSKeyedUnarchiver.unarchiveObject(with: launchedTickets[indexPath.row].answerChoices! as Data) as! [String]
+            
+            //open OpenResponse question type
+            let releasedTicketVC = storyboard?.instantiateViewController(withIdentifier: "TeacherReleasedTicketVC") as! TeacherReleasedTicketVC
+            releasedTicketVC.parentVC = self
+            releasedTicketVC.ticket = launchedTickets[indexPath.row]
+            if let data = launchedTickets[indexPath.row].answerChoices {
+                let mcString = NSKeyedUnarchiver.unarchiveObject(with: launchedTickets[indexPath.row].answerChoices! as Data) as! [String]
+                releasedTicketVC.multipleChoice = mcString
+            }
+            self.navigationController?.show(releasedTicketVC, sender: self)
+            
+            
         }
     }
     

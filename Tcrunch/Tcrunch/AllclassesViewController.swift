@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate {
     
     var slideController: SlideMenuViewController?
     
@@ -18,7 +18,12 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     var containerDelegate: ContainerViewControllerDelegate?
     
-    var optionsDelegate: ContainerOptionViewControllerDelegate?
+    var settings: [String] = ["Leave Class", "Edit Display Name", "FAQ", "Log Out"]
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher(settings: self.settings)
+        launcher.delegate = self
+        return launcher
+    }()
     
     var answeredTicket: [TTicket] = []
     var unansweredTicket: [TTicket] = []
@@ -32,12 +37,32 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var addClassButton: UIBarButtonItem!
     @IBAction func addClassPressed(_ sender: Any) {
-        let container = self.parent?.parent as! ContainerViewController
         showJoinClassDialoge()
     }
     
     @IBAction func optionsPressed(_ sender: Any) {
-        optionsDelegate?.toggleOption()
+        settingsLauncher.showSettings()
+    }
+    
+    internal func settingsLauncher(SettingsSelected selected: String) {
+        if selected == settings[0] { //Leave Class
+            let classes = TcrunchHelper.getClasses()
+            if _class != nil{
+                for c in classes {
+                    if c.id == _class?.id {
+                        context.delete(c)
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        containerDelegate?.setCenterViewAll(TcrunchHelper.getClasses())
+                    }
+                }
+            }
+        } else if selected == settings[1] { //Edit Display Name
+            showNameDialog()
+        } else if selected == settings[2] { //FAQ
+            
+        } else if selected == settings[3] { //Log Out
+            self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+        }
     }
     
     @IBAction func menuPressed(_ sender: Any) {
@@ -138,7 +163,13 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         self.present(alertController, animated: true)
     }
     
-    var firstTime: Bool = true
+    lazy var firstTime: Bool = {
+        if let nameSet = UserDefaults.standard.string(forKey: "studentNameSet") {
+            return true
+        } else {
+            return false
+        }
+    }()
     var actionToEnable : UIAlertAction?
     public func showNameDialog() {
         //prompt name
@@ -154,6 +185,9 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         if !firstTime {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alertController.addAction(cancelAction)
+        } else {
+            firstTime = false
+            UserDefaults.standard.set(true, forKey: "studentNameSet")
         }
         
         actionToEnable = UIAlertAction(title: "OK", style: .default, handler: {
@@ -352,12 +386,12 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         
         //set released ticket time
         let unixTime = Double(selectedList[indexPath.row].startTime!) / 1000
-        let currentTime = Date.init().timeIntervalSince1970
+        _ = Date.init().timeIntervalSince1970
         
         let releaseDate = Date(timeIntervalSince1970: unixTime)
         let currentDate = Date.init()
         
-        let lapsedTime = releaseDate.timeIntervalSince(currentDate)
+        _ = releaseDate.timeIntervalSince(currentDate)
         
         if releaseDate > currentDate {
             return UITableViewCell()
@@ -401,22 +435,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //        let detailVC = storyboard?.instantiateViewController(withIdentifier: "StudentTicketDetailViewController") as? StudentTicketDetailViewController
-        //
-        //        //pass data to detail vc
-        //        if indexPath.section == 0 {
-        //            detailVC?.customInit(detailType: DetailType.UNANSWERED, ticket: unansweredTicket[indexPath.row])
-        //        } else {
-        //            detailVC?.customInit(detailType: DetailType.ANSWERED, ticket: answeredTicket[indexPath.row])
-        //        }
-        //
-        //        let backButton = UIBarButtonItem()
-        //        backButton.title = "Back"
-        //        navigationItem.backBarButtonItem = backButton
-        //
-        //        self.navigationController?.show(detailVC!, sender: nil)
-        
+    
         let test = storyboard?.instantiateViewController(withIdentifier: "StudentTicketUnrespondedDetailViewController") as! StudentTicketUnrespondedDetailViewController
         
         //unanswered section
@@ -434,9 +453,6 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationController?.show(test, sender: nil)
         
     }
-    
-    
-    
 }
 
 protocol AllclassesViewControllerDelegate {

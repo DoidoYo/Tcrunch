@@ -25,8 +25,10 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     let showSpeed = 0.3
     let cellId: String = "settingCell"
-    var cellHeight: CGFloat = 50
+    var cellHeight: CGFloat = 40
     var delegate: SettingsLauncherDelegate?
+    var parent: UIViewController?
+    var view: UIView?
     
     init(settings: [String]) {
         super.init()
@@ -42,16 +44,18 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     func showSettings() {
         if let window = UIApplication.shared.keyWindow {
             
-            blackView.backgroundColor = UIColor(white: 0, alpha: 0.8)
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.3)
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleOptionDismiss)))
             
             window.addSubview(blackView)
             window.addSubview(collectionView)
             
             let height: CGFloat = CGFloat(settings.count) * cellHeight
-            let y = window.frame.height - height
-            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
             
+            let width:CGFloat = window.frame.width * (1/2)
+            
+            collectionView.frame = CGRect(x: window.frame.width, y: -height, width: width, height: height)
+            collectionView.alpha = 1
             
             blackView.frame = window.frame
             blackView.alpha = 0
@@ -59,8 +63,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             UIView.animate(withDuration: showSpeed, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
                 
-                self.collectionView.frame = CGRect(x: 0, y: y, width: window.frame.width, height: height)
-                
+                self.collectionView.frame = CGRect(x: window.frame.width - self.collectionView.frame.width - 5, y: 25, width: width, height: height)
             }, completion: nil)
             
         }
@@ -69,8 +72,11 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     func handleOptionDismiss() {
         UIView.animate(withDuration: showSpeed, animations: {
             self.blackView.alpha = 0
+            self.collectionView.alpha = 0
+        }, completion: {
+            (done)in
             if let window = UIApplication.shared.keyWindow {
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+                self.collectionView.frame = CGRect(x: window.frame.width, y: -self.collectionView.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
         })
     }

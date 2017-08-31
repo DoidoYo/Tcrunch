@@ -29,7 +29,7 @@ class SettingCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.text = "Setting"
         
         return label
@@ -44,7 +44,8 @@ class SettingCell: UICollectionViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel]))
-         
+        
+//        backgroundColor = UIColor.blue
     }
     
     required init?(coder aDecoder: NSCoder) {

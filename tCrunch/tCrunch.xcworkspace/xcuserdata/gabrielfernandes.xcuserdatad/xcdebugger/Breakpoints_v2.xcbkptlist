@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tCrunch/AllclassesViewController.swift"
-            timestampString = "525488420.650954"
+            timestampString = "525729347.097461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "attachAnswerListener()"
             landmarkType = "7">
          </BreakpointContent>
@@ -131,22 +131,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "tCrunch/ContainerViewController.swift"
-            timestampString = "525488356.960609"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "showOption()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "tCrunch/TeacherSlideVC.swift"
             timestampString = "525110604.721218"
             startingColumnNumber = "9223372036854775807"
@@ -164,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tCrunch/TeacherContainerVC.swift"
-            timestampString = "525487761.994888"
+            timestampString = "525505601.736662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "hideSlideVC()"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tCrunch/TcrunchHelper.swift"
-            timestampString = "525479556.743671"
+            timestampString = "525575160.598167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "TcrunchHelper"
             landmarkType = "3">
          </BreakpointContent>
@@ -307,13 +291,123 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "tCrunch/TeacherContainerVC.swift"
-            timestampString = "525487761.994888"
+            filePath = "tCrunch/TeacherReleasedTicketVC.swift"
+            timestampString = "525736419.178391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "createClassTextChange(_:)"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "settingsLauncher(SettingsSelected:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tCrunch/AllclassesViewController.swift"
+            timestampString = "525729347.097461"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "settingsLauncher"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.AllclassesViewController._class.getter : Swift.Optional&lt;tCrunch.TClass&gt;"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/AllclassesViewController.swift"
+                  timestampString = "525725029.96371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.AllclassesViewController._class.setter : Swift.Optional&lt;tCrunch.TClass&gt;"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/AllclassesViewController.swift"
+                  timestampString = "525725029.965167"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.AllclassesViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; tCrunch.AllclassesViewController"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/AllclassesViewController.swift"
+                  timestampString = "525725029.966395"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "890">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tCrunch.AllclassesViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;tCrunch.AllclassesViewController&gt;"
+                  moduleName = "tCrunch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielfernandes/Documents/Git/Tcrunch/tCrunch/tCrunch/AllclassesViewController.swift"
+                  timestampString = "525725029.967703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "783">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tCrunch/TeacherReleasedTicketVC.swift"
+            timestampString = "525742242.350171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "updateChart()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tCrunch/TeacherReleasedTicketVC.swift"
+            timestampString = "525797491.163865"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "updateChart()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

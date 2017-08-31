@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class ContainerViewController: UIViewController, ContainerViewControllerDelegate, ContainerOptionViewControllerDelegate {
+class ContainerViewController: UIViewController, ContainerViewControllerDelegate {
     
     var slideMenuController: SlideMenuViewController?
     var centerController: UIViewController?
@@ -38,7 +38,6 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         centerController?.didMove(toParentViewController: self)
         ticketVC = centerController?.childViewControllers[0] as? AllclassesViewController
         ticketVC?.containerDelegate = self
-        ticketVC?.optionsDelegate = self
         
         darkView = UIView(frame: centerController!.view.frame)
     }
@@ -153,110 +152,51 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
         }
     }
     
-    var optionVC:OptionViewController?
-    var optionTap: UITapGestureRecognizer?
-    func showOption() -> Void {
-        if optionVC == nil {
-            optionVC = storyboard?.instantiateViewController(withIdentifier: "OptionViewController") as! OptionViewController
-            optionVC?.optionDelegate = self
-        }
-        
-        optionVC?.options = [Choices.LEAVE_CLASS, Choices.EDIT_DISPLAY_NAME, Choices.FAQ, Choices.LOG_OUT]
-        
-        darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
-        self.view.addSubview(darkView!)
-        
-        self.view.addSubview((optionVC?.view)!)
-        self.addChildViewController(optionVC!)
-        
-        optionVC?.didMove(toParentViewController: self)
-        //        self.didMove(toParentViewController: optionVC)
-        
-        let finalPos = optionVC?.view.frame.origin
-        optionVC?.view.frame.origin = CGPoint(x: self.view.frame.origin.x + (optionVC?.tableView.frame.width)!, y: -optionVC!.tableView.frame.height)
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.optionVC?.view.frame.origin = CGPoint(x: 0, y: 0)
-            self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.6)
-        }, completion: {(comp) in
-            
-        })
-    }
-    func hideOption() -> Void {
-        
-        let finalPos = CGPoint(x: self.view.frame.origin.x + (optionVC?.tableView.frame.width)! + 50, y: -optionVC!.tableView.frame.height)
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.optionVC?.view.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
-            self.optionVC?.view.frame.origin = CGPoint(x: self.view.frame.origin.x + (self.optionVC?.tableView.frame.width)! + 50, y: 0)
-            self.darkView?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.0)
-        }, completion: {(comp) in
-            self.optionVC?.view.removeFromSuperview()
-            self.optionVC?.removeFromParentViewController()
-            
-            self.optionVC = nil
-            
-            self.darkView?.removeFromSuperview()
-        })
-    }
-    func toggleOption() -> Void {
-        if optionVC == nil {
-            showOption()
-        } else {
-            hideOption()
-        }
-    }
+//    func actionForOption(_ choice: Choices) {
+//        hideOption()
+//        switch choice {
+//        case Choices.EDIT_DISPLAY_NAME:
+//            
+//            ticketVC?.showNameDialog()
+//            break
+//            
+//        case Choices.FAQ:
+//            
+//            break
+//            
+//        case Choices.LEAVE_CLASS:
+//
+//            let classes = TcrunchHelper.getClasses()
+//            
+//            if ticketVC?._class != nil{
+//                for c in classes {
+//                    if c.id == ticketVC?._class?.id {
+//                        context.delete(c)
+//                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+//                        
+//                        setCenterViewAll(TcrunchHelper.getClasses())
+//                    }
+//                }
+//            }
+//            
+//            break
+//            
+//        case Choices.LOG_OUT:
+//            self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+//            
+//            break
+//            
+//        default:
+//            print("Option selection error!")
+//        }
+//    }
     
-    func actionForOption(_ choice: Choices) {
-        hideOption()
-        switch choice {
-        case Choices.EDIT_DISPLAY_NAME:
-            
-            ticketVC?.showNameDialog()
-            break
-            
-        case Choices.FAQ:
-            
-            break
-            
-        case Choices.LEAVE_CLASS:
-            
-            let classes = TcrunchHelper.getClasses()
-            
-            if ticketVC?._class != nil{
-                for c in classes {
-                    if c.id == ticketVC?._class?.id {
-                        context.delete(c)
-                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                        
-                        setCenterViewAll(TcrunchHelper.getClasses())
-                    }
-                }
-            }
-            
-            break
-            
-        case Choices.LOG_OUT:
-            self.performSegue(withIdentifier: "unwindToLogin", sender: self)
-            
-            break
-            
-        default:
-            print("Option selection error!")
-        }
-    }
-    
-}
-
-protocol ContainerOptionViewControllerDelegate {
-    func showOption() -> Void
-    func hideOption() -> Void
-    func toggleOption() -> Void
 }
 
 protocol ContainerViewControllerDelegate {
     func movePanelRight() -> Void
     func movePanelCenter() -> Void
     func setCenterViewClass(_ tclass: TClass) -> Void
+    func setCenterViewAll(_ classes:[TClass]) -> Void
 }
 

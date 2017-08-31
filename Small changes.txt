@@ -9,3 +9,6 @@ Edit Ticket VC -> make picker go to inserted date (current goes to current date,
 
 TeacherClassVC -> says “Launching in Just Now”
 
+Ticket Saving -> save name as anonymous so that students are truly anonymous **
+
+TeacherReleasedTicketVC -> plural/singular form of “Responses”

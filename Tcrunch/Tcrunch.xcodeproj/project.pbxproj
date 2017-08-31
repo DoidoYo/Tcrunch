@@ -24,7 +24,6 @@
 		BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */; };
 		BD320F451ED7E3FC008FCA0B /* ButtonShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */; };
 		BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */; };
-		BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */; };
 		BD320F4A1ED7E3FC008FCA0B /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */; };
 		BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */; };
 		BD320F4C1ED7E3FC008FCA0B /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */; };
@@ -36,7 +35,9 @@
 		BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */; };
 		BD34D8541EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */; };
 		BD474BBB1F4F7C9100CADE0A /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */; };
-		BD8DB5FC1EEDBF56008B33DC /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */; };
+		BD594A691F53359700A6AEF1 /* TeacherReleasedTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */; };
+		BD594A6C1F534D1600A6AEF1 /* TResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD594A6B1F534D1600A6AEF1 /* TResponse.swift */; };
+		BDB612601F5290B4007D5557 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6125F1F5290B4007D5557 /* LoginViewController.swift */; };
 		BDD693971F165B780042E186 /* TeacherContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693961F165B780042E186 /* TeacherContainerVC.swift */; };
 		BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */; };
 		BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6939A1F165C160042E186 /* TeacherClassVC.swift */; };
@@ -94,7 +95,6 @@
 		BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonShadow.swift; sourceTree = "<group>"; };
 		BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
 		BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +106,9 @@
 		BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketDetailViewController.swift; sourceTree = "<group>"; };
 		BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTicketUnrespondedDetailViewController.swift; sourceTree = "<group>"; };
 		BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
-		BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
+		BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherReleasedTicketVC.swift; sourceTree = "<group>"; };
+		BD594A6B1F534D1600A6AEF1 /* TResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TResponse.swift; sourceTree = "<group>"; };
+		BDB6125F1F5290B4007D5557 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDD693961F165B780042E186 /* TeacherContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherContainerVC.swift; sourceTree = "<group>"; };
 		BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSlideVC.swift; sourceTree = "<group>"; };
 		BDD6939A1F165C160042E186 /* TeacherClassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassVC.swift; sourceTree = "<group>"; };
@@ -188,18 +190,19 @@
 				BD320F2B1ED7E3FC008FCA0B /* Base.lproj */,
 				BD320F2C1ED7E3FC008FCA0B /* GoogleService-Info.plist */,
 				BD320F2D1ED7E3FC008FCA0B /* Info.plist */,
+				BD594A6A1F534D0400A6AEF1 /* Model */,
 				BD75DB3F1EDAEE8F009F5837 /* Custom */,
 				BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */,
 				BD34D8521EDB5368002B57BB /* Controllers */,
 				BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */,
-				BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */,
 				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
+				BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */,
 				BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */,
 				BD320F301ED7E3FC008FCA0B /* ButtonShadow.swift */,
-				BD320F331ED7E3FC008FCA0B /* LoginViewController.swift */,
 				BD320F351ED7E3FC008FCA0B /* SegmentedViewController.swift */,
 				BD320F361ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift */,
 				BD320F371ED7E3FC008FCA0B /* SlideMenuViewController.swift */,
+				BDB6125F1F5290B4007D5557 /* LoginViewController.swift */,
 				BD320F391ED7E3FC008FCA0B /* TeacherSigninViewController.swift */,
 				BD320F3A1ED7E3FC008FCA0B /* TitleMoveField.swift */,
 				BD06A1BE1EDB1D1B006B04C0 /* TTicket.swift */,
@@ -234,9 +237,16 @@
 			children = (
 				BDD693951F165B620042E186 /* Teacher */,
 				BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */,
-				BD8DB5FB1EEDBF56008B33DC /* OptionViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BD594A6A1F534D0400A6AEF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD594A6B1F534D1600A6AEF1 /* TResponse.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		BD75DB3F1EDAEE8F009F5837 /* Custom */ = {
@@ -259,6 +269,7 @@
 				BDD6939A1F165C160042E186 /* TeacherClassVC.swift */,
 				BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */,
 				BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */,
+				BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */,
 			);
 			name = Teacher;
 			sourceTree = "<group>";
@@ -561,12 +572,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB612601F5290B4007D5557 /* LoginViewController.swift in Sources */,
 				BD320F511ED7E3FC008FCA0B /* ViewController.swift in Sources */,
-				BD8DB5FC1EEDBF56008B33DC /* OptionViewController.swift in Sources */,
+				BD594A691F53359700A6AEF1 /* TeacherReleasedTicketVC.swift in Sources */,
 				BD474BBB1F4F7C9100CADE0A /* PlaceholderTextView.swift in Sources */,
-				BD320F481ED7E3FC008FCA0B /* LoginViewController.swift in Sources */,
 				BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */,
 				BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */,
+				BD594A6C1F534D1600A6AEF1 /* TResponse.swift in Sources */,
 				BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */,
 				BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */,
 				BD2F7D301F4C988600C8DF85 /* TeacherNewTicketVC.swift in Sources */,

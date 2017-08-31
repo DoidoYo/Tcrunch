@@ -36,7 +36,7 @@ class TcrunchHelper {
             type = "MultipleChoice"
         }
         
-        dbTicket.setValue(["anonymous":Ticket.anonymous, "className":ForClass.name, "endTime":0, "id":dbTicket.key, "question":Ticket.question, "questionType":type, "startTime":Ticket.startTime])
+        dbTicket.setValue(["anonymous":Ticket.anonymous!, "className":ForClass.name!, "endTime":0, "id":dbTicket.key, "question":Ticket.question!, "questionType":type, "startTime":Ticket.startTime!])
         
         var mcDic = [String:String] ()
         for i in 0 ..< stringArray.count {
@@ -50,14 +50,51 @@ class TcrunchHelper {
         
     }
     
-//    public static func update(OldTicket:TTicket, withNewTicket:TTicket,  completion: @escaping (_ t:JoinClass) -> Void) {
-//        
-//        deleteTicket(OldTicket)
-//        create
-//        
-//    }
+    public static func removeResponseHandle() {
+        if let handle = responseHandle {
+            dbRef.removeObserver(withHandle: handle)
+        }
+    }
     
-    
+    private static var responseHandle: UInt?
+    public static func getResponseFor(ticket: TTicket, completion: @escaping (_ responses: [TResponse]) -> Void) {
+        
+        var responses = [TResponse]()
+        
+        removeResponseHandle()
+        
+        responseHandle = dbRef.child("responses").observe(.value, with: {
+            snapshot in
+            
+            if snapshot.hasChild(ticket.id!) {
+                if let vals = snapshot.value as? NSDictionary {
+                    if let child = vals[ticket.id!] as? NSDictionary {
+                        for key in child.allKeys as! [String] {
+                            if let dicResponse = child[key] as? NSDictionary {
+                                
+                                let response = TResponse()
+                                
+                                if let author = dicResponse["author"] as? String {
+                                    response.author = author
+                                }
+                                
+                                if let responseString = dicResponse["response"] as? String {
+                                    response.response = responseString
+                                }
+                                response.time = dicResponse["time"] as? CLongLong
+                                responses.append(response)
+                            }
+                        }
+                        completion(responses)
+                    }
+                }
+                
+            } else {
+                completion(responses)
+            }
+        })
+        
+    }
     
     public static func deleteTicket(_ ticket: TTicket) {
         dbRef.child("tickets").child((ticket.tempClass?.id)!).child(ticket.id!).observeSingleEvent(of: .value, with: {
@@ -160,7 +197,7 @@ class TcrunchHelper {
                         
 //                        print(itClass)
                         
-                        var tempClass = TClass_Temp()
+                        let tempClass = TClass_Temp()
                         
                         if let id = itClass["id"] as? String {
                             tempClass.id = id
@@ -431,7 +468,7 @@ class TcrunchHelper {
     
     public static func set(Response: String, forTicket ticket: TTicket, completion: ()->Void) {
         
-        let time = Date().timeIntervalSince1970.bitPattern
+        let time = Double(Date().timeIntervalSince1970) * 1000
         dbRef.child("answered").child(TcrunchHelper.user_id!).childByAutoId().setValue(ticket.id!)
         
         dbRef.child("responses").child(ticket.id!).child(TcrunchHelper.user_id!).setValue(["author":TcrunchHelper.user_name!, "response": Response, "time":time])

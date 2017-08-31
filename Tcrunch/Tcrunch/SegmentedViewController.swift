@@ -139,14 +139,15 @@ class SegmentedViewController: UIViewController {
         
     }
     
-    @IBAction func enterButtonPress(_ sender: Any) {
+    
+    @IBAction func enterButtonPressed(_ sender: Any) {
+        
         let ContainerVC = storyboard?.instantiateViewController(withIdentifier: "containerController") as? ContainerViewController
         
         ContainerVC?.setUser(User.STUDENT)
         
         self.show(ContainerVC!, sender: nil)
     }
-    
     func showTeacherScreen() {
         let teacherVC = storyboard?.instantiateViewController(withIdentifier: "TeacherContainerVC")
         self.show(teacherVC!, sender: self)

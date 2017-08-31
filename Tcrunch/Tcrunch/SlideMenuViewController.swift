@@ -34,8 +34,8 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         //load classes from phone storage
         
         
-        emailLabel.text = TcrunchHelper.user?.email
-        nameLabel.text = TcrunchHelper.user_name
+        emailLabel.text = TcrunchHelper.user_name
+        nameLabel.text = "Tcrunch"
         
     }
     

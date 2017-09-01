@@ -13,6 +13,7 @@ pod 'Firebase/Database'
 
 pod 'Charts'
 pod 'IQKeyboardManagerSwift'
+pod 'PopupDialog', '~> 0.5'
 
   target 'tCrunchTests' do
     inherit! :search_paths

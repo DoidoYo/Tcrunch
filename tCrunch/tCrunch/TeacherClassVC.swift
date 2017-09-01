@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingsLauncherDelegate {
+class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
     var parentVC: TeacherContainerVC?
     var navLabel: UILabel?
@@ -111,14 +111,54 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         //register custom cell
         tableView.register(UINib.init(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         
+        
         //teacher name stuff
+        if UserDefaults.standard.string(forKey: "user_teacher_name") == nil {
+            showTutorial()
+        }
+        
+    }
+    func showTutorial() {
+        let sub = UIStoryboard(name: "Tutorial", bundle: nil)
+        walkthrough = sub.instantiateViewController(withIdentifier: "walkthroughvc") as? BWWalkthroughViewController
+        
+        let page_one = sub.instantiateViewController(withIdentifier: "TT1")
+        let page_two = sub.instantiateViewController(withIdentifier: "TT2")
+        let page_three = sub.instantiateViewController(withIdentifier: "TT3")
+        let page_four = sub.instantiateViewController(withIdentifier: "TT4")
+        let page_five = sub.instantiateViewController(withIdentifier: "TT5")
+        let page_six = sub.instantiateViewController(withIdentifier: "TT6")
+        let page_seven = sub.instantiateViewController(withIdentifier: "TT7")
+        let page_eight = sub.instantiateViewController(withIdentifier: "TT8")
+        
+        // Attach the pages to the master
+        walkthrough?.delegate = self
+        walkthrough?.add(viewController:page_one)
+        walkthrough?.add(viewController:page_two)
+        walkthrough?.add(viewController:page_three)
+        walkthrough?.add(viewController:page_four)
+        walkthrough?.add(viewController:page_five)
+        walkthrough?.add(viewController:page_six)
+        walkthrough?.add(viewController:page_seven)
+        walkthrough?.add(viewController:page_eight)
+        
+        let parent = self.parent?.parent
+        parent?.view.addSubview((walkthrough?.view)!)
+        parent?.addChildViewController(walkthrough!)
+        parent?.didMove(toParentViewController: walkthrough)
+    }
+    var walkthrough:BWWalkthroughViewController?
+    func walkthroughCloseButtonPressed() {
+        walkthrough?.view.removeFromSuperview()
+        walkthrough?.removeFromParentViewController()
+        walkthrough?.didMove(toParentViewController: self)
+        
         if let name = UserDefaults.standard.string(forKey: "user_teacher_name") {
-            print("name: \(name)")
             TcrunchHelper.user_name = name
         } else {
-            print("dialog----")
-            self.showTeacherNameDialog()
+            self.showTeacherNameDialog(cancel: false)
         }
+        
     }
     
     lazy var firstTime: Bool = {
@@ -129,7 +169,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }()
     var actionToEnable : UIAlertAction?
-    func showTeacherNameDialog() {
+    func showTeacherNameDialog(cancel:Bool) {
         let alertController = UIAlertController(title: "What's your name?", message: "This is the name that students will see.", preferredStyle: .alert)
         
         alertController.addTextField(configurationHandler: {
@@ -139,7 +179,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         })
         
-        if !firstTime {
+        if cancel {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alertController.addAction(cancelAction)
         } else {
@@ -163,10 +203,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     internal func settingsLauncher(SettingsSelected selected: String) {
-        print("selected! \(selected)")
         //class code
-        
-        
         if selected == settings[0] {
             
             let alertController = UIAlertController(title: "Class Code for \(selectedClass!.name!)", message: selectedClass?.courseCode, preferredStyle: .alert)
@@ -195,14 +232,21 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         } else if selected == settings[2] {
             //change name
-            self.showTeacherNameDialog()
+            self.showTeacherNameDialog(cancel: true)
             
         } else if selected == settings[3] {
             //suggested questions
             
         } else if selected == settings[4] {
             //faq
+            let sb = UIStoryboard(name: "Tutorial", bundle: nil)
+            let faq = sb.instantiateViewController(withIdentifier: "FAQVC") as! FAQViewController
             
+            let parent = self.parent?.parent
+            
+            parent?.view.addSubview(faq.view)
+            parent?.addChildViewController(faq)
+            parent?.didMove(toParentViewController: faq)
         } else if selected == settings[5] {
             //log out
             parentVC?.logOut()

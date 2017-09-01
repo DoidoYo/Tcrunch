@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import PopupDialog
 
 class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
@@ -57,8 +58,18 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         } else if selected == settings[1] { //Edit Display Name
-            showNameDialog()
+            showNameDialog(cancel: true)
         } else if selected == settings[2] { //FAQ
+            
+            let sb = UIStoryboard(name: "Tutorial", bundle: nil)
+            let faq = sb.instantiateViewController(withIdentifier: "FAQVC") as! FAQViewController
+            
+            let parent = self.parent?.parent
+            
+            parent?.view.addSubview(faq.view)
+            parent?.addChildViewController(faq)
+            parent?.didMove(toParentViewController: faq)
+            
             
         } else if selected == settings[3] { //Log Out
             self.performSegue(withIdentifier: "unwindToLogin", sender: self)
@@ -121,48 +132,53 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         //register custom cell
         tableView.register(UINib.init(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         
-        if let name = UserDefaults.standard.string(forKey: "user_name") {
-            TcrunchHelper.user_name = name
-        } else {
-            self.showNameDialog()
-            firstTime = false
+        if UserDefaults.standard.string(forKey: "user_name") == nil {
+            showTutorial()
         }
-        
-        //walkthroughvc
-        // Get view controllers and build the walkthrough
-        
-        
-//        let walkthrough = storyboard?.instantiateViewController(withIdentifier: "walkthroughvc") as! BWWalkthroughViewController
-//        let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
-        
-        let sub = UIStoryboard(name: "Main", bundle: nil)
-        let walkthrough = sub.instantiateViewController(withIdentifier: "walkthroughvc") as! BWWalkthroughViewController
-        
-        let page_one = storyboard?.instantiateViewController(withIdentifier: "ST1")
-        let page_two = storyboard?.instantiateViewController(withIdentifier: "ST2")
-        let page_three = storyboard?.instantiateViewController(withIdentifier: "ST3")
-        let page_four = storyboard?.instantiateViewController(withIdentifier: "ST4")
-        let page_five = storyboard?.instantiateViewController(withIdentifier: "ST5")
-        
-        // Attach the pages to the master
-        walkthrough.delegate = self
-        walkthrough.add(viewController:page_one!)
-        walkthrough.add(viewController:page_two!)
-        walkthrough.add(viewController:page_three!)
-        walkthrough.add(viewController:page_four!)
-        walkthrough.add(viewController:page_five!)
-        
-//        if let window = UIApplication.shared.keyWindow {
-//            window.addSubview(walkthrough.view)
-//        }
-        
-        self.parent?.parent?.show(walkthrough, sender: self)
-        
         
     }
     
+    func showTutorial() {
+        let sub = UIStoryboard(name: "Tutorial", bundle: nil)
+        walkthrough = sub.instantiateViewController(withIdentifier: "walkthroughvc") as? BWWalkthroughViewController
+        
+        let page_one = sub.instantiateViewController(withIdentifier: "TT1")
+        let page_two = sub.instantiateViewController(withIdentifier: "TT2")
+        let page_three = sub.instantiateViewController(withIdentifier: "TT3")
+        let page_four = sub.instantiateViewController(withIdentifier: "TT4")
+        let page_five = sub.instantiateViewController(withIdentifier: "TT5")
+        let page_six = sub.instantiateViewController(withIdentifier: "TT6")
+        let page_seven = sub.instantiateViewController(withIdentifier: "TT7")
+        let page_eight = sub.instantiateViewController(withIdentifier: "TT8")
+        
+        // Attach the pages to the master
+        walkthrough?.delegate = self
+        walkthrough?.add(viewController:page_one)
+        walkthrough?.add(viewController:page_two)
+        walkthrough?.add(viewController:page_three)
+        walkthrough?.add(viewController:page_four)
+        walkthrough?.add(viewController:page_five)
+        walkthrough?.add(viewController:page_six)
+        walkthrough?.add(viewController:page_seven)
+        walkthrough?.add(viewController:page_eight)
+        
+        let parent = self.parent?.parent
+        parent?.view.addSubview((walkthrough?.view)!)
+        parent?.addChildViewController(walkthrough!)
+        parent?.didMove(toParentViewController: walkthrough)
+    }
+    var walkthrough:BWWalkthroughViewController?
     func walkthroughCloseButtonPressed() {
-        print("CLOSING")
+        walkthrough?.view.removeFromSuperview()
+        walkthrough?.removeFromParentViewController()
+        walkthrough?.didMove(toParentViewController: self)
+        
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            TcrunchHelper.user_name = name
+        } else {
+            self.showNameDialog(cancel:false)
+        }
+        
     }
     
     func showJoinClassDialoge() {
@@ -207,7 +223,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         }
     }()
     var actionToEnable : UIAlertAction?
-    public func showNameDialog() {
+    public func showNameDialog(cancel:Bool) {
         //prompt name
         let alertController = UIAlertController(title: "", message: "What's your full name?", preferredStyle: .alert)
         
@@ -218,7 +234,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
             
         })
         
-        if !firstTime {
+        if cancel {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alertController.addAction(cancelAction)
         } else {

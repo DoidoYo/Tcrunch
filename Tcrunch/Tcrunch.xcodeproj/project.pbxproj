@@ -39,7 +39,8 @@
 		BD474BBB1F4F7C9100CADE0A /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */; };
 		BD594A691F53359700A6AEF1 /* TeacherReleasedTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */; };
 		BD594A6C1F534D1600A6AEF1 /* TResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD594A6B1F534D1600A6AEF1 /* TResponse.swift */; };
-		BDAEE6691F590070001F480A /* StudentTutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAEE6681F590070001F480A /* StudentTutorialVC.swift */; };
+		BD6E09091F59EFF70065605C /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6E09081F59EFF70065605C /* Tutorial.storyboard */; };
+		BD6E090C1F5A05560065605C /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E090B1F5A05560065605C /* FAQViewController.swift */; };
 		BDB612601F5290B4007D5557 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6125F1F5290B4007D5557 /* LoginViewController.swift */; };
 		BDD693971F165B780042E186 /* TeacherContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693961F165B780042E186 /* TeacherContainerVC.swift */; };
 		BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */; };
@@ -113,7 +114,8 @@
 		BD474BBA1F4F7C9100CADE0A /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherReleasedTicketVC.swift; sourceTree = "<group>"; };
 		BD594A6B1F534D1600A6AEF1 /* TResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TResponse.swift; sourceTree = "<group>"; };
-		BDAEE6681F590070001F480A /* StudentTutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTutorialVC.swift; sourceTree = "<group>"; };
+		BD6E09081F59EFF70065605C /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		BD6E090B1F5A05560065605C /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		BDB6125F1F5290B4007D5557 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDD693961F165B780042E186 /* TeacherContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherContainerVC.swift; sourceTree = "<group>"; };
 		BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSlideVC.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				BD320EFA1ED7E332008FCA0B /* Main.storyboard */,
+				BD6E09081F59EFF70065605C /* Tutorial.storyboard */,
 				BD320F2A1ED7E3FC008FCA0B /* Assets.xcassets */,
 				BD320F2B1ED7E3FC008FCA0B /* Base.lproj */,
 				BD320F2C1ED7E3FC008FCA0B /* GoogleService-Info.plist */,
@@ -201,7 +204,6 @@
 				BD320F381ED7E3FC008FCA0B /* TcrunchHelper.swift */,
 				BD34D8521EDB5368002B57BB /* Controllers */,
 				BD320F2E1ED7E3FC008FCA0B /* AllclassesViewController.swift */,
-				BDAEE6681F590070001F480A /* StudentTutorialVC.swift */,
 				BD320F311ED7E3FC008FCA0B /* ContainerViewController.swift */,
 				BD320F531ED8B952008FCA0B /* StudentTicketDetailViewController.swift */,
 				BD320F2F1ED7E3FC008FCA0B /* AppDelegate.swift */,
@@ -242,6 +244,7 @@
 		BD34D8521EDB5368002B57BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD6E090A1F5A05380065605C /* Both */,
 				BDD693951F165B620042E186 /* Teacher */,
 				BD34D8531EDB5381002B57BB /* StudentTicketUnrespondedDetailViewController.swift */,
 			);
@@ -254,6 +257,15 @@
 				BD594A6B1F534D1600A6AEF1 /* TResponse.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		BD6E090A1F5A05380065605C /* Both */ = {
+			isa = PBXGroup;
+			children = (
+				BD6E090B1F5A05560065605C /* FAQViewController.swift */,
+				BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */,
+			);
+			name = Both;
 			sourceTree = "<group>";
 		};
 		BD75DB3F1EDAEE8F009F5837 /* Custom */ = {
@@ -276,7 +288,6 @@
 				BDD693961F165B780042E186 /* TeacherContainerVC.swift */,
 				BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */,
 				BDD6939A1F165C160042E186 /* TeacherClassVC.swift */,
-				BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */,
 				BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */,
 				BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */,
 			);
@@ -414,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD320F3F1ED7E3FC008FCA0B /* Assets.xcassets in Resources */,
+				BD6E09091F59EFF70065605C /* Tutorial.storyboard in Resources */,
 				BD06A1C11EDB27BF006B04C0 /* TicketCell.xib in Resources */,
 				BD320F411ED7E3FC008FCA0B /* GoogleService-Info.plist in Resources */,
 				BD320F401ED7E3FC008FCA0B /* Base.lproj in Resources */,
@@ -598,12 +610,12 @@
 				BD06A1BF1EDB1D1B006B04C0 /* TTicket.swift in Sources */,
 				BD1BCE661F44A3CC0070B602 /* TClass_Temp.swift in Sources */,
 				BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */,
-				BDAEE6691F590070001F480A /* StudentTutorialVC.swift in Sources */,
 				BD320F461ED7E3FC008FCA0B /* ContainerViewController.swift in Sources */,
 				BD320F4B1ED7E3FC008FCA0B /* SkyFloatingLabelTextField.swift in Sources */,
 				BDD693971F165B780042E186 /* TeacherContainerVC.swift in Sources */,
 				BD320F541ED8B952008FCA0B /* StudentTicketDetailViewController.swift in Sources */,
 				BD320F4F1ED7E3FC008FCA0B /* TitleMoveField.swift in Sources */,
+				BD6E090C1F5A05560065605C /* FAQViewController.swift in Sources */,
 				BDE54CA41F51FE6700A611CF /* SettingCell.swift in Sources */,
 				BD320F4E1ED7E3FC008FCA0B /* TeacherSigninViewController.swift in Sources */,
 				BD320F4D1ED7E3FC008FCA0B /* TcrunchHelper.swift in Sources */,

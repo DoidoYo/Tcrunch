@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate {
+class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
     var slideController: SlideMenuViewController?
     
@@ -127,6 +127,42 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
             self.showNameDialog()
             firstTime = false
         }
+        
+        //walkthroughvc
+        // Get view controllers and build the walkthrough
+        
+        
+//        let walkthrough = storyboard?.instantiateViewController(withIdentifier: "walkthroughvc") as! BWWalkthroughViewController
+//        let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
+        
+        let sub = UIStoryboard(name: "Main", bundle: nil)
+        let walkthrough = sub.instantiateViewController(withIdentifier: "walkthroughvc") as! BWWalkthroughViewController
+        
+        let page_one = storyboard?.instantiateViewController(withIdentifier: "ST1")
+        let page_two = storyboard?.instantiateViewController(withIdentifier: "ST2")
+        let page_three = storyboard?.instantiateViewController(withIdentifier: "ST3")
+        let page_four = storyboard?.instantiateViewController(withIdentifier: "ST4")
+        let page_five = storyboard?.instantiateViewController(withIdentifier: "ST5")
+        
+        // Attach the pages to the master
+        walkthrough.delegate = self
+        walkthrough.add(viewController:page_one!)
+        walkthrough.add(viewController:page_two!)
+        walkthrough.add(viewController:page_three!)
+        walkthrough.add(viewController:page_four!)
+        walkthrough.add(viewController:page_five!)
+        
+//        if let window = UIApplication.shared.keyWindow {
+//            window.addSubview(walkthrough.view)
+//        }
+        
+        self.parent?.parent?.show(walkthrough, sender: self)
+        
+        
+    }
+    
+    func walkthroughCloseButtonPressed() {
+        print("CLOSING")
     }
     
     func showJoinClassDialoge() {

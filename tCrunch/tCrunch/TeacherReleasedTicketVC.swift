@@ -65,13 +65,14 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
                     let emailController = MFMailComposeViewController()
                     emailController.mailComposeDelegate = self
                     emailController.setToRecipients([]) //I usually leave this blank unless it's a "message the developer" type thing
-                    emailController.setSubject("Here is your fancy email")
-                    emailController.setMessageBody("Wow, look at this cool email", isHTML: false)
+                    emailController.setSubject("Tcrunch: Your ticket data")
+                    emailController.setMessageBody("Your ticket data is attached.", isHTML: false)
                     
                     emailController.addAttachmentData(NSData(contentsOf: path!)! as Data, mimeType: "text/csv", fileName: fileName)
                     
                     present(emailController, animated: true, completion: nil)
-                }else{
+                    
+                } else {
                     print("CANT")
                 }
                 
@@ -238,9 +239,12 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 && indexPath.row == 0 {
-            return 300
+        if multipleChoice != nil {
+            if indexPath.section == 1 && indexPath.row == 0 {
+                return 300
+            }
         }
+        
         return UITableViewAutomaticDimension
     }
     

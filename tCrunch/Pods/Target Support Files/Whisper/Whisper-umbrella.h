@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "FXBlurView.h"
 
-FOUNDATION_EXPORT double PopupDialogVersionNumber;
-FOUNDATION_EXPORT const unsigned char PopupDialogVersionString[];
+FOUNDATION_EXPORT double WhisperVersionNumber;
+FOUNDATION_EXPORT const unsigned char WhisperVersionString[];
 

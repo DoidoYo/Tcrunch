@@ -46,6 +46,7 @@
 		BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */; };
 		BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6939A1F165C160042E186 /* TeacherClassVC.swift */; };
 		BDDDD78A1EDB29FF00CE3D08 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */; };
+		BDDF6AEA1F5A2A02009BB8B4 /* TeacherSQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDF6AE91F5A2A02009BB8B4 /* TeacherSQVC.swift */; };
 		BDE54CA21F51FD1400A611CF /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */; };
 		BDE54CA41F51FE6700A611CF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE54CA31F51FE6700A611CF /* SettingCell.swift */; };
 		D37CFB1B1400CF538215EF92 /* Pods_tCrunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E50004F4AAC2AA960DAC /* Pods_tCrunch.framework */; };
@@ -121,6 +122,7 @@
 		BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSlideVC.swift; sourceTree = "<group>"; };
 		BDD6939A1F165C160042E186 /* TeacherClassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassVC.swift; sourceTree = "<group>"; };
 		BDDDD7891EDB29FF00CE3D08 /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
+		BDDF6AE91F5A2A02009BB8B4 /* TeacherSQVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSQVC.swift; sourceTree = "<group>"; };
 		BDE54CA11F51FD1400A611CF /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		BDE54CA31F51FE6700A611CF /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C7A282885CD48FCCC483A6ED /* Pods_tCrunchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tCrunchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +292,7 @@
 				BDD6939A1F165C160042E186 /* TeacherClassVC.swift */,
 				BD2F7D2F1F4C988600C8DF85 /* TeacherNewTicketVC.swift */,
 				BD594A681F53359700A6AEF1 /* TeacherReleasedTicketVC.swift */,
+				BDDF6AE91F5A2A02009BB8B4 /* TeacherSQVC.swift */,
 			);
 			name = Teacher;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				BD594A691F53359700A6AEF1 /* TeacherReleasedTicketVC.swift in Sources */,
 				BD474BBB1F4F7C9100CADE0A /* PlaceholderTextView.swift in Sources */,
 				BD320F521ED7E3FC008FCA0B /* Tcrunch.xcdatamodeld in Sources */,
+				BDDF6AEA1F5A2A02009BB8B4 /* TeacherSQVC.swift in Sources */,
 				BD320F441ED7E3FC008FCA0B /* AppDelegate.swift in Sources */,
 				BD594A6C1F534D1600A6AEF1 /* TResponse.swift in Sources */,
 				BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */,

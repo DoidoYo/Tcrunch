@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import Whisper
 
 //tabbar functionality and swifching of views
 class SegmentedViewController: UIViewController {
@@ -47,28 +48,6 @@ class SegmentedViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
-        
-        
-//        let email = "hello@gmail.com"
-//        let pass = "test123"
-//        
-//        //fater login
-//        Auth.auth().signIn(withEmail: email, password: pass, completion: {
-//            (user, error) in
-//            
-//            TcrunchHelper.user = user
-//            
-//            if let err = error {
-//                print("Login Error: \(err)")
-//            } else {
-//                //successful login
-//                self.showTeacherScreen()
-//                
-//                
-//            }
-//            
-//        })
         iniCustomSegmentedView()
     }
     
@@ -97,46 +76,100 @@ class SegmentedViewController: UIViewController {
     
     
     @IBAction func registerButtonPress(_ sender: Any) {
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
-            (user, error) in
-            
-            TcrunchHelper.user = user
-            
-            if let err = error {
-                print("Register Error: \(err)")
-            } else {
-                //successful registration
+        if (emailTextField.text?.isEmpty)! {
+            error(descripton: "Please enter an email.")
+        } else if (passwordTextField.text?.isEmpty)! {
+            error(descripton: "Please enter a password.")
+        } else {
+            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
+                (user, error) in
                 
-                self.showTeacherScreen()
+                TcrunchHelper.user = user
                 
-            }
-            
-        })
+                if let err = error {
+                    self.error(descripton: err.localizedDescription)
+                } else {
+                    //successful registration
+                    self.showTeacherScreen()
+                }
+                
+            })
+        }
     }
     
     @IBAction func signinButtonPress(_ sender: Any) {
         
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
-            (user, error) in
-            
-            TcrunchHelper.user = user
-            
-            if let err = error {
-                print("Login Error: \(err)")
-            } else {
-                //successful login
-                self.showTeacherScreen()
+        if (emailTextField.text?.isEmpty)! {
+            error(descripton: "Please enter an email.")
+        } else if (passwordTextField.text?.isEmpty)! {
+            error(descripton: "Please enter a password.")
+        } else {
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
+                (user, error) in
                 
+                TcrunchHelper.user = user
                 
-            }
+                if error != nil {
+                    self.error(descripton: "Incorrect email or password.")
+                } else {
+                    //successful login
+                    self.showTeacherScreen()
+                    
+                    
+                }
+                
+            })
+        }
+    }
+    
+    func error(descripton: String, time: TimeInterval) {
+        let announcement = Announcement(title: "Error", subtitle: descripton, image: #imageLiteral(resourceName: "cancel"), duration: time, action: {})//Announcement(title: "Error", subtitle: desc, image: #imageLiteral(resourceName: "cancel"))
+        Whisper.show(shout: announcement, to: self.parent!, completion: {
             
         })
-        
+    }
+    func error(descripton: String) {
+        error(descripton: descripton, time: 2)
+    }
+    
+    func check(description: String, time: TimeInterval) {
+        let announcement = Announcement(title: "Success", subtitle: description, image: #imageLiteral(resourceName: "check"), duration: time, action: {})//Announcement(title: "Error", subtitle: desc, image: #imageLiteral(resourceName: "cancel"))
+        Whisper.show(shout: announcement, to: self.parent!, completion: {
+            
+        })
     }
     
     
     @IBAction func forgotButtonPress(_ sender: Any) {
+        let alertController = UIAlertController(title: "Reset Your Password", message: "Type in the email address you want to reset the password for and we'll send you instructions for resetting your password.", preferredStyle: .alert)
         
+        var eTextField:UITextField!
+        alertController.addTextField(configurationHandler: {
+            textField in
+            textField.placeholder = "E-mail"
+            textField.keyboardType = .emailAddress
+            eTextField = textField
+        })
+        
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
+        
+        let resetAction = UIAlertAction(title: "Reset", style: .default, handler: {
+            (action) in
+            
+            Auth.auth().sendPasswordReset(withEmail: eTextField.text!) {
+                error in
+                if let err = error {
+                    self.error(descripton: err.localizedDescription, time:6)
+                } else {
+                    self.check(description: "The email was sent!", time: 6)
+                }
+            }
+            
+        })
+        alertController.addAction(resetAction)
+        
+        self.present(alertController, animated: true)
     }
     
     

@@ -39,7 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PopupDialog.xcscheme</key>
+		<key>Whisper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,17 +62,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>137C77D6E1F99BDFC51838ED73DA434C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>266AE1506DAD13D34C0725E909C0C476</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E0F5D052EF2224720925FAFB7CF35A</key>
+		<key>687F07248057AB87AC68B2B39125264F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DE6285288DEAC4116D3B217975080C2</key>
+		<key>74E0F5D052EF2224720925FAFB7CF35A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,11 +88,6 @@
 			<true/>
 		</dict>
 		<key>C235F77E101E742652CCF98FFDFA5182</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C3EC74BFD883FCC7CB8B999D2FB2C37B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

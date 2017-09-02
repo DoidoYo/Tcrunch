@@ -111,9 +111,9 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         //register custom cell
         tableView.register(UINib.init(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         
-        
-        //teacher name stuff
-        if UserDefaults.standard.string(forKey: "user_teacher_name") == nil {
+        if let name = UserDefaults.standard.string(forKey: "user_teacher_name") {
+            TcrunchHelper.user_name = name
+        } else {
             showTutorial()
         }
         
@@ -236,6 +236,9 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         } else if selected == settings[3] {
             //suggested questions
+            let sq = storyboard?.instantiateViewController(withIdentifier: "TeacherSQVC")
+            
+            self.navigationController?.show(sq!, sender: self)
             
         } else if selected == settings[4] {
             //faq
@@ -512,6 +515,8 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
     }
+    
+    @IBAction func unwindToTeacherClasse(segue: UIStoryboardSegue) {}
     
     
 }

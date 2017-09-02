@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import CoreData
-import PopupDialog
 
 class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
@@ -132,7 +131,9 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         //register custom cell
         tableView.register(UINib.init(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         
-        if UserDefaults.standard.string(forKey: "user_name") == nil {
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            TcrunchHelper.user_name = name
+        } else {
             showTutorial()
         }
         

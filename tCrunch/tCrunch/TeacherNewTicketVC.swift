@@ -24,6 +24,8 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
 //    var _editTicket: TTicket?
     var editTicket: TTicket?
     
+    var presetQuestion: String?
+    
     var navRightButton:UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
@@ -126,6 +128,12 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
             picker.delegate = self
             
             textField.inputView = picker
+            
+            
+            if (classTextField.text?.isEmpty)! && TcrunchHelper.teacherClasses.count > 0{
+                textField.text = TcrunchHelper.teacherClasses[0].name
+                selectedClass = TcrunchHelper.teacherClasses[0]
+            }
         } else if textField == timeTextField {
             
             let picker = UIDatePicker()
@@ -147,13 +155,11 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         if textField == timeTextField {
             timePickerChanged(textField.inputView as! UIDatePicker)
         } else if textField == dateTextField {
             datePickerChanged(textField.inputView as! UIDatePicker)
         }
-        
     }
     
     func updateButtonPress(sender: UIBarButtonItem) {
@@ -162,24 +168,25 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
             TcrunchHelper.create(Ticket: ticket, ForClass: selectedClass!, completion: {
                 status in
                 
-                self.navigationController?.popViewController(animated: true)
+                self.performSegue(withIdentifier: "unwindToTeacherClass", sender: self)
+//                self.navigationController?.popViewController(animated: true)
             })
         }
     }
     
     func deleteButtonPressed(sender: UIBarButtonItem) {
         TcrunchHelper.deleteTicket(editTicket!)
-        self.navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "unwindToTeacherClass", sender: self)
+//        self.navigationController?.popViewController(animated: true)
     }
     //created button pressed
     func navRightButtonPress(sender: UIBarButtonItem) {
-        //tk
-        
         if let ticket = createTicket() {
             TcrunchHelper.create(Ticket: ticket, ForClass: selectedClass!, completion: {
                 status in
                 
-                self.navigationController?.popViewController(animated: true)
+                self.performSegue(withIdentifier: "unwindToTeacherClass", sender: self)
+//                self.navigationController?.popViewController(animated: true)
             })
         }
     }
@@ -334,6 +341,9 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                 cell = tableView.dequeueReusableCell(withIdentifier: "question")!
                 questionTextView = cell.viewWithTag(1) as! UITextView
                 
+                if let q = presetQuestion {
+                    questionTextView.text = q
+                }
                 if let quest = editTicket?.question, editInitialized[2] {
                     
                     editInitialized[2] = false
@@ -371,7 +381,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     }
                     //toggle tick mark
-                    if tik.anonymous! {
+                    if let anon = tik.anonymous, anon {
                         tableButtonPressed(sender: anonymousButton!)
                     }
                     

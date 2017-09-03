@@ -1,27 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d6D-aP-C8Q">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="53F-Xf-ejF">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="d6D-aP-C8Q" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="wc8-g3-Ese"/>
+                        <viewControllerLayoutGuide type="bottom" id="cN8-EX-2cr"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="HYD-M0-lQm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tcrunch_logo" translatesAutoresizingMaskIntoConstraints="NO" id="SII-09-Nna">
+                                <rect key="frame" x="69" y="39" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="PDZ-2u-qy1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40706393120000001" green="0.76498329639999996" blue="0.95299685000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="SII-09-Nna" firstAttribute="leading" secondItem="HYD-M0-lQm" secondAttribute="leadingMargin" constant="53" id="fLr-BB-O2w"/>
+                            <constraint firstItem="SII-09-Nna" firstAttribute="top" secondItem="wc8-g3-Ese" secondAttribute="bottom" constant="19" id="nFo-aa-gNQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SII-09-Nna" secondAttribute="trailing" constant="50" id="ns6-T0-PLq"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkt-sJ-GK7" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="804" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tcrunch_logo" width="512" height="250"/>
+    </resources>
 </document>

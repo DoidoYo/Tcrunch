@@ -42,6 +42,7 @@
 		BD6E09091F59EFF70065605C /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6E09081F59EFF70065605C /* Tutorial.storyboard */; };
 		BD6E090C1F5A05560065605C /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E090B1F5A05560065605C /* FAQViewController.swift */; };
 		BDB612601F5290B4007D5557 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6125F1F5290B4007D5557 /* LoginViewController.swift */; };
+		BDD3B6D61F5C561100CDADA9 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD3B6D51F5C561100CDADA9 /* Launch.storyboard */; };
 		BDD693971F165B780042E186 /* TeacherContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693961F165B780042E186 /* TeacherContainerVC.swift */; };
 		BDD693991F165BFC0042E186 /* TeacherSlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */; };
 		BDD6939B1F165C160042E186 /* TeacherClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6939A1F165C160042E186 /* TeacherClassVC.swift */; };
@@ -118,6 +119,7 @@
 		BD6E09081F59EFF70065605C /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		BD6E090B1F5A05560065605C /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		BDB6125F1F5290B4007D5557 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BDD3B6D51F5C561100CDADA9 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		BDD693961F165B780042E186 /* TeacherContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherContainerVC.swift; sourceTree = "<group>"; };
 		BDD693981F165BFC0042E186 /* TeacherSlideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSlideVC.swift; sourceTree = "<group>"; };
 		BDD6939A1F165C160042E186 /* TeacherClassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassVC.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				BD320EFA1ED7E332008FCA0B /* Main.storyboard */,
+				BDD3B6D51F5C561100CDADA9 /* Launch.storyboard */,
 				BD6E09081F59EFF70065605C /* Tutorial.storyboard */,
 				BD320F2A1ED7E3FC008FCA0B /* Assets.xcassets */,
 				BD320F2B1ED7E3FC008FCA0B /* Base.lproj */,
@@ -430,6 +433,7 @@
 				BD320F3F1ED7E3FC008FCA0B /* Assets.xcassets in Resources */,
 				BD6E09091F59EFF70065605C /* Tutorial.storyboard in Resources */,
 				BD06A1C11EDB27BF006B04C0 /* TicketCell.xib in Resources */,
+				BDD3B6D61F5C561100CDADA9 /* Launch.storyboard in Resources */,
 				BD320F411ED7E3FC008FCA0B /* GoogleService-Info.plist in Resources */,
 				BD320F401ED7E3FC008FCA0B /* Base.lproj in Resources */,
 				BD320F421ED7E3FC008FCA0B /* Info.plist in Resources */,

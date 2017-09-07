@@ -26,8 +26,8 @@ class TeacherSigninViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
             (user, error) in
             
-            print(user)
-            print(error)
+            print(user!)
+            print(error!)
             
         print(Database.database().reference().child("classes").child("-Ke6lQso8ynV62BeP584").observeSingleEvent(of: .value, with: {
                 (snapshot) in

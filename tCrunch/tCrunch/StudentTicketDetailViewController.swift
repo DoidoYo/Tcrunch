@@ -102,7 +102,7 @@ class StudentTicketDetailViewController: UIViewController, UITableViewDelegate, 
             if responseText.text != "" {
                 TcrunchHelper.set(Response: responseText.text, forTicket: ticket!, completion: {
                     delegate?.responseSubmitted(tclass: ticket!.tclass!)
-                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController!.popViewController(animated: true)
                     saveTicket(response: responseText.text)
                 })
             }
@@ -116,7 +116,7 @@ class StudentTicketDetailViewController: UIViewController, UITableViewDelegate, 
             if response != "" {
                 TcrunchHelper.set(Response: response, forTicket: ticket!, completion: {
                     delegate?.responseSubmitted(tclass: ticket!.tclass!)
-                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController!.popViewController(animated: true)
                     saveTicket(response: response)
                 })
             }

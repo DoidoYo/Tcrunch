@@ -59,7 +59,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewDidLoad() {
-        parentVC = self.parent?.parent as! TeacherContainerVC
+        parentVC = self.parent?.parent as? TeacherContainerVC
         
         //set size of JOIN CLASS Button text
         let fontSize:CGFloat = 13;
@@ -291,7 +291,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         actionToEnable = UIAlertAction(title: "Create", style: .default, handler: {
             (action) in
             
-            let textField = alertController.textFields![0] as! UITextField
+            _ = alertController.textFields![0] 
             
             TcrunchHelper.createNewClass(code: self.codeTF!.text!, name: self.nameTF!.text!, completion: {
                 back in
@@ -362,7 +362,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func sortTickets() {
-        let currentTime = Date.init().timeIntervalSince1970
+        _ = Date.init().timeIntervalSince1970
         
         upcomingTickets = []
         launchedTickets = []
@@ -506,7 +506,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             let releasedTicketVC = storyboard?.instantiateViewController(withIdentifier: "TeacherReleasedTicketVC") as! TeacherReleasedTicketVC
             releasedTicketVC.parentVC = self
             releasedTicketVC.ticket = launchedTickets[indexPath.row]
-            if let data = launchedTickets[indexPath.row].answerChoices {
+            if launchedTickets[indexPath.row].answerChoices != nil {
                 let mcString = NSKeyedUnarchiver.unarchiveObject(with: launchedTickets[indexPath.row].answerChoices! as Data) as! [String]
                 releasedTicketVC.multipleChoice = mcString
             }

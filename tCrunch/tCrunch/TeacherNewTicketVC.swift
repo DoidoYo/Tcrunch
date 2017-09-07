@@ -54,7 +54,7 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
         let attributes:[String : Any] = [NSFontAttributeName: font];
         
         //data is avalable
-        if let tik = editTicket {
+        if editTicket != nil {
             self.navigationItem.title = "Edit Ticket"
             
             let updateButton = UIBarButtonItem(title: "UPDATE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.updateButtonPress(sender:)))
@@ -356,8 +356,8 @@ class TeacherNewTicketVC: UIViewController, UITableViewDelegate, UITableViewData
             case 4:
                 cell = tableView.dequeueReusableCell(withIdentifier: "checkmarks")!
                 
-                multipleChoiceButton = cell.viewWithTag(5) as! CheckButton
-                anonymousButton = cell.viewWithTag(6) as! CheckButton
+                multipleChoiceButton = cell.viewWithTag(5) as? CheckButton
+                anonymousButton = cell.viewWithTag(6) as? CheckButton
                 
                 multipleChoiceButton!.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)
                 anonymousButton!.addTarget(self, action: #selector(tableButtonPressed(sender:)), for: .touchUpInside)

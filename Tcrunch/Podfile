@@ -14,6 +14,7 @@ pod 'Firebase/Database'
 pod 'Charts'
 pod 'IQKeyboardManagerSwift'
 pod 'Whisper'
+pod 'NVActivityIndicatorView'
 
   target 'tCrunchTests' do
     inherit! :search_paths

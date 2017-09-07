@@ -46,7 +46,7 @@ class TeacherContainerVC: UIViewController {
         self.addChildViewController(navVC!)
         self.didMove(toParentViewController: navVC!)
         
-        classVC = navVC?.childViewControllers[0] as! TeacherClassVC
+        classVC = navVC?.childViewControllers[0] as? TeacherClassVC
        
     }
     

@@ -141,13 +141,13 @@ class ContainerViewController: UIViewController, ContainerViewControllerDelegate
     }
     
     func setUser(_ user: User) {
-        var prompt: String
+//        var prompt: String
         if user == User.STUDENT {
-            prompt = STUDENT_NAME_PROMPT
+//            prompt = STUDENT_NAME_PROMPT
             TcrunchHelper.user_id = UserDefaults.standard.string(forKey: "user_id")
             
         } else { //user == User.TEACHER
-            prompt = TEACHER_NAME_PROMPT
+//            prompt = TEACHER_NAME_PROMPT
             
         }
     }

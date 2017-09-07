@@ -47,6 +47,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (3.7.0):
+    - NVActivityIndicatorView/Presenter (= 3.7.0)
+  - NVActivityIndicatorView/Presenter (3.7.0)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - IQKeyboardManagerSwift
+  - NVActivityIndicatorView
   - Whisper
 
 SPEC CHECKSUMS:
@@ -70,8 +74,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: fb399c4cddcd8d9bbcd2d0c7c81ed290b61c088e
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: c4d2cab275b638912ed7420844696883a0f6b461
+PODFILE CHECKSUM: da5fd75ef9659c396dbd9c1f066cf14692dfc419
 
 COCOAPODS: 1.2.0

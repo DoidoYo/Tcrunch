@@ -92,7 +92,7 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
                 (action) in
                 
                 TcrunchHelper.deleteTicket(self.ticket!)
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController!.popViewController(animated: true)
                 
             })
             alertController.addAction(deleteAction)
@@ -165,7 +165,7 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
                 
             } else if indexPath.row == 2 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "numberResponseCell")!
-                responseLabel = cell.viewWithTag(1) as! UILabel
+                responseLabel = cell.viewWithTag(1) as? UILabel
                 responseLabel?.text = "\(responses.count) Responses"
             }
         } else if indexPath.section == 1 {

@@ -72,7 +72,7 @@ class StudentTicketUnrespondedDetailViewController: UITableViewController {
             }
             
             TcrunchHelper.set(Response: answer, forTicket: ticket!, completion: {
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController!.popViewController(animated: true)
                 saveTicket(response: answer)
             })
             
@@ -82,7 +82,7 @@ class StudentTicketUnrespondedDetailViewController: UITableViewController {
             if cellText.text != "" {
                 print(cellText.text)
                 TcrunchHelper.set(Response: cellText.text, forTicket: ticket!, completion: {
-                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController!.popViewController(animated: true)
                     saveTicket(response: cellText.text)
                 })
             }

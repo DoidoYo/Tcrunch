@@ -30,8 +30,8 @@
     </entity>
     <elements>
         <element name="TClass" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="TTicketPersistent" positionX="-54" positionY="18" width="128" height="180"/>
         <element name="TClassPersistent_Teacher" positionX="-63" positionY="72" width="128" height="120"/>
+        <element name="TTicketPersistent" positionX="-54" positionY="18" width="128" height="180"/>
         <element name="TTicketPersistent_Teacher" positionX="-54" positionY="81" width="128" height="60"/>
     </elements>
 </model>

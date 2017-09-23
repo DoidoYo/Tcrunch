@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Whisper
 
 class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
@@ -296,7 +297,13 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             TcrunchHelper.createNewClass(code: self.codeTF!.text!, name: self.nameTF!.text!, completion: {
                 back in
                 
-                print(back)
+                if back == JoinClass.CODE_EXISTS {
+                    let announcement = Announcement(title: "Error", subtitle: "Code already exists!", image: #imageLiteral(resourceName: "cancel"), duration: 3, action: {})
+                    Whisper.show(shout: announcement, to: self.parent!, completion: {
+                        
+                    })
+                }
+                
             })
             
         })

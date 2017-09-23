@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 import Firebase
+import Whisper
 
 class TcrunchHelper {
     
@@ -65,7 +66,7 @@ class TcrunchHelper {
         
         responseHandle = dbRef.child("responses").observe(.value, with: {
             snapshot in
-            
+            responses = []
             if snapshot.hasChild(ticket.id!) {
                 if let vals = snapshot.value as? NSDictionary {
                     if let child = vals[ticket.id!] as? NSDictionary {
@@ -168,7 +169,12 @@ class TcrunchHelper {
                         
                     } else {
                         completion(JoinClass.CODE_EXISTS)
-                        print("Code already in use: \(code)")
+                        //tk
+                        
+                        
+
+                        
+                        //print("Code already in use: \(code)")
                     }
                 })
             } else {

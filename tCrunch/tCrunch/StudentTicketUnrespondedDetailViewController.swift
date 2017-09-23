@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import Whisper
 
 class StudentTicketUnrespondedDetailViewController: UITableViewController {
     
@@ -62,31 +63,58 @@ class StudentTicketUnrespondedDetailViewController: UITableViewController {
     }
     
     func submitPressed(sender: UIBarButtonItem) {
-        if choice_answer.count > 0 {
-            var answer: String = ""
-            print("----------------------")
-            for item in choice_answer {
-                if item.value {
-                    answer = item.key
+        
+        let alertController = UIAlertController(title: "Are you sure you want to submit?", message: "You may not edit your response.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        alertController.addAction(cancelAction)
+        
+        let actionToEnable = UIAlertAction(title: "Yes", style: .default, handler: {
+            (action) in
+            
+            
+            if self.choice_answer.count > 0 {
+                var answer: String = ""
+                print("----------------------")
+                for item in self.choice_answer {
+                    if item.value {
+                        answer = item.key
+                    }
+                }
+                if answer != "" {
+                    TcrunchHelper.set(Response: answer, forTicket: self.ticket!, completion: {
+                        self.navigationController!.popViewController(animated: true)
+                        self.saveTicket(response: answer)
+                    })
+                } else {
+                    let announcement = Announcement(title: "Warning", subtitle: "Please select an answer choice.", image: #imageLiteral(resourceName: "cancel"), duration: 3, action: {})
+                    Whisper.show(shout: announcement, to: self.parent!, completion: {
+                        
+                    })
+                }
+                
+                
+            } else {
+                let cellText = self.responseCell?.viewWithTag(1) as! UITextView
+                if cellText.text != "" {
+                    print(cellText.text)
+                    TcrunchHelper.set(Response: cellText.text, forTicket: self.ticket!, completion: {
+                        self.navigationController!.popViewController(animated: true)
+                        self.saveTicket(response: cellText.text)
+                    })
+                } else {
+                    let announcement = Announcement(title: "Warning", subtitle: "Please answer the question.", image: #imageLiteral(resourceName: "cancel"), duration: 3, action: {})
+                    Whisper.show(shout: announcement, to: self.parent!, completion: {
+                        
+                    })
                 }
             }
             
-            TcrunchHelper.set(Response: answer, forTicket: ticket!, completion: {
-                self.navigationController!.popViewController(animated: true)
-                saveTicket(response: answer)
-            })
-            
-            
-        } else {
-            let cellText = responseCell?.viewWithTag(1) as! UITextView
-            if cellText.text != "" {
-                print(cellText.text)
-                TcrunchHelper.set(Response: cellText.text, forTicket: ticket!, completion: {
-                    self.navigationController!.popViewController(animated: true)
-                    saveTicket(response: cellText.text)
-                })
-            }
-        }
+        })
+        alertController.addAction(actionToEnable)
+        
+        self.present(alertController, animated: true)
+        
     }
     
     func saveTicket(response: String) {
@@ -190,7 +218,9 @@ class StudentTicketUnrespondedDetailViewController: UITableViewController {
                 textView.isEditable = isEditable
                 textView.text = tickertPersistent?.answer
                 
-                textView.becomeFirstResponder()
+                if !textView.isFirstResponder {
+                    textView.becomeFirstResponder()
+                }
                 
                 return responseCell!
                 

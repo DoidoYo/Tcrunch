@@ -1,0 +1,36 @@
+
+
+Ui rules:
+goodui.org
+
+Element ideas:
+dribbble.com
+Calltoidea.com
+Uimovement.com
+
+Website inspiration:
+awwwards.com
+
+Color schemes:
+Colorhunt.co
+coolors.co
+
+Image resources:
+flick.com
+pexels.com
+Unsplash.it
+
+Icons:
+Thenounproject.com — b/w
+iconstore.co
+
+Fonts:
+Fontfaceninja — font deterction
+Google fonts
+myfonts.com
+
+Gradient background:
+Uigradients.com
+
+Chunck of code:
+Codepen.io

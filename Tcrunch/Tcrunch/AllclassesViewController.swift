@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import Whisper
 
 class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
@@ -143,14 +144,11 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         let sub = UIStoryboard(name: "Tutorial", bundle: nil)
         walkthrough = sub.instantiateViewController(withIdentifier: "walkthroughvc") as? BWWalkthroughViewController
         
-        let page_one = sub.instantiateViewController(withIdentifier: "TT1")
-        let page_two = sub.instantiateViewController(withIdentifier: "TT2")
-        let page_three = sub.instantiateViewController(withIdentifier: "TT3")
-        let page_four = sub.instantiateViewController(withIdentifier: "TT4")
-        let page_five = sub.instantiateViewController(withIdentifier: "TT5")
-        let page_six = sub.instantiateViewController(withIdentifier: "TT6")
-        let page_seven = sub.instantiateViewController(withIdentifier: "TT7")
-        let page_eight = sub.instantiateViewController(withIdentifier: "TT8")
+        let page_one = sub.instantiateViewController(withIdentifier: "ST1")
+        let page_two = sub.instantiateViewController(withIdentifier: "ST2")
+        let page_three = sub.instantiateViewController(withIdentifier: "ST3")
+        let page_four = sub.instantiateViewController(withIdentifier: "ST4")
+        let page_five = sub.instantiateViewController(withIdentifier: "ST5")
         
         // Attach the pages to the master
         walkthrough?.delegate = self
@@ -159,9 +157,6 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
         walkthrough?.add(viewController:page_three)
         walkthrough?.add(viewController:page_four)
         walkthrough?.add(viewController:page_five)
-        walkthrough?.add(viewController:page_six)
-        walkthrough?.add(viewController:page_seven)
-        walkthrough?.add(viewController:page_eight)
         
         let parent = self.parent?.parent
         parent?.view.addSubview((walkthrough?.view)!)
@@ -206,7 +201,10 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
                 if re == JoinClass.DONE || re == JoinClass.ALREADY_JOINED{
                     self.loadClass(tclass!)
                 } else {
-                    
+                    let announcement = Announcement(title: "Error", subtitle: "Class not found!", image: #imageLiteral(resourceName: "cancel"), duration: 3, action: {})
+                    Whisper.show(shout: announcement, to: self.parent!, completion: {
+                        
+                    })
                 }
             })
         })

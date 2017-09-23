@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MessageUI
 import Charts
+import Whisper
 
 class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, MFMailComposeViewControllerDelegate {
     
@@ -73,7 +74,10 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
                     present(emailController, animated: true, completion: nil)
                     
                 } else {
-                    print("CANT")
+                    let announcement = Announcement(title: "Error", subtitle: "Please set up your email account first.", image: #imageLiteral(resourceName: "cancel"), duration: 6, action: {})
+                    Whisper.show(shout: announcement, to: self.parent!, completion: {
+                        
+                    })
                 }
                 
             } catch {
@@ -218,6 +222,12 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
             let chartData = BarChartData(dataSet: chartDataSet)
             barChartView?.data = chartData
             
+            let stringArray = NSKeyedUnarchiver.unarchiveObject(with: (ticket?.answerChoices)! as Data) as! [String]
+            
+            barChartView?.xAxis.valueFormatter = IndexAxisValueFormatter(values: stringArray)
+            
+            barChartView?.xAxis.granularity = 1
+            barChartView?.legend.enabled = false
             
             barChartView?.scaleYEnabled = false
             barChartView?.scaleXEnabled = false
@@ -229,11 +239,12 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
             barChartView?.rightAxis.enabled = false
             barChartView?.chartDescription?.text = ""
             
+            barChartView?.leftAxis.axisMinimum = 0
             
             barChartView?.scaleXEnabled = false
             barChartView?.scaleYEnabled = false
             
-            barChartView?.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+            barChartView?.animate(xAxisDuration: 0.0, yAxisDuration: 0.5)
         }
         
     }

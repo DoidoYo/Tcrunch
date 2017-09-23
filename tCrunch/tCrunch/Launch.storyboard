@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,17 +24,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tcrunch_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hjS-Kr-yTx">
-                                <rect key="frame" x="69" y="39" width="240" height="128"/>
+                                <rect key="frame" x="69" y="39" width="240" height="113.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="bez-SB-9Av"/>
+                                    <constraint firstAttribute="width" secondItem="hjS-Kr-yTx" secondAttribute="height" multiplier="271:128" id="yXM-vj-tZd"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.40706393120000001" green="0.76498329639999996" blue="0.95299685000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="hjS-Kr-yTx" firstAttribute="leading" secondItem="tc0-Pa-KsU" secondAttribute="leadingMargin" constant="53" id="D0U-i0-vUo"/>
-                            <constraint firstItem="hjS-Kr-yTx" firstAttribute="top" secondItem="SJy-H0-KkJ" secondAttribute="bottom" constant="19" id="NYk-Re-ZbU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hjS-Kr-yTx" secondAttribute="trailing" constant="50" id="yRO-Fv-laV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hjS-Kr-yTx" secondAttribute="trailing" constant="50" id="Ood-iP-amw"/>
+                            <constraint firstItem="hjS-Kr-yTx" firstAttribute="top" secondItem="SJy-H0-KkJ" secondAttribute="bottom" constant="19" id="j99-9O-u12"/>
+                            <constraint firstItem="hjS-Kr-yTx" firstAttribute="leading" secondItem="tc0-Pa-KsU" secondAttribute="leadingMargin" constant="53" id="tSs-SZ-CTR"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

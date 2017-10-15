@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 import Whisper
+import SwiftKeychainWrapper
 
 class AllclassesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsLauncherDelegate, BWWalkthroughViewControllerDelegate {
     
@@ -72,6 +73,7 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
             
             
         } else if selected == settings[3] { //Log Out
+            KeychainWrapper.standard.set(false, forKey: "student_logged")
             self.performSegue(withIdentifier: "unwindToLogin", sender: self)
         }
     }
@@ -300,6 +302,19 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
                     }
                 }
                 
+                self.answeredTicket.sort(by: {(before, after) -> Bool in
+                    if before.startTime! > after.startTime! {
+                        return true
+                    }
+                    return false
+                })
+                self.unansweredTicket.sort(by: {(before, after) -> Bool in
+                    if before.startTime! > after.startTime! {
+                        return true
+                    }
+                    return false
+                })
+                
                 self.tableView.reloadData()
                 
             })
@@ -344,7 +359,18 @@ class AllclassesViewController: UIViewController, UITableViewDataSource, UITable
                         self.answeredTicket.append(item)
                     }
                 }
-                
+                self.answeredTicket.sort(by: {(before, after) -> Bool in
+                    if before.startTime! > after.startTime! {
+                        return true
+                    }
+                    return false
+                })
+                self.unansweredTicket.sort(by: {(before, after) -> Bool in
+                    if before.startTime! > after.startTime! {
+                        return true
+                    }
+                    return false
+                })
                 self.tableView.reloadData()
                 
                 if self.answeredTicket.count == 0 && self.unansweredTicket.count == 0 {

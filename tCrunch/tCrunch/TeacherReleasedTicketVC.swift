@@ -91,7 +91,7 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alertController.addAction(cancelAction)
-                
+            
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {
                 (action) in
                 
@@ -123,7 +123,20 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
             self.responses = responses
             
             if let label = self.responseLabel {
-                label.text = "\(responses.count) Responses"
+                print("responses \(responses.count)")
+                if responses.count <= 1 {
+                    label.text = "\(responses.count) Response"
+                } else {
+                    label.text = "\(responses.count) Responses"
+                }
+                
+                self.responses.sort(by: {(before, after) -> Bool in
+                    if before.time! > after.time! {
+                        return true
+                    }
+                    return false
+                })
+                
                 self.tableView.reloadData()
             }
         })
@@ -170,7 +183,11 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
             } else if indexPath.row == 2 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "numberResponseCell")!
                 responseLabel = cell.viewWithTag(1) as? UILabel
-                responseLabel?.text = "\(responses.count) Responses"
+                if responses.count <= 1 {
+                    responseLabel?.text = "\(responses.count) Response"
+                } else {
+                    responseLabel?.text = "\(responses.count) Responses"
+                }
             }
         } else if indexPath.section == 1 {
             if multipleChoice == nil {
@@ -193,7 +210,7 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
             } else {
                 //show bar graph
                 cell = tableView.dequeueReusableCell(withIdentifier: "chartResponseCell")!
-//                cell.backgroundColor = UIColor.blue
+                //                cell.backgroundColor = UIColor.blue
                 barChartView = (cell.viewWithTag(1) as! BarChartView)
                 
                 updateChart()
@@ -214,7 +231,7 @@ class TeacherReleasedTicketVC: UITableViewController, SettingsLauncherDelegate, 
                     }
                 }
                 dataEntries.append(BarChartDataEntry(x: Double(i), y: Double(count)))
-//                chartDataSets
+                //                chartDataSets
             }
             let chartDataSet = BarChartDataSet(values: dataEntries, label: "yuh")
             chartDataSet.colors = ChartColorTemplates.colorful()

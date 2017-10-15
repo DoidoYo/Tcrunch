@@ -16,6 +16,8 @@ pod 'IQKeyboardManagerSwift'
 pod 'Whisper'
 pod 'NVActivityIndicatorView'
 
+pod 'SwiftKeychainWrapper'
+
   target 'tCrunchTests' do
     inherit! :search_paths
     # Pods for testing

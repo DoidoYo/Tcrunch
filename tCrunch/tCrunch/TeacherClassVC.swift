@@ -102,6 +102,7 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.emptyLabel.text = "You have no classes."
                 self.setClassTitle("Tcrunch")
             }
+            
             self._classes = classes
         })
         //check existing classes
@@ -388,6 +389,20 @@ class TeacherClassVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 launchedTickets.append(ticket)
             }
         }
+        
+        upcomingTickets.sort(by: {(before, after) -> Bool in
+            if before.startTime! > after.startTime! {
+                return true
+            }
+            return false
+        })
+        launchedTickets.sort(by: {(before, after) -> Bool in
+            if before.startTime! > after.startTime! {
+                return true
+            }
+            return false
+        })
+        
         tableView.reloadData()
     }
     

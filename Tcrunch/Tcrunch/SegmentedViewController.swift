@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import Whisper
+import SwiftKeychainWrapper
 
 //tabbar functionality and swifching of views
 class SegmentedViewController: UIViewController {
@@ -47,12 +48,29 @@ class SegmentedViewController: UIViewController {
         studentView.isHidden = true
     }
     
-    override func viewDidLoad() {
-        iniCustomSegmentedView()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //check if users are logged in
+        
+        Auth.auth().addStateDidChangeListener({
+            auth, user in
+            if user != nil {
+                TcrunchHelper.user = user
+                self.showTeacherScreen()
+            }
+        })
+        
+        if let logged = KeychainWrapper.standard.bool(forKey: "student_logged"), logged {
+            let ContainerVC = storyboard?.instantiateViewController(withIdentifier: "containerController") as? ContainerViewController
+            ContainerVC?.setUser(User.STUDENT)
+            self.show(ContainerVC!, sender: nil)
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        studentButtonPress(studentButton)
+    override func viewDidLoad() {
+        
+        iniCustomSegmentedView()
     }
     
     func iniCustomSegmentedView() {
@@ -86,6 +104,7 @@ class SegmentedViewController: UIViewController {
                 
                 TcrunchHelper.user = user
                 
+                
                 if let err = error {
                     self.error(descripton: err.localizedDescription)
                 } else {
@@ -95,6 +114,10 @@ class SegmentedViewController: UIViewController {
                 
             })
         }
+    }
+    
+    private func logged(teacher: Bool) {
+       
     }
     
     @IBAction func signinButtonPress(_ sender: Any) {
@@ -175,10 +198,9 @@ class SegmentedViewController: UIViewController {
     
     @IBAction func enterButtonPressed(_ sender: Any) {
         
+        KeychainWrapper.standard.set(true, forKey: "student_logged")
         let ContainerVC = storyboard?.instantiateViewController(withIdentifier: "containerController") as? ContainerViewController
-        
         ContainerVC?.setUser(User.STUDENT)
-        
         self.show(ContainerVC!, sender: nil)
     }
     func showTeacherScreen() {

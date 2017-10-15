@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class TeacherContainerVC: UIViewController {
     
@@ -65,6 +66,7 @@ class TeacherContainerVC: UIViewController {
 //    }
     
     func logOut() {
+        try! Auth.auth().signOut()
         self.performSegue(withIdentifier: "unwindToLogin", sender: self)
     }
     

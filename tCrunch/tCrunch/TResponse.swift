@@ -12,6 +12,6 @@ class TResponse: NSObject {
     
     var author: String?
     var response: String?
-    var time: CLongLong?
+    var time: Double?
     
 }

@@ -82,7 +82,7 @@ class TcrunchHelper {
                                 if let responseString = dicResponse["response"] as? String {
                                     response.response = responseString
                                 }
-                                response.time = dicResponse["time"] as? CLongLong
+                                response.time = dicResponse["time"] as? Double
                                 responses.append(response)
                             }
                         }
